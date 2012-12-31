@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocosd-x设计模式之 ：观察者模式 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="1、应用场景 前面在介绍单例模式的时候，提到了一个类CCNotificationCenter，它除了应用单例模式以外，还应用了观察者模式。CCNotificationCenter类是观察者模式中的目标对象，而CCNotificationObserver则是观察者。 一个目标对象可以注册多个观察者， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocosd-x设计模式之 ：观察者模式</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-29T17:49:00+08:00" pubdate data-updated="true">Oct 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>1、应用场景</h2>
+
+<p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>前面在介绍单例模式的时候，提到了一个类CCNotificationCenter，它除了应用单例模式以外，还应用了观察者模式。CCNotificationCenter类是观察者模式中的目标对象，而CCNotificationObserver则是观察者。</p>
+
+<p>一个目标对象可以注册多个观察者，当目标对象的状态改变的时候，可以通知观察者对象作出相应的响应。这是标准的观察者模式的实现，但是CCNotificationCenter稍微有些许差别。</p>
+
+<!--more-->
+
+
+<p>首先，CCNotificationCenter不是通过自身状态改变来通知观察者，而是通过显式地发送观察者感兴趣的消息（postNotification）来通知它们。每一种消息类型可以对应多个观察者，同时，每一个观察者也可以“观察”多个消息类型。其次，观察者定义相应的响应事件同消息类型关联，当某个地方触发postNotification来广播一个消息的时候，CCNotificationCenter会遍历所有的观察者，判断它们注册的消息类型是否匹配，如果匹配，则触发相应的注册响应事件。最后，该观察者模式采用的是推模型，即由目标对象去通知所有的观察者。</p>
+
+<p>其实CCNotificationCenter和CCNotificationObserver更准确的叫法是：<a href="http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">订阅发布模式</a>。</p>
+
+<h2>2、使用此模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）实现了目标对象和观察者之间的抽象耦合，在本例中，则是实现了消息与观察者的抽象耦合。可以定义一种消息与消息处理对象的一对多的关系，而不用担心彼此的实现细节。</p>
+
+<p>2）观察者模式可以定义某种意义上的广播通信机制。</p>
+
+<p>3）实现订阅者与发布者的松散耦合，同时保障了良好的扩展性。</p>
+
+<p>缺点：</p>
+
+<p>1）注册成为CCNotificationCenter的观察者后，如果忘记调用removeObserver，则会引起内存泄漏。因为addObserver会把观察者的引用计算加1.</p>
+
+<h2>3、此模式的定义及一般实现</h2>
+
+<p>定义：</p>
+
+<p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+
+<p>UML图：
+<img class="left" src="/images/posts/500px-Observer.svg_.png" width="750" height="300"></p>
+
+<p>一般实现：参考CCNotificationCenter.h和CCNotification.cpp文件的实现</p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>我们考虑cocos2d-x中一个非常典型的应用场景，你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。</p>
+
+<p>第一种办法，你可以让gameLayer包含一个hudLayer的引用，同时也可以让hudLayer包含一个gameLayer的引用。注意！这里问题出现了，如果两个类都包含彼此的强引用（所谓强引用就是retain），就会引起循环引用的情况，如果其中一个类包含的是弱引用，问题就不会出现。循环引用是使用引用计数管理内存的一个致命弱点，会导致资源永远得不到释放，而且查错起来非常麻烦。</p>
+
+<p>第二种办法，把gameScene做成一个单例，同时让gameScene包含gameLayer和hudLayer的弱引用，这样就可以直接通过[GameScene sharedInstance].gameLayer或者[GameScene sharedInstance].hudLayer来访问了。</p>
+
+<p>第三种办法，使用gameLayer->getParent()获得gameScene，再使用gameScene来获得hudLayer。</p>
+
+<p>第四种办法，使用CCNotificationCenter。当hudLayer注册它感兴趣的消息，当gameLayer需要通知hudLayer的时候，只需通过CCNotificationCenter发送一个对应的消息即可。</p>
+
+<h2>5、此模式与其它模式的关系</h2>
+
+<p>观察者模式是实现MVC模式的重要组成部分，一个model可以对应多个views，model就是目标对象，而view则是观察者，当model改变的时候，要通知所有的view也相应的改变。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-29T17:49:00+08:00" pubdate data-updated="true">Oct 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>design-pattern</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt" style="margin-left:20px;">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=1726471" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1352345174011572" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<div class="ujian-hook"></div>
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js"></script>
+<!-- UJian Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1726471" async=""></script>
+<!-- UY END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/" title="Previous Post: cocosd-x设计模式之 ：防御式编程模式">&laquo; cocosd-x设计模式之 ：防御式编程模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/" title="Next Post: cocosd-x设计模式之 ：组合模式">cocosd-x设计模式之 ：组合模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">cocosd-x设计模式之 ：中介者模式</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/andyque">@andyque</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'andyque',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 158%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 133%" href="/tags/design/">design</a>
+<a style="font-size: 133%" href="/tags/pattern/">pattern</a>
+<a style="font-size: 133%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocosd-x设计模式之 ：中介者模式 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="前言： 上上周写了关于cocos2d-x里面的观察者模式，文章最后提到一个应用场景：“你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。” &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocosd-x设计模式之 ：中介者模式</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-12T17:49:00+08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300">
+前言：</p>
+
+<p>上上周写了关于<a href="http://www.zilongshanren.com/cocos2d-x-design-pattern-6-observer/">cocos2d-x里面的观察者模式</a>，文章最后提到一个应用场景：“你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。”</p>
+
+<p>关于这两个层之间如何通信的问题，读者Llllong和我畅快淋漓地讨论了一番，详细的内容可以参考那篇文章的留言部分。最后，我们总结出三种通信方式：委托、观察者模式、中介者模式。（PS：剧透一下，下周跟大家一起来探讨一下cocos2d-x里面的委托设计模式。我去年翻译了<a href="http://www.cnblogs.com/andyque/archive/2012/03/11/2390814.html">cocos2d如何实现mvc系列文章</a>，里面涉及到委托的使用，可是代码是objc写的，有一些童鞋不知道c++如何实现委托，导致port代码有困难。别急，下周我们见分晓。）</p>
+
+<p>本文将延续前面几篇文章的风格，跟大家一起来探讨cocos2d-x里面的中介者模式。也非常欢迎读者对此文进行拍砖，很多思绪的火光，“拍着拍着”就冒出来了。</p>
+
+<!--more-->
+
+
+<h2>1、应用场景</h2>
+
+<p>谈到中介者模式这个词，我马上就想到了cocos2d-x里面的CCDirector类。这个类除了应用了单例模式，还应用了中介者模式。Why？因为它封装了CCScheduler、CCActionManager、CCTouchDispatcher、CCKeypadDispatcher和CCAccelerometer这五个对象的交互。它使得这几个对象之间的交互不需要显式地相互引用，使其耦合度变低。当然更多的是使得我们游戏中的对象可以方便地与这些类进行交互，而不需要显式地引用这些类。同时，由于CCDirector类被设计成单例类，这样更加方便了客户程序。</p>
+
+<p>由于之前CCScheduler、CCActionManager、CCTouchDispatcher这些类都被设计成了单例类，现在通过CCDirector这个中介类，减少了系统中单例的数目，同时也使得这些类获得了单例的属性。（唯一实例和全局访问点都靠CCDirector类来保障，这也是我为什么在介绍单例模式的时候讲过一句话“至少需要一个单例模式”的原因，因为其它“单例”可以通过此单例也获得“单例的属性”）</p>
+
+<p>补充：我这里介绍的CCDirector的应用场景，跟GoF标准中介者设计模式存在一定出入，但是，我觉得某些思想是相通的。GoF中提到的中介者模式的本质是“封装交互”，这一点在CCDirector类中并没有体现出来。我这里冒然将二者联系在一起，实属认识上的不足，可能得了所谓的“模式病”吧。大家注意区分一下就行啦。所以，我感觉有时候设计思想比模式本身更重要，希望我尽快修成正果。</p>
+
+<h2>2、使用该模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）、把多个同事对象的交互封装到一个中介者对象中，使得同事对象之间松散耦合，互不依赖</p>
+
+<p>2）、集中控制交互</p>
+
+<p>3）、多对多变成了一对多</p>
+
+<p>缺点：</p>
+
+<p>1）、容易造成中介者对象变成巨无霸类，维护和修改变得更加困难</p>
+
+<h2>3、模式定义及一般实现</h2>
+
+<p>定义：</p>
+
+<p>用一个中介对象来封装一系列的对象交互。中介者使得各对象不需要显式地相互引用，从而使其松散耦合，而且可以独立地改变它们之间的交互。</p>
+
+<p>UML图：</p>
+
+<p><img class="left" src="/images/posts/mediator.jpg" width="750" height="300"></p>
+
+<p>一般实现：参考<a href="http://en.wikipedia.org/wiki/Mediator_pattern">wikipedia</a></p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>游戏世界里的对象关系非常复杂，如果设计得不好，极容易形成强耦合。而游戏天生又是需要经常更新、修改bug和升级的，这就导致了游戏程序的维护和扩展非常地难。使用中介者模式可以减少游戏世界里面对象之间的多对多关系，使之转变成多对一的关系。</p>
+
+<p>关于中介者的实现，可以把AppDelegate类设计成中介者对象，也可以自定义中介者对象，比如GameManager类。把此类设计成单例类，可以方便访问，同时，此类可以拥有像gameScene，levelSaver等类的引用，方便其它对象与这些对象进行交互。</p>
+
+<h2>5、与其它模式的关系</h2>
+
+<p>中介者模式的实现可以采用单例模式，参考CCDirector的实现。同时，在处理同事对象之间的交互的时候，可以采用观察者模式。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-12T17:49:00+08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>design-pattern</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt" style="margin-left:20px;">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=1726471" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1352345174011572" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<div class="ujian-hook"></div>
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js"></script>
+<!-- UJian Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1726471" async=""></script>
+<!-- UY END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/" title="Previous Post: cocosd-x设计模式之 ：组合模式">&laquo; cocosd-x设计模式之 ：组合模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/" title="Next Post: cocosd-x设计模式之 ：委托和委托设计模式">cocosd-x设计模式之 ：委托和委托设计模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">cocosd-x设计模式之 ：中介者模式</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/andyque">@andyque</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'andyque',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 158%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 133%" href="/tags/design/">design</a>
+<a style="font-size: 133%" href="/tags/pattern/">pattern</a>
+<a style="font-size: 133%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

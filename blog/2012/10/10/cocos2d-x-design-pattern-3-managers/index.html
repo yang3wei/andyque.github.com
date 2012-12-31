@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocosd-x设计模式之三：管理者模式 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？ 管理者（Manager）就是专门负责管理其它类的实例的类，比如Cocoa里面的NSFontManager、NSInputManager、NSFileManager和NSLayoutManager类。此模式和“二段构建模式”一样， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocosd-x设计模式之三：管理者模式</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-10T17:49:00+08:00" pubdate data-updated="true">Oct 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？</p>
+
+<p>管理者（Manager）就是专门负责管理其它类的实例的类，比如Cocoa里面的NSFontManager、NSInputManager、NSFileManager和NSLayoutManager类。此模式和“二段构建模式”一样，也没有出现在GoF的23个设计模式中，但是《Cocoa设计模式》一书中有提及，感兴趣的读者可以去查阅一下。</p>
+
+<!--more-->
+
+
+<h2>1.应用场景：</h2>
+
+<p>在cocos2d-x里面有大量的应用，比如之前在介绍单例模式中提到的CCTextureCache, CCSpriteFrameCache, CCAnimationCache和CCShaderCache类。</p>
+
+<p>这些管理者一般被设计成单例类。</p>
+
+<p>为什么管理者类要设计成单例呢？因为管理者一般会采用key-value的形式来管理其它类的实例，每当需要获取一个管理者中的实例时，只需要提供一个惟一的键值字符串就可以得到一个与之对应的惟一实例。如果允许存在多个管理者实例的话，那么每个管理者都会维护各自的key-value pairs。这样显然就不能通过键值字符串来获得惟一对象实例了。</p>
+
+<p>CCSpriteFrameCache类通过定制的plist文件来实例化一系列相关的CCSpriteFrame实例，然后只需要提供精灵帧的名字就可以得到相应的CCSpriteFrame实例了。从这个意义上来说，CCSpriteFrameCache类也可以说是一个工厂类，专门负责生产CCSpriteFrame实例。同时，如果精灵帧名字相同的话，那么获取的精灵帧实例也是相同的。</p>
+
+<h2>2.使用管理者模式的优缺点。</h2>
+
+<p>优点：为一组相关的对象提供一个统一的全局访问点，同时可以提供一些简洁的接口来获取和操作这些对象。同时，使用此模式来缓存游戏中的常用资源，可以提高游戏运行时性能。</p>
+
+<p>缺点：由于管理者大多采用单例模式，所以，它继承了单例模式所有的缺点，这里就不再赘述了。</p>
+
+<h2>3.管理者模式的定义</h2>
+
+<p>管理者类（cache类）可以简化一些可以重用的资源（比如字体、纹理、精灵帧等）的创建和管理工作。管理者模式其实是个混合模式，它综合了单例模式、外观模式和工厂模式。该模式在游戏开发中比较常见，很多需要提升游戏运行性能的场合都运用了此模式。</p>
+
+<p>此模式的动机：提供一个统一的接口来管理一组相关对象的实例化和访问。</p>
+
+<p>它的一般实现如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">TestManager</span><span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">static</span> <span class="n">TestManager</span> <span class="o">*</span><span class="n">sharedTestManager</span><span class="p">(){</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">m_psManager</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">m_psManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestManager</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">instanceTable</span> <span class="o">=</span> <span class="n">CCDictionary</span><span class="o">::</span><span class="n">create</span><span class="p">();</span>
+</span><span class='line'>            <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">retain</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">m_psManager</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">purge</span><span class="p">(){</span>
+</span><span class='line'>        <span class="n">CC_SAFE_DELETE</span><span class="p">(</span><span class="n">m_psManager</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">CC_SAFE_RELEASE_NULL</span><span class="p">(</span><span class="n">instanceTable</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">registeInstance</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span><span class="n">CCObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">setObject</span><span class="p">(</span><span class="n">ojb</span><span class="p">,</span><span class="n">key</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">CCObject</span><span class="o">*</span> <span class="n">getInstance</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">objectForKey</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="k">private</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">static</span> <span class="n">TestManager</span><span class="o">*</span> <span class="n">m_psManager</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">CCDictionary</span> <span class="o">*</span><span class="n">instanceTable</span><span class="p">;</span> <span class="c1">//用来管理其它类的一组实例</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="n">TestManager</span><span class="o">*</span> <span class="n">TestManager</span><span class="o">::</span><span class="n">m_psManager</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4.游戏开发中如何运用此模式</h2>
+
+<p>在cocos2dx游戏开发中，经常需要使用CCAnimate动作来播放动画，这些动作的创建运行时开销是比较大的，一般采用的方式都是在node的init方法中创建好，然后retain。之后需要使用的时候直接引用此动作即可，前提是你得声明许多CCAnimate对象的弱引用。这里，我们可以为之创建一个CCAnimateCache类，专门用来管理这些动画动作实例。这样对于游戏中经常变换状态需要更换不同的动画时，可以从此CCAniamteCache类中获取相应动画引用，非常方便，同时可以提高游戏性能。相应的，也可以为Action创建相应的类。</p>
+
+<p>引申：但凡那些对象，在运行时创建的时间开销特别大时，而又要经常重复使用时，都可以采取此模式来提高运行时性能。</p>
+
+<h2>5.此模式经常与单例模式配合使用，它的一些设计思想也掺合了外观模式和工厂模式。</h2>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-10T17:49:00+08:00" pubdate data-updated="true">Oct 10<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>design-pattern</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt" style="margin-left:20px;">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=1726471" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1352345174011572" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<div class="ujian-hook"></div>
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js"></script>
+<!-- UJian Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1726471" async=""></script>
+<!-- UY END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/" title="Previous Post: cocos2d-x设计模式发掘之二：二段构建模式">&laquo; cocos2d-x设计模式发掘之二：二段构建模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/" title="Next Post: cocosd-x设计模式之 ：外观模式">cocosd-x设计模式之 ：外观模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">cocosd-x设计模式之 ：中介者模式</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/andyque">@andyque</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'andyque',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 158%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 133%" href="/tags/design/">design</a>
+<a style="font-size: 133%" href="/tags/pattern/">pattern</a>
+<a style="font-size: 133%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

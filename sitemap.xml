@@ -2,18 +2,82 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://andyque.github.com/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/</loc>
-        <lastmod>2012-12-31T16:13:54+08:00</lastmod>
+        <lastmod>2012-12-31T20:38:11+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/</loc>
+        <lastmod>2012-12-31T20:46:22+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/</loc>
+        <lastmod>2012-12-31T21:59:19+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/
+        </loc>
+        <lastmod>2012-12-31T22:00:07+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/</loc>
+        <lastmod>2012-12-31T22:00:40+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/10/15/cocos2d-x-design-patterns-facade/</loc>
+        <lastmod>2012-12-31T22:00:51+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/
+        </loc>
+        <lastmod>2012-12-31T22:01:02+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/</loc>
+        <lastmod>2012-12-31T22:01:09+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/
+        </loc>
+        <lastmod>2012-12-31T22:01:16+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/</loc>
+        <lastmod>2012-12-31T22:01:23+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/
+        </loc>
+        <lastmod>2012-12-31T22:01:29+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/
+        </loc>
+        <lastmod>2012-12-31T22:16:11+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/
+        </loc>
+        <lastmod>2012-12-31T22:23:08+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7/</loc>
+        <lastmod>2012-12-31T22:29:18+08:00</lastmod>
     </url>
     <url>
         <loc>http://andyque.github.com/about/</loc>
-        <lastmod>2012-12-31T12:30:42+08:00</lastmod>
+        <lastmod>2012-12-31T19:44:07+08:00</lastmod>
     </url>
     <url>
         <loc>http://andyque.github.com/blog/archives/</loc>
-        <lastmod>2012-12-31T16:13:54+08:00</lastmod>
+        <lastmod>2012-12-31T22:29:18+08:00</lastmod>
     </url>
     <url>
         <loc>http://andyque.github.com/</loc>
-        <lastmod>2012-12-31T16:13:54+08:00</lastmod>
+        <lastmod>2012-12-31T22:29:18+08:00</lastmod>
     </url>
 </urlset>

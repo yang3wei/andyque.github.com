@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocosd-x设计模式之 ：外观模式 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="1.应用场景 Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。 对于大多数用户来讲，游戏中操作声音， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/10/15/cocos2d-x-design-patterns-facade/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocosd-x设计模式之 ：外观模式</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T17:49:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<h2>1.应用场景</h2>
+
+<p>Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。</p>
+
+<p>对于大多数用户来讲，游戏中操作声音，无非就是播放背景音乐和音效。CocosDenshion这个子系统封装了OpenAL，屏蔽了OpenAL操作声音的低级API。它提供了CDSoundEngine、CDAudioManager两个类来操作和管理声音。具体这两个类是如何工作的这里就不再讨论了，感兴趣的读者可以自行去研究相关代码。虽然CocosDenshion子系统已经封装了低级的操作声音的API，但是对于用户来讲，还是得了解该系统内部的类是如何一起协作来完成声音处理任务的。这样会加大用户使用此子系统的难度，同时，也使得客户程序与该子系统紧密耦合了。假如哪一天该子系统内部实现功能的组合有所变化，这势必会影响到客户程序。众所周知，操作游戏音乐的代码是分散在游戏代码各处的，那样会造成“散弹式”修改。这是个严重的代码坏味道，需要引起警觉，果断重构之！</p>
+
+<!--more-->
+
+
+<p>而外观模式就可以完美地解决此问题，SimpleAudioEngine就是最好的例子。如果使用过SimpleAudioEngine的人会发现，它实在是太简单了。但是，SimpleAudioEngine并不是万能的，比如，它就无法实现循环播放音效的功能。但是，没有关系，你可以使用CDSoundEngine来实现这个功能。</p>
+
+<p>请注意，SimpleAudioEngine并没有增加新的功能，而只是把子系统现有的类进行组合来完成一些常用的任务，简化客户程序的使用。子系统对于外观类是不知情的，即子系统不会包含外观类的指针。</p>
+
+<h2>2.使用外观模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）它对客户屏蔽子系统组件，因而减少了客户处理的对象的数目，并使得子系统使用起来更加方便。</p>
+
+<p>2）它实现了子系统与客户之间的松耦合关系，而子系统内部的功能组件往往是紧密耦合的，这样当子系统功能组件发生变化的时候，只需要修改外观类的实现就可以了，避免了程序代码的“散弹式”修改。</p>
+
+<p>3）同时，外观类并不限制客户直接使用子系统的功能组件，如果客户想使用子系统的更加高级的功能，可以越过外观类直接访问子系统的类。</p>
+
+<p>缺点：</p>
+
+<p>1）过多的或者不太合理的Façade也容易让人迷惑。到底是调用Façade好呢，还是直接调用子系统的模块好呢。</p>
+
+<h2>3.外观模式的定义及一般实现</h2>
+
+<p>UML图：
+<img class="left" src="/images/posts/FacadeDesignPattern.png" width="750" height="300"></p>
+
+<p>定义：
+为子系统中的一组接口提供一个一致的界面，它定义了一个高层接口，这个接口使得子系统更加容易使用。它很好地体现了“最少知识原则”。</p>
+
+<p>它的本质是：封装交互、简化调用。</p>
+
+<p>实现(摘至维基百科)：</p>
+
+<p>考虑下面一个例子：</p>
+
+<p>设计你（You）如何与一台计算机（facade）进行交互，而计算机是一个非常复杂的系统，它内部包含CPU、HardDrive等。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cm">/* Complex parts */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CPU</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">freeze</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">jump</span><span class="p">(</span><span class="kt">long</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">execute</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Memory</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">load</span><span class="p">(</span><span class="kt">long</span> <span class="n">position</span><span class="p">,</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">HardDrive</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">read</span><span class="p">(</span><span class="kt">long</span> <span class="n">lba</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Facade */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Computer</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">CPU</span> <span class="n">cpu</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">Memory</span> <span class="n">memory</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">HardDrive</span> <span class="n">hardDrive</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="n">Computer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">cpu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CPU</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">memory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Memory</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">hardDrive</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HardDrive</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">startComputer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">freeze</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">memory</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">BOOT_ADDRESS</span><span class="p">,</span> <span class="n">hardDrive</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">BOOT_SECTOR</span><span class="p">,</span> <span class="n">SECTOR_SIZE</span><span class="p">));</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">jump</span><span class="p">(</span><span class="n">BOOT_ADDRESS</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">execute</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Client */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">You</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">Computer</span> <span class="n">facade</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Computer</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">facade</span><span class="p">.</span><span class="n">startComputer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4.游戏开发中如何运用此模式</h2>
+
+<p>游戏开发过程中，暂时还没发现此模式的明显用法。不过，模式不是说学习了一定要马上就用到，那样会导致过度设计。如果读者开发游戏过程中，积累出一套比较成熟的框架，而这个框架又可以划分多个子系统，比如碰撞子系统、网络子系统、数据持久化子系统等。当外部使用此子系统时，操作的类过多，理解起来特别复杂时，这时候就可以考虑引入一个Façade类，来简化客户程序与子系统之间的调用关系。</p>
+
+<h2>5.外观模式与其它模式的关系</h2>
+
+<p>通常来讲只需要一个外观类，所以可以采用单例模式。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T17:49:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>design-pattern</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt" style="margin-left:20px;">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=1726471" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1352345174011572" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<div class="ujian-hook"></div>
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js"></script>
+<!-- UJian Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1726471" async=""></script>
+<!-- UY END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/" title="Previous Post: cocosd-x设计模式之三：管理者模式">&laquo; cocosd-x设计模式之三：管理者模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/" title="Next Post: cocosd-x设计模式之 ：防御式编程模式">cocosd-x设计模式之 ：防御式编程模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">cocosd-x设计模式之 ：中介者模式</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/andyque">@andyque</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'andyque',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 158%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 133%" href="/tags/design/">design</a>
+<a style="font-size: 133%" href="/tags/pattern/">pattern</a>
+<a style="font-size: 133%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

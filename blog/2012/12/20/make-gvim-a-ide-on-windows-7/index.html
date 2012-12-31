@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>make your gvim a IDE on Windows 7 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="Introduction According to the online survey, Vim become the second favourite IDE in the world. Really surprising, don&#8217;t you? I have &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Make Your Gvim a IDE on Windows 7</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-20T17:49:00+08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>According to the online survey, Vim become the second favourite IDE in the world. Really surprising, don&#8217;t you?</p>
+
+<p>I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github<a href="https://github.com/andyque/dotvim">Repository</a>.</p>
+
+<p>Because I am a big fan of cocos2d, so I set up another two Github Repository,named <a href="https://github.com/andyque/Cocos2DTags">Cocos2DTags</a> and <a href="https://github.com/andyque/snippetsForCocos2d">snippetsForCocos2d</a>. I use Exuberant Ctags 5.8 to generate ctags for code and tag navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) for generating js tags.</p>
+
+<p>I have made my Vim very suitable for c/c++, lua and javascript development, especially for cocos2d-x and cocos2d-html5 game development. The above three repo is still young, but I will make them better with more practice and efforts.</p>
+
+<p>I&#8217;m a little compulsive, so I want to make my Vim running on every platform. Recently mainly for windows, mac and ubuntu. The configuration process for mac and ubuntu is intuitive. But it&#8217;s not the same with windows. So this blog post is mainly for recoding the configure process of gvim on windows 7 64-bit platform.</p>
+
+<!--more-->
+
+
+<h2>Installation</h2>
+
+<p>Install gvim on windows is very easy. You can download the green version of <a href="http://code.google.com/p/vim-win3264/downloads/detail?name=vim73-x64.zip&amp;can=2&amp;q=">gvim</a>. This is a 64-bit version of gvim. So make sure your windows system is 64-bit. After download it, you can extract it into  your login user account. Like c:/User/xxx(the &#8220;xxx&#8221; is your account name). Then open the vim73 directory, and double click the install.exe to install gvim. After installation, you can find three gvim shortcuts on your desktop.</p>
+
+<h2>Configure your existing Vim Repo</h2>
+
+<ul>
+<li>Use git to clone my repo to <code>vimfles</code> directory. This fold lies in the same level with vim73 directory . The vimfiles directory looks like the following:</li>
+</ul>
+
+
+<p><img class="left" src="/images/posts/win7vimfiles.jpg" width="750" height="300"></p>
+
+<ul>
+<li>Configure your <em>vimrc file in your $HOME directory. (Note: $HOME is the c:/User/xxx). Add the following scripts to your </em>vimrc file.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">source</span> <span class="err">$</span><span class="n">VIMRUNTIME</span><span class="p">..</span><span class="err">\</span><span class="n">vimfiles</span><span class="err">\</span><span class="n">vimrc</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now the gvim can work with your existing Vim configurations.</p>
+
+<h2>Configure your plugins</h2>
+
+<ul>
+<li><p>Configure TagBar and Cppomnicomplete plugin. You should install Exuberant Ctags 5.8, and put catgs.exe to your&#8221;PATH&#8221;(Like System32 directory).</p></li>
+<li><p>Install Python2.7.1 64-bit versioin.</p></li>
+<li><p>Install splint for c++ syntax checking, jslint for javascript and luac for lua syntax checking.</p></li>
+<li><p>Configure snipMate plugin. Open vimfile/bundle/snipMat/plugin/snipMat.vim,add the following code to replace the 24th line .</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">let</span> <span class="n">snippets_dir</span> <span class="o">=</span> <span class="n">substitute</span><span class="p">(</span><span class="n">substitute</span><span class="p">(</span><span class="n">globpath</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rtp</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">),</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="err">\\</span><span class="p">,</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="p">,</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Last revise</h2>
+
+<p>We can add the following scripts at the end of _vimrc files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">set</span> <span class="n">guioptions</span><span class="o">-=</span><span class="n">m</span>
+</span><span class='line'><span class="n">set</span> <span class="n">guioptions</span><span class="o">-=</span><span class="n">T</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These two lines can hidden your gvim Toolbar and Menubar.</p>
+
+<p>If you don&#8217;t like win32 command line commands, you can install <a href="http://dl.vmall.com/c0l2p58pa6">this package</a> for convenience.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-20T17:49:00+08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/vim/'>vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+	<span class="jiathis_txt" style="margin-left:20px;">分享到：</span>
+	<a class="jiathis_button_qzone">QQ空间</a>
+	<a class="jiathis_button_tsina">新浪微博</a>
+	<a class="jiathis_button_tqq">腾讯微博</a>
+	<a class="jiathis_button_renren">人人网</a>
+	<a href="http://www.jiathis.com/share?uid=1726471" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1352345174011572" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UJian Button BEGIN -->
+	<div class="ujian-hook"></div>
+	<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js"></script>
+<!-- UJian Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1726471" async=""></script>
+<!-- UY END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/" title="Previous Post: configuration vim and opencv2.4.2 on macos 10.8.2">&laquo; configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">cocosd-x设计模式之 ：中介者模式</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/andyque">@andyque</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'andyque',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 158%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 133%" href="/tags/design/">design</a>
+<a style="font-size: 133%" href="/tags/pattern/">pattern</a>
+<a style="font-size: 133%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
