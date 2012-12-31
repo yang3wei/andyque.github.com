@@ -6,6 +6,8 @@ comments: true
 categories: OpenCV
 tags: OpenCV
 ---
+{% img right /images/posts/helloOpenCVResult-300x210.jpg 300 300 %}
+
 前言：由于学习研究需要，又因为有一年多时间没在windows下面做开发了，所以想在mac上面配置一下OpenCV的开发环境。
 
 首先，准备工作，安装好xcode 4.4.1，同时安装command line tool。接下来，安装cmake 2.8.8，这个可以到官网去下载DMG安装包，不过有时候这个网站访问不了。

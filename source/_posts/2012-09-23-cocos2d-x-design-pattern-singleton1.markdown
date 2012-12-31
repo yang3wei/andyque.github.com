@@ -1,17 +1,19 @@
 ---
 layout: post
 title: cocos2d-x设计模式发掘之一：单例模式
-categories: cocos2d-x design pattern
+categories: design-pattern
 date: 2012-09-23 17:49
 tags: design pattern
 ---
+{% img right /images/posts/2dxlogo.png 300 300 %}
 
 本系列文章我将和大家一起来发掘cocos2d-x中所使用到的设计模式，同样的，这些模式在cocos2d-iphone中也可以找到其身影。
-<div style="float: right;">[![](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1-300x300.png "2dx_icon_512_-rightangle")](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1.png)</div>
+
 **声明**：这里发掘模式只是我的个人爱好，通过这个过程，我希望能加深自己对于设计模式运用的理解。关于模式的学习，市面上已经有许多非常好的书籍了。比如《Head First设计模式》、GoF的设计模式，还有《研磨设计模式》等。如果读者对于设计模式完全不了解的话，建议先阅读上面至少一本书籍，了解设计模式之后再阅读本系列文章。这样大家才会有相互交流的共同语言。
 
 为什么要发掘设计模式呢？因为设计模式本身就是人们在一些面向对象的软件系统里面发掘出来的，在一定的场景之下可以重用的解决方案。通过对模式的挖掘，我可以借此机会学习一下这些优秀的设计思想。因为我觉得，一个好的开源游戏框架除了能给我们开发者带来开发效率的提升以外，还应该被我们吸收其设计思想，这样它的价值才能完整。
 <!--more-->
+
 本系列文章将按照如下思路进行模式挖掘：
 - 找出某个设计模式的应用场景（类、类结构、对象结构，必要时结合UML类图）
 - 分析为什么要使用此模式（即设计决策）
@@ -19,7 +21,8 @@ tags: design pattern
 - 此模式的定义及一般实现（这个在GoF的经典书籍里面有，这里借用一下）
 - 在游戏开发中如何运用此模式（自己对于模式运用场景的理解）
 - 此模式经常与哪些模式配合使用（这个也基本是从GoF的书籍里面借用了）
-&nbsp;## 1、应用场景
+
+## 1、应用场景
 
 Cocos2D-x中的单例如下：CCDirector,CCTextureCache,CCSpriteFrameCache,CCAnimationCache,CCUserDefault,CCNotificationCenter，CCShaderCache，CCScriptEngineManager，CCPoolManager，CCFileUtils，CCProfiler，SimleAudioEngie，CCConfiguration，CCApplication，CCDirectorCaller（ios平台），CCEGLView。
 
@@ -52,23 +55,52 @@ CCEGLView是Cocos2d-x对于EGLView的抽象，不同的平台会有不同的实�
 CCDirectorCaller类是ios平台相关的类，就是对ios平台CCDirector对象的一个封装，使用的是CADisplayLink来运行游戏主循环。该类和CCDirector类差不多，也可以设计成单例。为什么会在CCApplication类里面调用CCDirectorCaller类，是基于分离平台相关代码的考虑。CCApplication是的，CCDirectorCaller也是的。
 
 最后一个是SimpleAudioEngine类，它也被设计成了一个单例类。因为它提供给了开发人员最简单的声音操作接口，可以方便地处理游戏中的背景音乐和音效。此类同时还应用了外观模式，把CocoDenshion子系统中的复杂功能给屏蔽起来了，简化了客户端程序员的调用。该类为什么要设计成单例，是因为到处都要访问它。设计成单例会很方便，而且它与其它对象没有什么联系，不好使用对象组合。
+
 ## 2.使用单例模式的优缺点
-优点：<br />
+
+优点：
+
 1）简单易用，限制一个类只有一个实例，可以降低创建多个对象可能会引起的内存问题的风险，包括内存泄漏、内存占用问题。
-缺点：<br />
-    单例模式因为提供了一个全局的访问点，你可以在程序的任何地方轻而易取地访问到，这本身就是一种高耦合的设计。一旦单例改变以后，其它模块都需要修改。另外，单例模式使得对象变成了全局的了。学过面对对象编程的人都知道，全局变量是非常邪恶的，要尽量不要使用。而且单例模式会使得对象的内存在程序结束之前一直存在，在一些使用GC的语言里面，这其实就是一种内存泄漏，因为它们永远都不到释放。当然，也可以通过提供一些特殊的方法来释放单例对象所占用的内存，比如前面提到的XXXCache对象，都有相应的Purge方法。最后，cocos2dx里面实现的单例，99%都不是线程安全的。
+
+缺点：
+
+单例模式因为提供了一个全局的访问点，你可以在程序的任何地方轻而易取地访问到，这本身就是一种高耦合的设计。一旦单例改变以后，其它模块都需要修改。另外，单例模式使得对象变成了全局的了。学过面对对象编程的人都知道，全局变量是非常邪恶的，要尽量不要使用。而且单例模式会使得对象的内存在程序结束之前一直存在，在一些使用GC的语言里面，这其实就是一种内存泄漏，因为它们永远都不到释放。当然，也可以通过提供一些特殊的方法来释放单例对象所占用的内存，比如前面提到的XXXCache对象，都有相应的Purge方法。最后，cocos2dx里面实现的单例，99%都不是线程安全的。
 
 在讨论优缺点的时候，读者想必也看出来了，缺点比优点多多了。这是给大家提个醒，以后使用单例模式的时候要谨慎，不要滥用。因为此模式最容易被滥用。只有真正符合单例模式应用场景的时候，才能考虑。不要为了访问方便，就把任何类都弄成单例，这样，到最后，你会发现你的程序里面就只剩下一堆单例和工厂了。
 
 此外，单例模式正在消减，比如CCActionManager和CCTouchDispatcher在cocos2d1.0之前也是单例，现在变成了CCDirector类的属性了。而且Riq（cocos2d-iphone的作者）也有在邮件中提到，以后CCDirector对象也会变成非单例，并且允许一个游戏中创建多个游戏窗口。
 
 3.单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局的访问点。
-UML图：<br />
-[![](http://www.zilongshanren.com/wp-content/uploads/2012/09/Singleton.png "Singleton")](http://www.zilongshanren.com/wp-content/uploads/2012/09/Singleton.png)
+
+UML图：
+
+{% img left /images/posts/Singleton.png 750 300 %}
+
 
 它的一般实现如下所示：
 
-[php]public class Singleton{   public:   //全局访问点   static Singleton* SharedSingleton()   {       if(NULL == m_spSingleton)       {           m_spSingleton = new Singleton();       }       return m_spSingleton;   }  private:  static Singleton* m_spSingleton;  Singleton();  Singleton(const Singleton& other);  Singleton& operator=(const Singleton& other);};Singleton* Singleton::m_spSingleton = NULL;[/php]
+``` c++ Singleton
+public class Singleton
+{
+   public:
+   //全局访问点
+   static Singleton* SharedSingleton()
+   {
+       if(NULL == m_spSingleton)
+       {
+           m_spSingleton = new Singleton();
+       }
+       return m_spSingleton;
+   }
+  private:
+  static Singleton* m_spSingleton;
+  Singleton();
+  Singleton(const Singleton& other);
+  Singleton& operator=(const Singleton& other);
+};
+Singleton* Singleton::m_spSingleton = NULL;
+```
+
 
 注意，这里只是最基本的实现，它没有考虑到线程安全，也没有考虑内存释放。但是，这个实现有两个最基本的要素。一：定义一个静态变量，并把构造函数等设置为私有的。二：提供一个全局的访问点给外部访问。
 
