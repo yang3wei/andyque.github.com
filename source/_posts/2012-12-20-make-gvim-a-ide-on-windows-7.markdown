@@ -1,24 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  TWFrZSB5b3VyIGd2aW0gYSBJREUgb24gd2luZG93cyA3
-wordpress_id: 461
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD00NjE=
-categories:
-- title: !binary |-
-    dmlt
-  slug: !binary |-
-    dmlt
-  autoslug: !binary |-
-    dmlt
-tags:
-- title: !binary |-
-    dmlt
-  slug: !binary |-
-    dmlt
-  autoslug: !binary |-
-    dmlt
 ---
 ## Introduction
 <div style="float:right;">[![vim-logo-en](http://www.zilongshanren.com/wp-content/uploads/2012/12/vim-logo-en-300x300.png)](http://www.zilongshanren.com/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/vim-logo-en/)</div>

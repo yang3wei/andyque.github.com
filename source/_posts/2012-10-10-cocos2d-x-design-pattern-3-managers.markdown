@@ -1,25 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Y29jb3MyZC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5LiJ77ya566h55CG6ICF
-  5qih5byP
-wordpress_id: 141
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xNDE=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
 ---
 
 想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？

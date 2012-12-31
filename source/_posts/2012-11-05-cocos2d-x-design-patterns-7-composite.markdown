@@ -1,25 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Q29jb3MyZC146K6+6K6h5qih5byP5oyW5o6Y5LmL5LiD77ya57uE5ZCI5qih
-  5byPIA==
-wordpress_id: 180
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xODA=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
 ---
     
 在开始挖掘cocos2d-x里面的组合模式之前，我武断地下个结论：

@@ -1,31 +1,9 @@
 ---
 layout: post
-title: !binary |-
-  Q29jb3MyRC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5LiA77ya5Y2V5L6L5qih
-  5byP
-wordpress_id: 108
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xMDg=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-- title: !binary |-
-    5Y2V5L6L5qih5byP
-  slug: !binary |-
-    JWU1JThkJTk1JWU0JWJlJThiJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    5Y2V5L6L5qih5byP
+title: cocos2d-x设计模式发掘之一：单例模式
+categories: cocos2d-x design pattern
+date: 2012-09-23 17:49
+tags: design pattern
 ---
 
 本系列文章我将和大家一起来发掘cocos2d-x中所使用到的设计模式，同样的，这些模式在cocos2d-iphone中也可以找到其身影。

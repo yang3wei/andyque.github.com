@@ -1,36 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Q29uZmlndXJlIHZpbSBhbmQgT3BlbkNWMi40LjIgb24gTWFjT1MgMTAuOC4y
-wordpress_id: 441
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD00NDE=
-categories:
-- title: !binary |-
-    b3BlbmN2
-  slug: !binary |-
-    b3BlbmN2
-  autoslug: !binary |-
-    b3BlbmN2
-- title: !binary |-
-    dmlt
-  slug: !binary |-
-    dmlt
-  autoslug: !binary |-
-    dmlt
-tags:
-- title: !binary |-
-    T3BlbkNW
-  slug: !binary |-
-    b3BlbmN2LTI=
-  autoslug: !binary |-
-    b3BlbmN2
-- title: !binary |-
-    dmlt
-  slug: !binary |-
-    dmlt
-  autoslug: !binary |-
-    dmlt
 ---
 ## Introduction
 <div style="float:right;">[![](http://www.zilongshanren.com/wp-content/uploads/2012/12/vim-logo-en-300x300.png "vim-logo-en")](http://www.zilongshanren.com/wp-content/uploads/2012/12/vim-logo-en.png)</div>

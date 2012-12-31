@@ -1,25 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Y29jb3MyZC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5LqU77ya6Ziy5b6h5byP
-  57yW56iL5qih5byP
-wordpress_id: 149
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xNDk=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
 ---
 
 声明：防御式编程是提高程序代码质量的一种手段，它不能算是真正意义上的模式。但是，这里，我还是要给它冠之以“模式”二字。

@@ -1,25 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Y29jb3MyZC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5Lmd77ya5aeU5omY5qih
-  5byP
-wordpress_id: 265
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0yNjU=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
 ---
 前言：<div style="float: right;">[![](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1-300x300.png "2dx_icon_512_-rightangle")](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1.png)</div>
 前一篇文章讨论了cocos2d-x里面的中介者模式，但是，由于概念把握上面的偏差，我把GoF的中介者模式搞混淆了。幸好有读者给我提出了这个问题，我在上一篇文章中也补充说明了。虽然我谈到的应用场景跟中介者模式有点类似，但是，经典的模式就是模式，我不能随便篡改，更不能张冠李戴。所以，这篇文章我将谈到的是委托模式（delegation pattern），而不是GoF里面的代理模式（Proxy pattern）,虽然delegate也可以翻译成“代理”，但是，为了以示区别，这里使用委托。当然，文章观点如果有误，欢迎大家指出。

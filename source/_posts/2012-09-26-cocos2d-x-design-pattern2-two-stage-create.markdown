@@ -1,32 +1,9 @@
 ---
 layout: post
-title: !binary |-
-  Q29jb3MyRC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5LqM77ya5LqM5q615p6E
-  5bu65qih5byP
-wordpress_id: 125
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xMjU=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-- title: !binary |-
-    5LqM5q615p6E5bu65qih5byP
-  slug: !binary |-
-    JWU0JWJhJThjJWU2JWFlJWI1JWU2JTllJTg0JWU1JWJiJWJhJWU2JWE4JWEx
-    JWU1JWJjJThm
-  autoslug: !binary |-
-    5LqM5q615p6E5bu65qih5byP
+title: cocos2d-x设计模式发掘之二：二段构建模式
+categories: cocos2d-x design pattern
+date: 2012-09-26 17:49
+tags: design pattern
 ---
 
 乍一看标题，大家可能会觉得很奇怪，神马是“二段构建模式”呢？

@@ -1,25 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Q29jb3MyZC146K6+6K6h5qih5byP5Y+R5o6Y5LmL5YWt77ya6KeC5a+f6ICF
-  5qih5byP
-wordpress_id: 175
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0xNzU=
-categories:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-tags:
-- title: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
-  slug: !binary |-
-    Y29jb3MyZC14JWU4JWFlJWJlJWU4JWFlJWExJWU2JWE4JWExJWU1JWJjJThm
-  autoslug: !binary |-
-    Y29jb3MyZC146K6+6K6h5qih5byP
 ---
 ## 1、应用场景
 <div style="float: right;">[![](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1-300x300.png "2dx_icon_512_-rightangle")](http://www.zilongshanren.com/wp-content/uploads/2012/09/2dx_icon_512_-rightangle1.png)</div>    

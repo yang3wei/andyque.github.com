@@ -1,24 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  V29yZFByZXNzIFRpcHM=
-wordpress_id: 323
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0zMjM=
-categories:
-- title: !binary |-
-    d29yZHByZXNz
-  slug: !binary |-
-    d29yZHByZXNz
-  autoslug: !binary |-
-    d29yZHByZXNz
-tags:
-- title: !binary |-
-    d29yZHByZXNz
-  slug: !binary |-
-    d29yZHByZXNz
-  autoslug: !binary |-
-    d29yZHByZXNz
 ---
 <div style="float: right;">[![](http://www.zilongshanren.com/wp-content/uploads/2012/11/wordpress-logo-stacked-rgb-300x186.png "wordpress-logo-stacked-rgb")](http://www.zilongshanren.com/wp-content/uploads/2012/11/wordpress-logo-stacked-rgb.png)</div><br />I am a novice as to wordpress and php. I coded Asp.net before, so the ugly syntax doesn't scare me much.I write blog post in cnblogs.com before, it's very convenient, but lack of some custom feature.So I plan to host my own wordpress blog site. Now it is here, so exciting. :)
 when the first time, I sit down and begin to write some,i find it's annoying. No excerpts,no thumb images next to ecerpts,no view counts, no popular articles etc. It's a little sad, isn't it?

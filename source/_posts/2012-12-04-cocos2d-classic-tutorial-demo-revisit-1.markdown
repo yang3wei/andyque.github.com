@@ -1,24 +1,5 @@
 ---
 layout: post
-title: !binary |-
-  Q29jb3MyZCBDbGFzc2ljIFR1dG9yaWFsIERlbW8gUmV2aXNpdDooMSk=
-wordpress_id: 212
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD0yMTI=
-categories:
-- title: !binary |-
-    Q29jb3MyRC14
-  slug: !binary |-
-    Y29jb3MyZHg=
-  autoslug: !binary |-
-    Y29jb3MyZC14
-tags:
-- title: !binary |-
-    Y29jb3MyZA==
-  slug: !binary |-
-    Y29jb3MyZA==
-  autoslug: !binary |-
-    Y29jb3MyZA==
 ---
 ## Introduction
 <div style="float:right">[![](http://www.zilongshanren.com/wp-content/uploads/2012/12/ScreenshotSmall1.jpg "ScreenshotSmall1")](http://www.zilongshanren.com/wp-content/uploads/2012/12/ScreenshotSmall1.jpg)</div>

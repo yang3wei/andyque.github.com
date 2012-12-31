@@ -1,36 +1,10 @@
 ---
 layout: post
-title: !binary |-
-  Y29jb3MyZC0yLjAteC0yLjAy54mI5pys5L2T6aqM
-wordpress_id: 79
-wordpress_url: !binary |-
-  aHR0cDovL3d3dy56aWxvbmdzaGFucmVuLmNvbS8/cD03OQ==
-categories:
-- title: !binary |-
-    Q29jb3MyRC14
-  slug: !binary |-
-    Y29jb3MyZHg=
-  autoslug: !binary |-
-    Y29jb3MyZC14
-tags:
-- title: !binary |-
-    Y29jb3MyZC0yLjAteC0yLjAy
-  slug: !binary |-
-    Y29jb3MyZC0yLTAteC0yLTAy
-  autoslug: !binary |-
-    Y29jb3MyZC0yLjAteC0yLjAy
-- title: !binary |-
-    YW5kcm9pZA==
-  slug: !binary |-
-    YW5kcm9pZA==
-  autoslug: !binary |-
-    YW5kcm9pZA==
-- title: !binary |-
-    d2luNyA2NGJpdA==
-  slug: !binary |-
-    d2luNy02NGJpdA==
-  autoslug: !binary |-
-    d2luNy02NGJpdA==
+title: Install OpenCV 2.4.2 on Macos 10.8.1
+date: 2012-09-16 17:49
+comments: true
+categories: OpenCV
+tags: OpenCV
 ---
 
 Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展,在WIN32平台上面开始使用OPENGL等. 好久没有在WINDOWS平台上面玩cocos2d-x了,今天趁着有时间,重头来过一遍吧.
