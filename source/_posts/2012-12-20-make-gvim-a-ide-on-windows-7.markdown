@@ -3,6 +3,7 @@ layout: post
 title: make your gvim a IDE on Windows 7
 categories: vim
 tags: vim
+comments: true
 date: 2012-12-20 17:49
 ---
 {% img right /images/posts/vim-logo-en.png 300 300 %}
