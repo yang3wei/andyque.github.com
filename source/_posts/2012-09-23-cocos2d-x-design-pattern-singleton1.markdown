@@ -3,7 +3,7 @@ layout: post
 title: cocos2d-x设计模式发掘之一：单例模式
 categories: design-pattern
 date: 2012-09-23 17:49
-tags: design-pattern
+tags: cocos2d-x-design-pattern
 ---
 {% img right /images/posts/2dxlogo.png 300 300 %}
 
