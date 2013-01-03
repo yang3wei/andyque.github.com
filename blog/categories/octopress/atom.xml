@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 子龙山人]]></title>
   <link href="http://andyque.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://andyque.github.com/"/>
-  <updated>2013-01-03T15:07:31+08:00</updated>
+  <updated>2013-01-03T15:39:44+08:00</updated>
   <id>http://andyque.github.com/</id>
   <author>
     <name><![CDATA[Guanghui.Qu]]></name>
@@ -71,7 +71,7 @@ on rails有了一点兴趣了。）</p>
 
 <h2>为什么我转到octopress</h2>
 
-<p>在转到octopress之前，先讲一个小插曲。我以前学习过vim，不过没有认真对待它。前段时间为了使用cocos2d-x的lua和jsbinding来写点东西。发现没有好用的编辑器，textMate和sublime text2都不错，可是它们离我心目中的IDE还差不少。由于，我google之，我发现vim满足我的要求。于是乎，我重拾vim。这一次，我学习得非常快。我采用github和pathogen来管理我的vim插件和配置。而且由于practical Vim这本书的出现，让我对vim的认识更多了。</p>
+<p>在转到<a href="http://octopress.org/">octopress</a>之前，先讲一个小插曲。我以前学习过vim，不过没有认真对待它。前段时间为了使用cocos2d-x的lua和jsbinding来写点东西。发现没有好用的编辑器，textMate和sublime text2都不错，可是它们离我心目中的IDE还差不少。由于，我google之，我发现vim满足我的要求。于是乎，我重拾vim。这一次，我学习得非常快。我采用github和pathogen来管理我的vim插件和配置。而且由于practical Vim这本书的出现，让我对vim的认识更多了。</p>
 
 <blockquote><p>Vim真是无所不能!</p></blockquote>
 
@@ -83,7 +83,7 @@ on rails有了一点兴趣了。）</p>
 
 <p>这是octopress的首页说明，酷吧！使用octopress，你可以像写代码一样写博客。同时，它与vim完美结合，它让我的coding、blogging、git工作流程顺畅无比。多从未如此开心，原来博客还可以这样写的。当然，这里我不是推销员，我只是介绍一下我喜欢的菜。具体用什么工具和博客平台，是大家的选择，萝卜白菜各有所爱嘛。而且最重要的不是平台，而是博文，要坚持写博客才是最重要的。但是，octopress让我有想写博客的欲望。：）</p>
 
-<p>最后，octopress采用Html5+css3构建，同时支持liquid和ruby。（其实python也有类似的博客系统，不过貌似octopress社区更活跃一点）我可以通过此博客慢慢过渡到Ruby on Rails.</p>
+<p>最后，octopress采用Html5+css3构建，同时支持<a href="http://liquidmarkup.org/">liquid</a>和ruby。（其实python也有类似的博客系统，不过貌似octopress社区更活跃一点）我可以通过此博客慢慢过渡到Ruby on Rails.</p>
 
 <p>关于octopress博客的搭建，大家可以google之。网上有大量的文章可供参考，其实官方的文档就足够了，非常详尽。如果大家想折腾的，可以去尝试一下。如果遇到什么问题，可以在本文下方留言。如果问题我也遇到了，我会跟大家分享滴～</p>
 
