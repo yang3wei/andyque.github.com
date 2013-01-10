@@ -4,7 +4,7 @@
   <title><![CDATA[子龙山人]]></title>
   <link href="http://andyque.github.com/atom.xml" rel="self"/>
   <link href="http://andyque.github.com/"/>
-  <updated>2013-01-07T14:57:22+08:00</updated>
+  <updated>2013-01-10T13:31:05+08:00</updated>
   <id>http://andyque.github.com/</id>
   <author>
     <name><![CDATA[Guanghui.Qu]]></name>
@@ -108,7 +108,7 @@ on rails有了一点兴趣了。）</p>
 
 <h2>Introduction</h2>
 
-<p>According to the online survey, Vim become the second favourite IDE in the world. Really surprising, don&#8217;t you?</p>
+<p>According to the online survey, Vim become the second most favourite IDE in the world. Really surprising, don&#8217;t you?</p>
 
 <p>I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github<a href="https://github.com/andyque/dotvim">Repository</a>.</p>
 
@@ -689,6 +689,8 @@ on rails有了一点兴趣了。）</p>
 <p><a href="http://www.codeproject.com/Articles/13287/Fast-C-Delegate">http://www.codeproject.com/Articles/13287/Fast-C-Delegate</a></p>
 
 <p><a href="http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates">http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates</a></p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
 ]]></content>
   </entry>
   
@@ -752,6 +754,8 @@ on rails有了一点兴趣了。）</p>
 <h2>5、与其它模式的关系</h2>
 
 <p>中介者模式的实现可以采用单例模式，参考CCDirector的实现。同时，在处理同事对象之间的交互的时候，可以采用观察者模式。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
 ]]></content>
   </entry>
   
@@ -812,6 +816,8 @@ on rails有了一点兴趣了。）</p>
 <h2>5、与其它模式的关系</h2>
 
 <p>暂不讨论</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
 ]]></content>
   </entry>
   
