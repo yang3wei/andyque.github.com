@@ -40,6 +40,8 @@ toc: true
 
 - 可打造出属于自已的个性化IDE工作环境，提高生产率
 
+<!-- more -->
+
 ##Why not Vim?
 
 为什么不使用Vim？
@@ -98,7 +100,7 @@ toc: true
 
 没有安装插件的Vim算不了什么，但是，一旦安装好插件，Vim立马就牛比了。这里，作为一名cocos2d-x游戏程序员，我给大家推荐一些插件，关于插件的用法，大家可以查看help文档，我这里就不赘述了。
 
-### 基本插件
+###Basic plugins
 
 [Pathogen](https://github.com/tpope/vim-pathogen):该插件用来管理Vim的插件，可以让插件的安装与卸载更加方便。配合Github和Submodule效果更佳。
 
@@ -136,7 +138,7 @@ toc: true
 
 [ TagHightlight ](https://github.com/magic-dot-files/TagHighlight):根据生成的Tag文件，高亮类、变量、函数和关键字。
 
-### 锦上添花的插件
+###Bonus plugins
 
 [bufkill](https://github.com/oblitum/bufkill.git):让nerdTree在最后一个buffer窗口关闭时，不让其缩放。
 
@@ -155,13 +157,13 @@ toc: true
 
 这部分主要记录我在打造神器的过程中遇到的一些问题：
 
-- 1. Vim版本最好用gvim或者macvim，然后从源码编译最好。最好是支持python,ruby,cscope等
+-  Vim版本最好用gvim或者macvim，然后从源码编译最好。最好是支持python,ruby,cscope等,大部分vim发行版本都是支持这些特性的。
 
-- 2. 使用Excubert-ctags和jsDoctor来生成tag文件，配合cscope效果好。如果是mac用户，自到的ctags不管用，需要用homebrew或者macport来安装
+-  使用Excubert-ctags和jsDoctor来生成tag文件，配合cscope效果好。如果是mac用户，自到的ctags不管用，需要用homebrew或者macport来安装
 
-- 3. 配置pyclewn时，安装需要指定Editor和home设置。运行的时候，如果要让GDB支持tty，还需要重新安装GDB，最好是homebrew或者macport来安装。安装好之后，要给gdb添加codesigning。
+-  配置pyclewn时，安装需要指定Editor和home设置。运行的时候，如果要让GDB支持tty，还需要重新安装GDB，最好是homebrew或者macport来安装。安装好之后，要给gdb添加codesigning。
 
-- 4. windows版本下有些配置可能不太一样，特别是vimrc文件的配置，跟*nix系统不太一样。可以考虑用has(win32)之类的代码来区分vimrc配置。这样可以让vim运行在多个平台上。
+-  windows版本下有些配置可能不太一样，特别是vimrc文件的配置，跟*nix系统不太一样。可以考虑用has(win32)之类的代码来区分vimrc配置。这样可以让vim运行在多个平台上。
 
 ##Further Reading
 
