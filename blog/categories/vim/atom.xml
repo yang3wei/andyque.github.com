@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | 子龙山人]]></title>
   <link href="http://andyque.github.com/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://andyque.github.com/"/>
-  <updated>2013-01-15T16:45:00+08:00</updated>
+  <updated>2013-01-15T16:47:00+08:00</updated>
   <id>http://andyque.github.com/</id>
   <author>
     <name><![CDATA[Guanghui.Qu]]></name>
@@ -45,6 +45,9 @@
 <li><p>小巧、安装方便、开源、免费</p></li>
 <li><p>可打造出属于自已的个性化IDE工作环境，提高生产率</p></li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>Why not Vim?</h2>
