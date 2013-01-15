@@ -13,7 +13,9 @@ I’m zilongshanren,you could call me ZiLong or ShanRen if you like. Why on eart
 大家好，我是子龙山人。
 为什么会起这个名字呢？因为，我是一个不折不扣的三国迷，喜欢赵子龙的英勇和诸葛山人的神机妙算，故取名为子龙山人。
 
-In 2011,I started my own personal blog in cnblogs.com,one of the biggest programmer’s community in China.During that time, I kept studying IOS game development with cocos2d and enjoy it. I have translated a bunch of cocos2d game tutorials.Here is the link.(BTW:Now I’m a core member of Tyran tutorials team, which is also the only one team in Ray Wenderlich’s tutorials translation team.)
+In 2011,I started my own personal blog in cnblogs.com,one of the biggest programmer’s community in China.During that
+time, I kept studying IOS game development with cocos2d and enjoy it. I have translated a bunch of cocos2d game
+tutorials.Here is the [link](http://www.cnblogs.com/zilongshanren/).(BTW:Now I’m a core member of Tyran tutorials team, which is also the only one team in Ray Wenderlich’s tutorials translation team.)
 
 我以前在博客园开了一个[  博客  ](http://www.cnblogs.com/zilongshanren/),翻译和撰写了大量cocos2d游戏开发教程。
 

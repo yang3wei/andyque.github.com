@@ -10,11 +10,13 @@ date: 2012-12-20 17:49
 
 ## Introduction
 
-According to the online survey, Vim become the second favourite IDE in the world. Really surprising, don't you?
+According to the online survey, Vim become the second most favourite IDE in the world. Really surprising, don't you?
 
 I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github[Repository](https://github.com/andyque/dotvim).
 
-Because I am a big fan of cocos2d, so I set up another two Github Repository,named [Cocos2DTags](https://github.com/andyque/Cocos2DTags) and [snippetsForCocos2d](https://github.com/andyque/snippetsForCocos2d). I use Exuberant Ctags 5.8 to generate ctags for code and tag navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) for generating js tags.
+Because I am a big fan of cocos2d, so I set up another Github Repository,named
+[Cocos2DTags](https://github.com/andyque/Cocos2DTags) . I use Exuberant Ctags 5.8 to generate ctags for code and tag
+navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) to generate js tags.
 
 I have made my Vim very suitable for c/c++, lua and javascript development, especially for cocos2d-x and cocos2d-html5 game development. The above three repo is still young, but I will make them better with more practice and efforts.
 
