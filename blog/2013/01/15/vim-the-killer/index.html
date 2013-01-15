@@ -252,7 +252,7 @@
 
 <ul>
 <li><p>Vim版本最好用gvim或者macvim，然后从源码编译最好。最好是支持python,ruby,cscope等,大部分vim发行版本都是支持这些特性的。</p></li>
-<li><p>使用Excubert-ctags和jsDoctor来生成tag文件，配合cscope效果好。如果是mac用户，自到的ctags不管用，需要用homebrew或者macport来安装</p></li>
+<li><p>使用Excubert-ctags和<a href="https://github.com/mozilla/doctorjs">DoctorJs</a>来生成tag文件，配合cscope效果好。如果是mac用户，自带的ctags不管用，需要用homebrew或者macport来安装</p></li>
 <li><p>配置pyclewn时，安装需要指定Editor和home设置。运行的时候，如果要让GDB支持tty，还需要重新安装GDB，最好是homebrew或者macport来安装。安装好之后，要给gdb添加codesigning。</p></li>
 <li><p>windows版本下有些配置可能不太一样，特别是vimrc文件的配置，跟*nix系统不太一样。可以考虑用has(win32)之类的代码来区分vimrc配置。这样可以让vim运行在多个平台上。</p></li>
 </ul>
