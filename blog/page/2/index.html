@@ -9,7 +9,7 @@
   <meta name="author" content="Guanghui.Qu">
 
   
-  <meta name="description" content="想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？ 管理者（Manager）就是专门负责管理其它类的实例的类，比如Cocoa里面的NSFontManager、NSInputManager、NSFileManager和NSLayoutManager类。此模式和“二段构建模式”一样， &hellip;">
+  <meta name="description" content="1.应用场景 Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。 对于大多数用户来讲，游戏中操作声音， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -75,6 +75,57 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/">Cocosd-x设计模式之 ：外观模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T17:49:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<h2>1.应用场景</h2>
+
+<p>Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。</p>
+
+<p>对于大多数用户来讲，游戏中操作声音，无非就是播放背景音乐和音效。CocosDenshion这个子系统封装了OpenAL，屏蔽了OpenAL操作声音的低级API。它提供了CDSoundEngine、CDAudioManager两个类来操作和管理声音。具体这两个类是如何工作的这里就不再讨论了，感兴趣的读者可以自行去研究相关代码。虽然CocosDenshion子系统已经封装了低级的操作声音的API，但是对于用户来讲，还是得了解该系统内部的类是如何一起协作来完成声音处理任务的。这样会加大用户使用此子系统的难度，同时，也使得客户程序与该子系统紧密耦合了。假如哪一天该子系统内部实现功能的组合有所变化，这势必会影响到客户程序。众所周知，操作游戏音乐的代码是分散在游戏代码各处的，那样会造成“散弹式”修改。这是个严重的代码坏味道，需要引起警觉，果断重构之！</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -346,6 +397,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
       </li>
     
@@ -361,10 +416,6 @@
         <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">cocosd-x设计模式之 ：委托和委托设计模式</a>
-      </li>
-    
   </ul>
 </section>
 <section>
@@ -374,7 +425,7 @@
 <li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
 <li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
-<li class='category'><a href='/blog/categories/vim/'>vim (2)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
 
   </ul>
 </section>
@@ -385,7 +436,7 @@
 <a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
 <a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
 <a style="font-size: 90%" href="/tags/octopress/">octopress</a>
-<a style="font-size: 128%" href="/tags/vim/">vim</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
 
   </ul>
 </section>
