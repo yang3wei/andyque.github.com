@@ -1,5 +1,7 @@
-=我的个人Wiki=
+=My Personal Wiki Page=
 
 %toc
 
-==[[关于]]==
+===[[About]]===
+
+== [[cocos2d]] ==
