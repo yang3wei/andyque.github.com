@@ -1,1 +1,24 @@
-kjkj
+=== Summary ===
+
+Coming back from Xia Meng, I known I should do something to prepare for my future job.
+
+Recently, I practice Vim all the day. I find it's super powerful. After two days struggle with clang_complete plugin,
+finally I get my wanted results. It's really happy a process.
+
+Now I plan to learn Vim much more, and begin to read the book, named <<Byte of Vim>>. I should finish it within two days.
+
+Last, but not least. I must be quick with my Master degree papers now! My time is limited, I should hurry up.
+
+Great articles are rewritten, not be written. So I must begin to write something now.
+
+This is my first diary. In the following diaries, I'll write them in the following steps:
+
+# Summary yesterday's work.
+# Check yesterday's todo tasks.
+# Make today's todo tasks.
+
+=== Today's Dodo Tasks ===
+
+* [ ] Finish the book <<Byte of Vim>>
+* [ ] Setup a wiki system for myself
+* [ ] learning English writing skills
