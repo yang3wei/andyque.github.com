@@ -1,0 +1,23 @@
+=== 个人提升 ===
+
+- [[暗时间]]
+- [[How Not to Hurry]]
+- [[编程原则]]
+- [[成功者的思维方式]]
+- [[Do not be regret]]
+- [[Programmer self improvement]]
+- [[How to Make Game Tutorials]]
+
+=== Cocos2d-x Blogs ===
+
+- [[http://www.plungeinteractive.com/blog/|plungeinteractive]]
+
+
+=== Cocos2d-iphone Blogs ===
+
+- [[http://heyalda.com/drawing-with-opengl-es-2-0-in-cocos2d-2-0/|heyalda]]
+- [[ http://ganbarugames.com/2011/07/cocos2d-game-center/|ganbarugames]]
+
+=== Cocos2d Technical Tips ===
+
+- [[http://www.cocos2d-iphone.org/forum/topic/50674|cocos2d tools]]

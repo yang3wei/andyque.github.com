@@ -1,1 +1,3 @@
-cocos2d is game engine
+cocos2d 是一个2D游戏引擎，目前最火的分支是cocos2d-x, cocos2d-iphone以及cocos2d-html5。
+
+这里主要记录了我学习cocos2d的心得。
