@@ -1,0 +1,23 @@
+=== Summary ===
+
+Yestody, my main job is making vim as wiki page editor and a diary editor. Now the result is perfect. I really like the Vim way to edit my wiki page and diaries.
+
+But as a IT person, I should focus more on my own health. So I should early sleep and early get up and do one hour excises a day. That's important!
+
+Now my main task is to finish my Master degree paper. I should plan it.
+
+First I should read one paper a day and programming OpenCV at least on hour a day. That's important.
+
+=== Yesterday's Todo Tasks ===
+
+* [X] Learn 50 new English words.
+* [o] Convert all my bookmarks to wiki links.
+* [X] Make a English diary a day.
+
+=== Today's Todo Tasks ===
+
+* [ ] Learn 50 new English words.
+* [ ] Convert bookmarks to Wiki links.
+* [ ] Make a English diary a day.
+* [ ] Programming OpenCV at least one hour.
+* [ ] Read Video Mosaic related papers.
