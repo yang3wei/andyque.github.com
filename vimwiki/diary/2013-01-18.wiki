@@ -21,3 +21,4 @@ First I should read one paper a day and programming OpenCV at least on hour a da
 * [ ] Make a English diary a day.
 * [ ] Programming OpenCV at least one hour.
 * [ ] Read Video Mosaic related papers.
+* [ ] Finish Raywenderlich's iOS6 by Tutorials chapter 22

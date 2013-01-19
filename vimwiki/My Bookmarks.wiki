@@ -105,6 +105,7 @@
 
 === Game Algorithm ===
 - [[http://theory.stanford.edu/~amitp/GameProgramming/|A-star algorithm]]
+- [[http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves|quard tree]]
 
 === Unit Test ===
 - [[http://www.bobmccune.com/2006/12/09/unit-testing-best-practices/|unit testing best practices]]
