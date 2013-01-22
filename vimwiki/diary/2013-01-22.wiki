@@ -1,0 +1,18 @@
+=== Summary ===
+
+Yesterday I finished ChuHanChuanQi. Now it has been updated to the 50th piece,the whole TV show is consist of 60 pieces.
+
+The daily diary task is very easy to complement and also the word memorize. But the tasks aren't going well due to the fact that I main job is finishing my 
+
+Master degree papers. I should hurry up!!! Come on!
+
+=== Yesterday's Todo Tasks ===
+* [X] Learn 50 new English words.
+* [X] Make a English diary.
+* [X] Download video mosaic papers.
+* [ ] Programming OpenCV.
+
+=== Today's Todo Tasks ===
+* [ ] Learn 50 new English words.
+* [ ] Make a English diary.
+* [ ] Programming OpenCV.
