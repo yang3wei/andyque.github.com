@@ -1,0 +1,25 @@
+=== Summary ===
+
+This is a great world with lots of seduce. The truth is that my plan runs a thousand mile away.
+
+In the daytime, it goes well. But after supper, all things goes wrong. I watch a whole night TV shows. That's really a waste of time.
+
+TV show is really good, it gives me lots of fun and I learn a lot from it. But the plan should abolish.
+
+One sentence is great:"Changes always go faster than plans".
+
+
+=== Yesterday's Todo Tasks ===
+* [X] Learn 50 new English words.
+* [X] Convert bookmarks to Wiki links.
+* [X] Make a English diary a day.
+* [o] Programming OpenCV at least one hour.
+* [o] Read Video Mosaic related papers.
+* [o] Finish Raywenderlich's iOS6 by Tutorials chapter 22
+
+
+=== Today's Todo Tasks ===
+* [ ] Learn 50 new English words.
+* [ ] Make a English diary.
+* [ ] Programming OpenCV at least on chapter.
+* [ ] Finish 15 pages of Ray's tutorials on chapter 22.
