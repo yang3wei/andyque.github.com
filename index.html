@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="Why Vim? 为什么要使用Vim？ 我们先看看其他人怎么说： Vim or Emacs就好比倚天和屠龙，得一可得天下。 &#8211; By vimer.cn Vim就像学钢琴一样，一旦学会，终身受益无穷。 &#8211;By Practical Vim 这些话都是出自vim高手之口， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE: Use
+    // jQuery(...), instead of $(...) from here on.
+      jQuery.noConflict();
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+  <a href="https://github.com/andyque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/vimwiki_html/">Wiki</a></li>
+  <li><a href="/vimwiki_html/diary/diary.html">Diary</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-15T13:39:00+08:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2013/01/15/vim-the-killer/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><h2>Why Vim?</h2>
+
+<p>为什么要使用Vim？</p>
+
+<p>我们先看看其他人怎么说：</p>
+
+<blockquote><p>Vim or Emacs就好比倚天和屠龙，得一可得天下。 &#8211; By vimer.cn</p>
+
+<p>Vim就像学钢琴一样，一旦学会，终身受益无穷。   &#8211;By Practical Vim</p></blockquote>
+
+<p>这些话都是出自vim高手之口，对于Vim新手，可能暂时没办法体会。而我使用Vim也有一段时间了，肯定不能算是高手，但至少也是一个熟手。</p>
+
+<p>我现在主要使用Vim来编写c/c++、js、lua代码,我觉得非常方便，比Xcode和Eclise都强（调试部分可能相对弱一点）。当然，我还使用Vim来修改其它文档，比如Html、XML、文本文件等。现在我正在使用Vim书写本篇博文，非常酷，非常爽！</p>
+
+<p>我转成Vim党的感受，一句话：</p>
+
+<blockquote><p>Vim streamline my daily workflow and boost my coding productivity.</p></blockquote>
+
+<p>现在，我客观地说明一下Vim的一些好处：</p>
+
+<ul>
+<li><p>跨平台、支持N（N>40)种编程语言</p></li>
+<li><p>可安装各种插件，也可以编写自定义的插件，编辑器功能可无限扩展。</p></li>
+<li><p>配合Git管理Vim配置和插件,可极大地提高编辑器的适配性</p></li>
+<li><p>小巧、安装方便、开源、免费</p></li>
+<li><p>可打造出属于自已的个性化IDE工作环境，提高生产率</p></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/15/vim-the-killer/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-03T13:44:00+08:00" pubdate data-updated="true">Jan 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2013/01/03/migrate-to-octopress/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/octpress-logo.png" width="300" height="300"></p>
+
+<h2>我的博客写作历史</h2>
+
+<p>我是从2011年3月开始写博客的，博客主要是分享学习cocos2d、以及iOS游戏开发的一些内容。目前，该博客已经超过80万的访问量了。Amazing!</p>
+
+<p>其实我最早开始写博客可能是07年了。那时候刚开始学c语言，为了锻炼自己的c语言能力，在百度知道里面回答各种c语言基础题，为了一个所谓的“专家”称号而乐此不疲。后来，由于找我做“学生成绩管理系统”的人实在是太多了，我就在百度开设了自己的第一个博客。当然，主要的内容就是c语言制作XX管理系统，还有一些算法题的解法以及一些百度知道的问题的答案。后来由于学习的压力，加上疏于打理，渐渐的我也不准备写博客了。</p>
+
+<p>再到后来，我又在csdn开始过博客。因为我很喜欢看书，很多牛人都主张要写博客。因为书写确实可以整理自己的思路，同时可以和别人分享自己的idea，这本身也是很有乐趣的一件事情。可是好景不长，没有坚持多久，这个博客又荒废了。纠其原因，我总结了如下三点：</p>
+
+<ul>
+<li><p>  自己还处在学习基础知识的阶段，写的大都是读书笔记类的东西，没有读者，也没有反馈，写起来没劲</p></li>
+<li><p>  写博客还是不方便，排版困难，写一篇博客通常要花费几个小时的时间</p></li>
+<li><p>   积累不够，没有东西写，而且没有一个好的规划，不能坚持。我现在打算是每周一篇blog，这样的时间目前还算能接受</p></li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/03/migrate-to-octopress/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">Make Your Gvim a IDE on Windows 7</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-20T17:49:00+08:00" pubdate data-updated="true">Dec 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>According to the online survey, Vim become the second most favourite IDE in the world. Really surprising, don&#8217;t you?</p>
+
+<p>I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github<a href="https://github.com/andyque/dotvim">Repository</a>.</p>
+
+<p>Because I am a big fan of cocos2d, so I set up another Github Repository,named
+<a href="https://github.com/andyque/Cocos2DTags">Cocos2DTags</a> . I use Exuberant Ctags 5.8 to generate ctags for code and tag
+navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) to generate js tags.</p>
+
+<p>I have made my Vim very suitable for c/c++, lua and javascript development, especially for cocos2d-x and cocos2d-html5 game development. The above three repo is still young, but I will make them better with more practice and efforts.</p>
+
+<p>I&#8217;m a little compulsive, so I want to make my Vim running on every platform. Recently mainly for windows, mac and ubuntu. The configuration process for mac and ubuntu is intuitive. But it&#8217;s not the same with windows. So this blog post is mainly for recoding the configure process of gvim on windows 7 64-bit platform.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">Configuration Vim and opencv2.4.2 on Macos 10.8.2</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-17T17:49:00+08:00" pubdate data-updated="true">Dec 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>Now vim has become the &#8220;killer&#8221; editor for me. I use it for coding c/c++,lua,javascript and I find it is very powerful for scripting languages.</p>
+
+<p>Recently, I am studying the OpenCV library. So I want to make my vim suitable for developing opencv programs.</p>
+
+<p>Here is the configuration process.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">Cocos2d Classic Tutorial Demo Revisit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T17:49:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/ScreenshotSmall1.jpg" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>These tutorials series are a attempt trying to reimplement classic coco2d tutorials with cocos2d-html5 and cocos2d-x(use lua &amp; native language c++).</p>
+
+<p>I do this job mainly for two reasons:</p>
+
+<ul>
+<li><p>cocos2d-x and cocos2d-html5 are extremly lack of game tutorials, most cocos2d tutorials are written with Objective-c. Some people may not be confortable with Objective-c&#8217;s strange syntax and this&#8217;ll be a obstacle for them to learn cocos2d-x and cocos2d-html5.</p></li>
+<li><p>learning javascript and lua,especially the function programming style. At the same time, if I post the porting experience with you, you guys can give me feedback. Then I&#8217;ll learn a lot.</p></li>
+</ul>
+
+
+<p>I will write these post series in the following step:</p>
+
+<ul>
+<li><p>Give a real, playable html5 game made with cocos2d-html5.(Have fun with the game, you can also tweak the gameplay to make it better.)</p></li>
+<li><p>Talk something related to the keypoint of making such a game.</p></li>
+<li><p>Compare the main difference of js, c++ ,lua and objc&#8217;s implementation(Note:All of them are cocos2d style).</p></li>
+</ul>
+
+
+<p>I think during the process, it&#8217;ll make a difference. :)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">Cocosd-x设计模式之 ：委托和委托设计模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-19T17:49:00+08:00" pubdate data-updated="true">Nov 19<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>前言：</p>
+
+<p>前一篇文章讨论了cocos2d-x里面的中介者模式，但是，由于概念把握上面的偏差，我把GoF的中介者模式搞混淆了。幸好有读者给我提出了这个问题，我在上一篇文章中也补充说明了。虽然我谈到的应用场景跟中介者模式有点类似，但是，经典的模式就是模式，我不能随便篡改，更不能张冠李戴。所以，这篇文章我将谈到的是委托模式（delegation pattern），而不是GoF里面的代理模式（Proxy pattern）,虽然delegate也可以翻译成“代理”，但是，为了以示区别，这里使用委托。当然，文章观点如果有误，欢迎大家指出。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">Cocosd-x设计模式之 ：中介者模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-12T17:49:00+08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300">
+前言：</p>
+
+<p>上上周写了关于<a href="http://www.zilongshanren.com/cocos2d-x-design-pattern-6-observer/">cocos2d-x里面的观察者模式</a>，文章最后提到一个应用场景：“你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。”</p>
+
+<p>关于这两个层之间如何通信的问题，读者Llllong和我畅快淋漓地讨论了一番，详细的内容可以参考那篇文章的留言部分。最后，我们总结出三种通信方式：委托、观察者模式、中介者模式。（PS：剧透一下，下周跟大家一起来探讨一下cocos2d-x里面的委托设计模式。我去年翻译了<a href="http://www.cnblogs.com/andyque/archive/2012/03/11/2390814.html">cocos2d如何实现mvc系列文章</a>，里面涉及到委托的使用，可是代码是objc写的，有一些童鞋不知道c++如何实现委托，导致port代码有困难。别急，下周我们见分晓。）</p>
+
+<p>本文将延续前面几篇文章的风格，跟大家一起来探讨cocos2d-x里面的中介者模式。也非常欢迎读者对此文进行拍砖，很多思绪的火光，“拍着拍着”就冒出来了。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/">Cocosd-x设计模式之 ：组合模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T17:49:00+08:00" pubdate data-updated="true">Nov 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>在开始挖掘cocos2d-x里面的组合模式之前，我武断地下个结论：</p>
+
+<p>“几乎所有与GUI相关的框架设计都应用了组合设计模式”。（PS：大家注意我的用词，是“几乎所有”，给自己留条后路，哈哈）</p>
+
+<h2>1、应用场景</h2>
+
+<p>Cocoa编程框架APPKit和UIKit都应用了组合模式，各种各样的View及其派生类组成了一棵树状结构的层级视图，而这里面就应用了组合模式。当然，Cocos2D-x里面的Node组织方式也采用的是这个方法，最终游戏界面中的Nodes也会形成一棵树。</p>
+
+<p>说到树，我们马上就会想到树根，树干和树叶。一棵树一般只包含一个根，若干树干和大量的叶子。同时，树干长在树根上，树叶长在树干上。（PS：这有点废话了，不过读者莫急，耐着性着往下看。）对应于Cocos2d-x里面，就是一个游戏有一个主场景GameScene，它是树根，然后它有若干个树干（GameLayer、HudLayer、InputLayer、BackgroundLayer和LevelLayer等），最后，每一个树干又包含若干个树叶（比如sprite、particles、font、TiledMap nodes、etc）。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/">Cocosd-x设计模式之 ：观察者模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-29T17:49:00+08:00" pubdate data-updated="true">Oct 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><h2>1、应用场景</h2>
+
+<p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>前面在介绍单例模式的时候，提到了一个类CCNotificationCenter，它除了应用单例模式以外，还应用了观察者模式。CCNotificationCenter类是观察者模式中的目标对象，而CCNotificationObserver则是观察者。</p>
+
+<p>一个目标对象可以注册多个观察者，当目标对象的状态改变的时候，可以通知观察者对象作出相应的响应。这是标准的观察者模式的实现，但是CCNotificationCenter稍微有些许差别。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/">Cocosd-x设计模式之 ：防御式编程模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-21T17:49:00+08:00" pubdate data-updated="true">Oct 21<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>声明：防御式编程是提高程序代码质量的一种手段，它不能算是真正意义上的模式。但是，这里，我还是要给它冠之以“模式”二字。</p>
+
+<p>原因有2：</p>
+
+<p>1.cocos2d-x的框架源代码大量采用了防御式编程技术，用来确保框架的代码质量和稳定性。</p>
+
+<p>2.标题党，引起大家对于防御式编程的重视。特别是当大家给cocos2d-x贡献源代码的时候，更应该要注意保证代码质量。因为，王哲大大在review很多人给cocos2d-x贡献代码时发现，这种防御式编程代码并不多，需要引起我们的注意。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 150%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 90%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">  <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备12012448号</a>
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

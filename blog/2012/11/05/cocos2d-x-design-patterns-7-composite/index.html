@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocosd-x设计模式之 ：组合模式 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="在开始挖掘cocos2d-x里面的组合模式之前，我武断地下个结论： “几乎所有与GUI相关的框架设计都应用了组合设计模式”。（PS：大家注意我的用词，是“几乎所有”，给自己留条后路，哈哈） 1、应用场景 Cocoa编程框架APPKit和UIKit都应用了组合模式， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE: Use
+    // jQuery(...), instead of $(...) from here on.
+      jQuery.noConflict();
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+  <a href="https://github.com/andyque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/vimwiki_html/">Wiki</a></li>
+  <li><a href="/vimwiki_html/diary/diary.html">Diary</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocosd-x设计模式之 ：组合模式</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T17:49:00+08:00" pubdate data-updated="true">Nov 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>在开始挖掘cocos2d-x里面的组合模式之前，我武断地下个结论：</p>
+
+<p>“几乎所有与GUI相关的框架设计都应用了组合设计模式”。（PS：大家注意我的用词，是“几乎所有”，给自己留条后路，哈哈）</p>
+
+<h2>1、应用场景</h2>
+
+<p>Cocoa编程框架APPKit和UIKit都应用了组合模式，各种各样的View及其派生类组成了一棵树状结构的层级视图，而这里面就应用了组合模式。当然，Cocos2D-x里面的Node组织方式也采用的是这个方法，最终游戏界面中的Nodes也会形成一棵树。</p>
+
+<p>说到树，我们马上就会想到树根，树干和树叶。一棵树一般只包含一个根，若干树干和大量的叶子。同时，树干长在树根上，树叶长在树干上。（PS：这有点废话了，不过读者莫急，耐着性着往下看。）对应于Cocos2d-x里面，就是一个游戏有一个主场景GameScene，它是树根，然后它有若干个树干（GameLayer、HudLayer、InputLayer、BackgroundLayer和LevelLayer等），最后，每一个树干又包含若干个树叶（比如sprite、particles、font、TiledMap nodes、etc）。</p>
+
+<!--more-->
+
+
+<p><img class="left" src="/images/posts/tree-nodes-labeled.png" width="750" height="300"></p>
+
+<p>说完了这些，你可能会问了，这跟组合模式有毛关系啊。好，组合模式正式登场！</p>
+
+<p>cocos2d-x里面的CCScene、CCLayer、CCNode派生类(不含CCLayer和CCScene)共同组成了一个树形结构，同时我们可以以一致地方式来处理这些类，比如addChild、removeChild和getChildren。处理“整体-部分关系”（通常是树形结构），并且能够以一致地方式来对待整体与部分，这不正是组合模式的应用场景吗。</p>
+
+<h2>2、使用该模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）、优化处理递归或分级数据结构。</p>
+
+<p>2）、一致地对待组合对象与单个对象，可以简化客户端调用</p>
+
+<p>缺点：</p>
+
+<p>1）、如果是透明实现的组合模式，单个对象也会包含组合对象的方法，这样会给客户端调用造成麻烦，因为单个对象实际上是不会实现这些组合对象的方法的。</p>
+
+<h2>3、模式定义及一般实现</h2>
+
+<p>模式定义：</p>
+
+<p>将对象组合成树形结构以表示“部分整体”的层次结构。组合模式使得用户对单个对象和使用具有一致性。</p>
+
+<p>UML类图：</p>
+
+<p><img class="left" src="/images/posts/600px-Composite_UML_class_diagram_fixed.svg_.png" width="750" height="300"></p>
+
+<p>一般实现：参考<a href="http://www.cnblogs.com/tiandsp/archive/2012/06/26/2563575.html">这篇文章</a></p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>因为游戏开发不是设计框架，基本上使用组合模式的情形不多。但是，如果有递归或者树形结构的对象关系，都可以考虑使用组合模式。</p>
+
+<h2>5、与其它模式的关系</h2>
+
+<p>暂不讨论</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T17:49:00+08:00" pubdate data-updated="true">Nov 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/design-pattern/'>design-pattern</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- Duoshuo Comment BEGIN -->
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zilongshanren"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- Duoshuo Comment END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/" title="Previous Post: cocosd-x设计模式之 ：观察者模式">&laquo; cocosd-x设计模式之 ：观察者模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/" title="Next Post: cocosd-x设计模式之 ：中介者模式">cocosd-x设计模式之 ：中介者模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 150%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 90%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">  <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备12012448号</a>
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vim | 子龙山人]]></title>
+  <link href="http://andyque.github.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://andyque.github.com/"/>
+  <updated>2013-01-22T15:43:02+08:00</updated>
+  <id>http://andyque.github.com/</id>
+  <author>
+    <name><![CDATA[Guanghui.Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[打造属于自己的Vim神器]]></title>
+    <link href="http://andyque.github.com/blog/2013/01/15/vim-the-killer/"/>
+    <updated>2013-01-15T13:39:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2013/01/15/vim-the-killer</id>
+    <content type="html"><![CDATA[<h2>Why Vim?</h2>
+
+<p>为什么要使用Vim？</p>
+
+<p>我们先看看其他人怎么说：</p>
+
+<blockquote><p>Vim or Emacs就好比倚天和屠龙，得一可得天下。 -- By vimer.cn</p>
+
+<p>Vim就像学钢琴一样，一旦学会，终身受益无穷。   --By Practical Vim</p></blockquote>
+
+<p>这些话都是出自vim高手之口，对于Vim新手，可能暂时没办法体会。而我使用Vim也有一段时间了，肯定不能算是高手，但至少也是一个熟手。</p>
+
+<p>我现在主要使用Vim来编写c/c++、js、lua代码,我觉得非常方便，比Xcode和Eclise都强（调试部分可能相对弱一点）。当然，我还使用Vim来修改其它文档，比如Html、XML、文本文件等。现在我正在使用Vim书写本篇博文，非常酷，非常爽！</p>
+
+<p>我转成Vim党的感受，一句话：</p>
+
+<blockquote><p>Vim streamline my daily workflow and boost my coding productivity.</p></blockquote>
+
+<p>现在，我客观地说明一下Vim的一些好处：</p>
+
+<ul>
+<li><p>跨平台、支持N（N>40)种编程语言</p></li>
+<li><p>可安装各种插件，也可以编写自定义的插件，编辑器功能可无限扩展。</p></li>
+<li><p>配合Git管理Vim配置和插件,可极大地提高编辑器的适配性</p></li>
+<li><p>小巧、安装方便、开源、免费</p></li>
+<li><p>可打造出属于自已的个性化IDE工作环境，提高生产率</p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>Why not Vim?</h2>
+
+<p>为什么不使用Vim？</p>
+
+<p>可能有以下几种声音：</p>
+
+<ul>
+<li><p>Vim过时了，用Vim就是找虐，别装比了，专心学好数据结构与算法吧。</p></li>
+<li><p>我是Java党，我只用Eclipse，也能安装各种插件。我是.Net党，我喜欢强大的VS,也有牛比的插件（如VC助手)</p></li>
+<li><p>我是果粉，我喜欢Xcode的优雅，也是免费的，有苹果罩着，LLVM代码补全用着超爽。</p></li>
+<li><p>我也知道用Vim或者Emacs很强大，但是学习曲线真的很陡，我还是老老实实用我的IDE吧。</p></li>
+<li><p>我在用TextMate、Notepad++、Sumbline text 2，我用着很爽，这些也是神器，我不需要Vim。</p></li>
+</ul>
+
+
+<p>我在这里不去说现代的IDE有什么不好，或者Vim相比于这些IDE来说有哪些优点。我知道这样说，又马上会引起一场语言之争，编辑器大战出来。其实，真的是没必要去纠结用什么开发工具,也没必要纠结用什么语言。</p>
+
+<p>只是我觉得程序员天生就是用来折腾的。有牛人讲过一句话：</p>
+
+<blockquote><p>每年学习一门新的编程语言，而且这门语言跟你之前熟悉的语言关系越远越好</p></blockquote>
+
+<p>现在，我也呼吁一下吧：从现在起，学习一门新的文本编辑工具Vim，它跟你之前所用到的编辑器体验完全不一样。它的Modal Editing是独一无二的，程序员值得拥有。而且你不用每年换一个编辑器，因为你只需要一个Vim编辑器。你越了解它，越使用它，就越会对它爱不释手。</p>
+
+<p>让我们一起来折腾吧！Vim, the Killer! Oh~Ye.:)</p>
+
+<h2>How to make Vim as a IDE?</h2>
+
+<blockquote><p>Know the saw, then sharpen it.</p></blockquote>
+
+<p>很多人不使用Vim的原因很简单，除了不习惯它的Modal Editing之外，更多的是觉得它算不上一个IDE。但是，稍微对Vim有过了解的朋友都知道，Vim是可以被打造成一个IDE的，而且是专门属于自己的IDE。</p>
+
+<p>为什么要使用IDE，请看<a href="http://stackoverflow.com/questions/208193/why-should-i-use-an-ide">此贴</a></p>
+
+<p>博客园的池建强写了一系列的博文《谁说Vim不是IDE》（<a href="http://www.cnblogs.com/chijianqiang/archive/2012/10/30/vim-1.html">一</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/10/31/vim-2.html">二</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">三</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">四</a>。）有兴趣的朋友可以去看看，看完后你会发现，原来Vim也可以变成IDE。：）</p>
+
+<p>关于如何把Vim打造成一个IDE，只要你现在随便谷歌一下，你肯定能找到一大堆贴子。但是，由于Vim历史悠久，有许多贴之已经过时了。</p>
+
+<p>其中最主要的变化有:</p>
+
+<ul>
+<li><p>有些插件有新的替代插件了（因为站在巨人肩膀上的缘故）</p></li>
+<li><p>安装和管理插件的方式变了，以前是手动复制相应目录和文件，现在改为插件管理器+Github了。</p></li>
+<li><p>有些插件已经不推荐使用了</p></li>
+</ul>
+
+
+<p>但是，Vim社区总是很活跃的。目前，已经有牛人把最新的Vim配置方式分享出来了。我找到了3篇，大家可以参考一下。（不过都是英文哦）</p>
+
+<ul>
+<li><a href="http://oblita.com/blog/2012/08/30/vim-the-killer/"> Vim, The Killer </a></li>
+<li><a href="http://haridas.in/vim-as-your-ide.html">Vim as your IDE</a></li>
+<li><a href="https://github.com/mbrochh/vim-as-a-python-ide">Vim as a python IDE</a></li>
+</ul>
+
+
+<p>其实可以列举的还有很多，国内也有许多优秀的Vimer，欢迎你们推荐优秀的设置Vim为IDE的教程或者文章，Thanks.:)</p>
+
+<h2>Recommended plugins</h2>
+
+<p>没有安装插件的Vim算不了什么，但是，一旦安装好插件，Vim立马就牛比了。这里，作为一名cocos2d-x游戏程序员，我给大家推荐一些插件，关于插件的用法，大家可以查看help文档，我这里就不赘述了。</p>
+
+<h3>Basic plugins</h3>
+
+<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a>:该插件用来管理Vim的插件，可以让插件的安装与卸载更加方便。配合Github和Submodule效果更佳。</p>
+
+<p><a href="https://github.com/scrooloose/nerdtree">NerdTree</a>:该插件会生成工程目录树</p>
+
+<p><a href="https://github.com/majutsushi/tagbar">TagBar</a>:该插件生成函数、变量列表。之前有一个插件叫TagList，我觉得那个有点不好用，推荐TagBar</p>
+
+<p><a href="https://github.com/SirVer/ultisnips">UltiSnips</a>:类似TextMate的snippets，之前有个插件叫SnipMate，这个基于SnipMate，比SnipMate要强很多。强烈推荐。</p>
+
+<p><a href="https://github.com/tpope/vim-commentary.git">vim-commentary</a>:注释代码的插件。</p>
+
+<p><a href="https://github.com/scrooloose/syntastic">syntastic</a>:保存文件时检查语法的插件。</p>
+
+<p><a href="https://github.com/tpope/vim-fugitive.git">fugitive</a>:方便在Vim里面使用Git的插件。</p>
+
+<p><a href="https://github.com/altercation/vim-colors-solarized">vim-colors-solarized</a>:Vim颜色配色方案。</p>
+
+<p><a href="https://github.com/kien/ctrlp.vim.git">ctrlp</a>：搜索目录下的文件，类似功能的插件有Comment-T，我喜欢ctrlp，因为它不依赖于ruby，且是轻量级的.</p>
+
+<p><a href="https://github.com/vim-scripts/AutoClose">AutoClose</a>:成对生成(),{},[]</p>
+
+<p><a href="https://github.com/tpope/vim-surround.git">vim-surround</a>：给文本添加“外套”，呵呵，试试就知道有多强大了。</p>
+
+<p><a href="https://github.com/ervandew/supertab">supertab</a>:让tab键可以飞起来。</p>
+
+<p><a href="https://github.com/vim-scripts/a.vim">a</a>:让cpp文件在.h和.cpp文件中切换。</p>
+
+<p><a href="https://github.com/vim-scripts/bufexplorer.zip">buferexplorer</a>:方便浏览buffer的插件。</p>
+
+<p><a href="https://github.com/oblitum/clang_complete">clangComplete</a>:自动代码补全的插件，比OmniCppComplete好N多，速度有一点影响。不过配合neocomplcache，加上这个版本，效率还不错。</p>
+
+<p><a href="https://github.com/Shougo/neocomplcache">neocomplcache</a>:关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。</p>
+
+<p><a href="https://github.com/osyo-manga/neocomplcache-clang_complete">neocomplcache-clang</a>:解决clang_complete和neocomplcache的冲突。</p>
+
+<p><a href="https://github.com/magic-dot-files/TagHighlight"> TagHightlight </a>:根据生成的Tag文件，高亮类、变量、函数和关键字。</p>
+
+<h3>Bonus plugins</h3>
+
+<p><a href="https://github.com/oblitum/bufkill.git">bufkill</a>:让nerdTree在最后一个buffer窗口关闭时，不让其缩放。</p>
+
+<p><a href="https://github.com/oblitum/vimprj">vimprj</a>:方便管理工程相关的vim配置。参考如何设置Vim为IDE中的第一篇E文。</p>
+
+<p><a href="https://github.com/tpope/vim-unimpaired">vim-unimpaired</a>:一些不错的配置，可以让[]发挥奇效。</p>
+
+<p><a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a>:超有爱的状态栏。</p>
+
+<p><a href="https://github.com/kana/vim-textobj-line">vim-textobj-line</a>:文本对象插件，可以操纵当前行。</p>
+
+<p>更多插件，可以到我的Github上面去查看。可以从本博右上角Fork Me on Github处进入。当然，如果各种Vimer有什么好的插件，也欢迎推荐给我。</p>
+
+<h2>Troubleshootings</h2>
+
+<p>这部分主要记录我在打造神器的过程中遇到的一些问题：</p>
+
+<ul>
+<li><p>Vim版本最好用gvim或者macvim，然后从源码编译最好。最好是支持python,ruby,cscope等,大部分vim发行版本都是支持这些特性的。</p></li>
+<li><p>使用Excubert-ctags和<a href="https://github.com/mozilla/doctorjs">DoctorJs</a>来生成tag文件，配合cscope效果好。如果是mac用户，自带的ctags不管用，需要用homebrew或者macport来安装</p></li>
+<li><p>配置pyclewn时，安装需要指定Editor和home设置。运行的时候，如果要让GDB支持tty，还需要重新安装GDB，最好是homebrew或者macport来安装。安装好之后，要给gdb添加codesigning。</p></li>
+<li><p>windows版本下有些配置可能不太一样，特别是vimrc文件的配置，跟*nix系统不太一样。可以考虑用has(win32)之类的代码来区分vimrc配置。这样可以让vim运行在多个平台上。</p></li>
+</ul>
+
+
+<h2>Further Reading</h2>
+
+<p>强烈推荐阅读：<a href="http://pragprog.com/book/dnvim/practical-vim">《Practical Vim》</a></p>
+
+<p>推荐视频网站三个：<a href="http://www.vimcasts.org/">Vimcasts.org</a>,<a href="http://net.tutsplus.com/sessions/vim-essential-plugins/">essential vim plugins</a>和<a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/">Derek Wyatt's Blog</a></p>
+
+<p>国内站点推荐三个：<a href="http://www.vimer.cn/">vimer世界</a>,<a href="http://easwy.com/blog/archives/advanced-vim-skills-catalog/">易水的博客</a>,<a href="http://www.newsmth.net/bbsdoc.php?board=VIM">水木清华社区</a></p>
+
+<p>最后推荐一个vimrc设置技巧网站<a href="http://www.vimbits.com/">vimbits</a>,这个网站会选出最流行的vimrc配置，大家可以时不时去上面淘金。当然，如果你发现好用的vimrc配置，也记得一定要分享出来啊。社区需要你！</p>
+
+<h2>References</h2>
+
+<p>Google + Wiki. :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[make your gvim a IDE on Windows 7]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7/"/>
+    <updated>2012-12-20T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>According to the online survey, Vim become the second most favourite IDE in the world. Really surprising, don't you?</p>
+
+<p>I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github<a href="https://github.com/andyque/dotvim">Repository</a>.</p>
+
+<p>Because I am a big fan of cocos2d, so I set up another Github Repository,named
+<a href="https://github.com/andyque/Cocos2DTags">Cocos2DTags</a> . I use Exuberant Ctags 5.8 to generate ctags for code and tag
+navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) to generate js tags.</p>
+
+<p>I have made my Vim very suitable for c/c++, lua and javascript development, especially for cocos2d-x and cocos2d-html5 game development. The above three repo is still young, but I will make them better with more practice and efforts.</p>
+
+<p>I'm a little compulsive, so I want to make my Vim running on every platform. Recently mainly for windows, mac and ubuntu. The configuration process for mac and ubuntu is intuitive. But it's not the same with windows. So this blog post is mainly for recoding the configure process of gvim on windows 7 64-bit platform.</p>
+
+<!--more-->
+
+
+<h2>Installation</h2>
+
+<p>Install gvim on windows is very easy. You can download the green version of <a href="http://code.google.com/p/vim-win3264/downloads/detail?name=vim73-x64.zip&amp;can=2&amp;q=">gvim</a>. This is a 64-bit version of gvim. So make sure your windows system is 64-bit. After download it, you can extract it into  your login user account. Like c:/User/xxx(the "xxx" is your account name). Then open the vim73 directory, and double click the install.exe to install gvim. After installation, you can find three gvim shortcuts on your desktop.</p>
+
+<h2>Configure your existing Vim Repo</h2>
+
+<ul>
+<li>Use git to clone my repo to <code>vimfles</code> directory. This fold lies in the same level with vim73 directory . The vimfiles directory looks like the following:</li>
+</ul>
+
+
+<p><img class="left" src="/images/posts/win7vimfiles.jpg" width="750" height="300"></p>
+
+<ul>
+<li>Configure your <em>vimrc file in your $HOME directory. (Note: $HOME is the c:/User/xxx). Add the following scripts to your </em>vimrc file.</li>
+</ul>
+
+
+<p><code>c++
+source $VIMRUNTIME..\vimfiles\vimrc
+</code></p>
+
+<p>Now the gvim can work with your existing Vim configurations.</p>
+
+<h2>Configure your plugins</h2>
+
+<ul>
+<li><p>Configure TagBar and Cppomnicomplete plugin. You should install Exuberant Ctags 5.8, and put catgs.exe to your"PATH"(Like System32 directory).</p></li>
+<li><p>Install Python2.7.1 64-bit versioin.</p></li>
+<li><p>Install splint for c++ syntax checking, jslint for javascript and luac for lua syntax checking.</p></li>
+<li><p>Configure snipMate plugin. Open vimfile/bundle/snipMat/plugin/snipMat.vim,add the following code to replace the 24th line .</p></li>
+</ul>
+
+
+<p>``` c++
+let snippets_dir = substitute(substitute(globpath(&amp;rtp, 'snippets/'), "\n", ',', 'g'), 'snippets\,', 'snippets,', 'g')</p>
+
+<p>```</p>
+
+<h2>Last revise</h2>
+
+<p>We can add the following scripts at the end of _vimrc files:</p>
+
+<p><code>c++
+set guioptions-=m
+set guioptions-=T
+</code></p>
+
+<p>These two lines can hidden your gvim Toolbar and Menubar.</p>
+
+<p>If you don't like win32 command line commands, you can install <a href="http://dl.vmall.com/c0l2p58pa6">this package</a> for convenience.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[configuration vim and opencv2.4.2 on macos 10.8.2]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/"/>
+    <updated>2012-12-17T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>Now vim has become the "killer" editor for me. I use it for coding c/c++,lua,javascript and I find it is very powerful for scripting languages.</p>
+
+<p>Recently, I am studying the OpenCV library. So I want to make my vim suitable for developing opencv programs.</p>
+
+<p>Here is the configuration process.</p>
+
+<!--more-->
+
+
+<h2>Install OpenCV 2.4.2</h2>
+
+<p>You can follow these two links for the installation instructions.</p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/">http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/</a></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/">http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/</a></p>
+
+<h2>Generate opencv ctags</h2>
+
+<p>In order to generate ctags for opencv,you should install stags first. But be careful that the default ctags program shipped with mac is outdated. You should use homebrew to install the newest version of ctags.</p>
+
+<h3>Install Exuberant CTags</h3>
+
+<p>Open your terminal and write the following commands:</p>
+
+<p><code>c++
+brew install ctags-exuberant
+</code></p>
+
+<p>If you wonder whether the installation is successfully or not. You can type the "ctags --version".If you get the following output, then congratulations, you did it.</p>
+
+<p><code>c++
+uberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Nov  7 2012, 16:32:27
+  Addresses: &lt;dhiebert@users.sourceforge.net&gt;, http://ctags.sourceforge.net
+  Optional compiled features: +wildcards, +regex
+</code></p>
+
+<p>After installation, We can use ctags to generate tag list for opencv code auto completion.</p>
+
+<h3>Generate ctags.</h3>
+
+<p><code>c++
+cd /usr/local/include
+ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ./
+</code></p>
+
+<p>Then you can use the generated tags for auto completion. For more information, you can refer to this <a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">link</a>.</p>
+
+<h2>Configure your vimrc file</h2>
+
+<p>``` c++
+"add command to complie opencv program"
+nnoremap <silent><leader>2 :call CompileRunOpencv() <CR>
+function! CompileRunOpencv()</p>
+
+<pre><code>let IncDir = "/usr/local/include"
+let LibDir = "/usr/local/lib"
+let Libs = "-lopencv_core -lopencv_highgui -lopencv_imgproc"
+exec "w"
+exec "lcd %:p:h"
+exec "r !g++ -I" . IncDir . " -L" . LibDir . " % " . Libs . " -o %&lt; "
+echo "compile finished!"
+</code></pre>
+
+<p>endfunc
+```</p>
+
+<p>Now, you can use (leader 2) to compile your opencv file.</p>
+
+<p>At last, I post my macvim screen here:</p>
+
+<p><img class="left" src="/images/posts/myvim.jpg" width="750" height="300"></p>
+
+<h2>Limitations</h2>
+
+<p>With the above method, you can only compile one file at a time. So if you have more than one file, you could change theresponding g++ compile instructions.</p>
+
+<h2>References</h2>
+
+<p><a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim</a></p>
+
+<p><a href="http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim">http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim</a></p>
+
+<p><a href="http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/">http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/</a></p>
+
+<p><a href="http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716">http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716</a></p>
+]]></content>
+  </entry>
+  
+</feed>

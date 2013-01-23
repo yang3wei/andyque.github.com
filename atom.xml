@@ -1,0 +1,1985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[子龙山人]]></title>
+  <link href="http://andyque.github.com/atom.xml" rel="self"/>
+  <link href="http://andyque.github.com/"/>
+  <updated>2013-01-22T15:43:02+08:00</updated>
+  <id>http://andyque.github.com/</id>
+  <author>
+    <name><![CDATA[Guanghui.Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[打造属于自己的Vim神器]]></title>
+    <link href="http://andyque.github.com/blog/2013/01/15/vim-the-killer/"/>
+    <updated>2013-01-15T13:39:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2013/01/15/vim-the-killer</id>
+    <content type="html"><![CDATA[<h2>Why Vim?</h2>
+
+<p>为什么要使用Vim？</p>
+
+<p>我们先看看其他人怎么说：</p>
+
+<blockquote><p>Vim or Emacs就好比倚天和屠龙，得一可得天下。 &#8211; By vimer.cn</p>
+
+<p>Vim就像学钢琴一样，一旦学会，终身受益无穷。   &#8211;By Practical Vim</p></blockquote>
+
+<p>这些话都是出自vim高手之口，对于Vim新手，可能暂时没办法体会。而我使用Vim也有一段时间了，肯定不能算是高手，但至少也是一个熟手。</p>
+
+<p>我现在主要使用Vim来编写c/c++、js、lua代码,我觉得非常方便，比Xcode和Eclise都强（调试部分可能相对弱一点）。当然，我还使用Vim来修改其它文档，比如Html、XML、文本文件等。现在我正在使用Vim书写本篇博文，非常酷，非常爽！</p>
+
+<p>我转成Vim党的感受，一句话：</p>
+
+<blockquote><p>Vim streamline my daily workflow and boost my coding productivity.</p></blockquote>
+
+<p>现在，我客观地说明一下Vim的一些好处：</p>
+
+<ul>
+<li><p>跨平台、支持N（N>40)种编程语言</p></li>
+<li><p>可安装各种插件，也可以编写自定义的插件，编辑器功能可无限扩展。</p></li>
+<li><p>配合Git管理Vim配置和插件,可极大地提高编辑器的适配性</p></li>
+<li><p>小巧、安装方便、开源、免费</p></li>
+<li><p>可打造出属于自已的个性化IDE工作环境，提高生产率</p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>Why not Vim?</h2>
+
+<p>为什么不使用Vim？</p>
+
+<p>可能有以下几种声音：</p>
+
+<ul>
+<li><p>Vim过时了，用Vim就是找虐，别装比了，专心学好数据结构与算法吧。</p></li>
+<li><p>我是Java党，我只用Eclipse，也能安装各种插件。我是.Net党，我喜欢强大的VS,也有牛比的插件（如VC助手)</p></li>
+<li><p>我是果粉，我喜欢Xcode的优雅，也是免费的，有苹果罩着，LLVM代码补全用着超爽。</p></li>
+<li><p>我也知道用Vim或者Emacs很强大，但是学习曲线真的很陡，我还是老老实实用我的IDE吧。</p></li>
+<li><p>我在用TextMate、Notepad++、Sumbline text 2，我用着很爽，这些也是神器，我不需要Vim。</p></li>
+</ul>
+
+
+<p>我在这里不去说现代的IDE有什么不好，或者Vim相比于这些IDE来说有哪些优点。我知道这样说，又马上会引起一场语言之争，编辑器大战出来。其实，真的是没必要去纠结用什么开发工具,也没必要纠结用什么语言。</p>
+
+<p>只是我觉得程序员天生就是用来折腾的。有牛人讲过一句话：</p>
+
+<blockquote><p>每年学习一门新的编程语言，而且这门语言跟你之前熟悉的语言关系越远越好</p></blockquote>
+
+<p>现在，我也呼吁一下吧：从现在起，学习一门新的文本编辑工具Vim，它跟你之前所用到的编辑器体验完全不一样。它的Modal Editing是独一无二的，程序员值得拥有。而且你不用每年换一个编辑器，因为你只需要一个Vim编辑器。你越了解它，越使用它，就越会对它爱不释手。</p>
+
+<p>让我们一起来折腾吧！Vim, the Killer! Oh~Ye.:)</p>
+
+<h2>How to make Vim as a IDE?</h2>
+
+<blockquote><p>Know the saw, then sharpen it.</p></blockquote>
+
+<p>很多人不使用Vim的原因很简单，除了不习惯它的Modal Editing之外，更多的是觉得它算不上一个IDE。但是，稍微对Vim有过了解的朋友都知道，Vim是可以被打造成一个IDE的，而且是专门属于自己的IDE。</p>
+
+<p>为什么要使用IDE，请看<a href="http://stackoverflow.com/questions/208193/why-should-i-use-an-ide">此贴</a></p>
+
+<p>博客园的池建强写了一系列的博文《谁说Vim不是IDE》（<a href="http://www.cnblogs.com/chijianqiang/archive/2012/10/30/vim-1.html">一</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/10/31/vim-2.html">二</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/11/06/vim-3.html">三</a>、<a href="http://www.cnblogs.com/chijianqiang/archive/2012/12/17/vim-4.html">四</a>。）有兴趣的朋友可以去看看，看完后你会发现，原来Vim也可以变成IDE。：）</p>
+
+<p>关于如何把Vim打造成一个IDE，只要你现在随便谷歌一下，你肯定能找到一大堆贴子。但是，由于Vim历史悠久，有许多贴之已经过时了。</p>
+
+<p>其中最主要的变化有:</p>
+
+<ul>
+<li><p>有些插件有新的替代插件了（因为站在巨人肩膀上的缘故）</p></li>
+<li><p>安装和管理插件的方式变了，以前是手动复制相应目录和文件，现在改为插件管理器+Github了。</p></li>
+<li><p>有些插件已经不推荐使用了</p></li>
+</ul>
+
+
+<p>但是，Vim社区总是很活跃的。目前，已经有牛人把最新的Vim配置方式分享出来了。我找到了3篇，大家可以参考一下。（不过都是英文哦）</p>
+
+<ul>
+<li><a href="http://oblita.com/blog/2012/08/30/vim-the-killer/"> Vim, The Killer </a></li>
+<li><a href="http://haridas.in/vim-as-your-ide.html">Vim as your IDE</a></li>
+<li><a href="https://github.com/mbrochh/vim-as-a-python-ide">Vim as a python IDE</a></li>
+</ul>
+
+
+<p>其实可以列举的还有很多，国内也有许多优秀的Vimer，欢迎你们推荐优秀的设置Vim为IDE的教程或者文章，Thanks.:)</p>
+
+<h2>Recommended plugins</h2>
+
+<p>没有安装插件的Vim算不了什么，但是，一旦安装好插件，Vim立马就牛比了。这里，作为一名cocos2d-x游戏程序员，我给大家推荐一些插件，关于插件的用法，大家可以查看help文档，我这里就不赘述了。</p>
+
+<h3>Basic plugins</h3>
+
+<p><a href="https://github.com/tpope/vim-pathogen">Pathogen</a>:该插件用来管理Vim的插件，可以让插件的安装与卸载更加方便。配合Github和Submodule效果更佳。</p>
+
+<p><a href="https://github.com/scrooloose/nerdtree">NerdTree</a>:该插件会生成工程目录树</p>
+
+<p><a href="https://github.com/majutsushi/tagbar">TagBar</a>:该插件生成函数、变量列表。之前有一个插件叫TagList，我觉得那个有点不好用，推荐TagBar</p>
+
+<p><a href="https://github.com/SirVer/ultisnips">UltiSnips</a>:类似TextMate的snippets，之前有个插件叫SnipMate，这个基于SnipMate，比SnipMate要强很多。强烈推荐。</p>
+
+<p><a href="https://github.com/tpope/vim-commentary.git">vim-commentary</a>:注释代码的插件。</p>
+
+<p><a href="https://github.com/scrooloose/syntastic">syntastic</a>:保存文件时检查语法的插件。</p>
+
+<p><a href="https://github.com/tpope/vim-fugitive.git">fugitive</a>:方便在Vim里面使用Git的插件。</p>
+
+<p><a href="https://github.com/altercation/vim-colors-solarized">vim-colors-solarized</a>:Vim颜色配色方案。</p>
+
+<p><a href="https://github.com/kien/ctrlp.vim.git">ctrlp</a>：搜索目录下的文件，类似功能的插件有Comment-T，我喜欢ctrlp，因为它不依赖于ruby，且是轻量级的.</p>
+
+<p><a href="https://github.com/vim-scripts/AutoClose">AutoClose</a>:成对生成(),{},[]</p>
+
+<p><a href="https://github.com/tpope/vim-surround.git">vim-surround</a>：给文本添加“外套”，呵呵，试试就知道有多强大了。</p>
+
+<p><a href="https://github.com/ervandew/supertab">supertab</a>:让tab键可以飞起来。</p>
+
+<p><a href="https://github.com/vim-scripts/a.vim">a</a>:让cpp文件在.h和.cpp文件中切换。</p>
+
+<p><a href="https://github.com/vim-scripts/bufexplorer.zip">buferexplorer</a>:方便浏览buffer的插件。</p>
+
+<p><a href="https://github.com/oblitum/clang_complete">clangComplete</a>:自动代码补全的插件，比OmniCppComplete好N多，速度有一点影响。不过配合neocomplcache，加上这个版本，效率还不错。</p>
+
+<p><a href="https://github.com/Shougo/neocomplcache">neocomplcache</a>:关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。</p>
+
+<p><a href="https://github.com/osyo-manga/neocomplcache-clang_complete">neocomplcache-clang</a>:解决clang_complete和neocomplcache的冲突。</p>
+
+<p><a href="https://github.com/magic-dot-files/TagHighlight"> TagHightlight </a>:根据生成的Tag文件，高亮类、变量、函数和关键字。</p>
+
+<h3>Bonus plugins</h3>
+
+<p><a href="https://github.com/oblitum/bufkill.git">bufkill</a>:让nerdTree在最后一个buffer窗口关闭时，不让其缩放。</p>
+
+<p><a href="https://github.com/oblitum/vimprj">vimprj</a>:方便管理工程相关的vim配置。参考如何设置Vim为IDE中的第一篇E文。</p>
+
+<p><a href="https://github.com/tpope/vim-unimpaired">vim-unimpaired</a>:一些不错的配置，可以让[]发挥奇效。</p>
+
+<p><a href="https://github.com/Lokaltog/vim-powerline">vim-powerline</a>:超有爱的状态栏。</p>
+
+<p><a href="https://github.com/kana/vim-textobj-line">vim-textobj-line</a>:文本对象插件，可以操纵当前行。</p>
+
+<p>更多插件，可以到我的Github上面去查看。可以从本博右上角Fork Me on Github处进入。当然，如果各种Vimer有什么好的插件，也欢迎推荐给我。</p>
+
+<h2>Troubleshootings</h2>
+
+<p>这部分主要记录我在打造神器的过程中遇到的一些问题：</p>
+
+<ul>
+<li><p>Vim版本最好用gvim或者macvim，然后从源码编译最好。最好是支持python,ruby,cscope等,大部分vim发行版本都是支持这些特性的。</p></li>
+<li><p>使用Excubert-ctags和<a href="https://github.com/mozilla/doctorjs">DoctorJs</a>来生成tag文件，配合cscope效果好。如果是mac用户，自带的ctags不管用，需要用homebrew或者macport来安装</p></li>
+<li><p>配置pyclewn时，安装需要指定Editor和home设置。运行的时候，如果要让GDB支持tty，还需要重新安装GDB，最好是homebrew或者macport来安装。安装好之后，要给gdb添加codesigning。</p></li>
+<li><p>windows版本下有些配置可能不太一样，特别是vimrc文件的配置，跟*nix系统不太一样。可以考虑用has(win32)之类的代码来区分vimrc配置。这样可以让vim运行在多个平台上。</p></li>
+</ul>
+
+
+<h2>Further Reading</h2>
+
+<p>强烈推荐阅读：<a href="http://pragprog.com/book/dnvim/practical-vim">《Practical Vim》</a></p>
+
+<p>推荐视频网站三个：<a href="http://www.vimcasts.org/">Vimcasts.org</a>,<a href="http://net.tutsplus.com/sessions/vim-essential-plugins/">essential vim plugins</a>和<a href="http://www.derekwyatt.org/vim/vim-tutorial-videos/">Derek Wyatt&#8217;s Blog</a></p>
+
+<p>国内站点推荐三个：<a href="http://www.vimer.cn/">vimer世界</a>,<a href="http://easwy.com/blog/archives/advanced-vim-skills-catalog/">易水的博客</a>,<a href="http://www.newsmth.net/bbsdoc.php?board=VIM">水木清华社区</a></p>
+
+<p>最后推荐一个vimrc设置技巧网站<a href="http://www.vimbits.com/">vimbits</a>,这个网站会选出最流行的vimrc配置，大家可以时不时去上面淘金。当然，如果你发现好用的vimrc配置，也记得一定要分享出来啊。社区需要你！</p>
+
+<h2>References</h2>
+
+<p>Google + Wiki. :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我为什么要从wordpress转到octopress]]></title>
+    <link href="http://andyque.github.com/blog/2013/01/03/migrate-to-octopress/"/>
+    <updated>2013-01-03T13:44:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2013/01/03/migrate-to-octopress</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/octpress-logo.png" width="300" height="300"></p>
+
+<h2>我的博客写作历史</h2>
+
+<p>我是从2011年3月开始写博客的，博客主要是分享学习cocos2d、以及iOS游戏开发的一些内容。目前，该博客已经超过80万的访问量了。Amazing!</p>
+
+<p>其实我最早开始写博客可能是07年了。那时候刚开始学c语言，为了锻炼自己的c语言能力，在百度知道里面回答各种c语言基础题，为了一个所谓的“专家”称号而乐此不疲。后来，由于找我做“学生成绩管理系统”的人实在是太多了，我就在百度开设了自己的第一个博客。当然，主要的内容就是c语言制作XX管理系统，还有一些算法题的解法以及一些百度知道的问题的答案。后来由于学习的压力，加上疏于打理，渐渐的我也不准备写博客了。</p>
+
+<p>再到后来，我又在csdn开始过博客。因为我很喜欢看书，很多牛人都主张要写博客。因为书写确实可以整理自己的思路，同时可以和别人分享自己的idea，这本身也是很有乐趣的一件事情。可是好景不长，没有坚持多久，这个博客又荒废了。纠其原因，我总结了如下三点：</p>
+
+<ul>
+<li><p>  自己还处在学习基础知识的阶段，写的大都是读书笔记类的东西，没有读者，也没有反馈，写起来没劲</p></li>
+<li><p>  写博客还是不方便，排版困难，写一篇博客通常要花费几个小时的时间</p></li>
+<li><p>   积累不够，没有东西写，而且没有一个好的规划，不能坚持。我现在打算是每周一篇blog，这样的时间目前还算能接受</p></li>
+</ul>
+
+
+<!-- more -->
+
+
+<p>再后来，自己保送了研究生，开始关注前沿的技术和行业发展了。特别是10年，我开始接触iOS游戏开发,开始接触了Git、Cocos2d、Github和Vim等。一切都开始朝着良性的方向发展了。</p>
+
+<p>在刚开始学习Cocos2D的时候，国内那时候中文资料特别少，唯一的资料就是知易的。但是，我通过google，我发现国外还是有许多优秀的cocos2d教程的。当时，我也看到有一些人在翻译教程。但是质量不是很高，包括准确度和阅读体验都不是很好。恰好那时候，我对博客园也产生了浓厚的兴趣，于是乎便产生了要在博客园开始一个专门介绍Cocos2D游戏开发的博客。</p>
+
+<p>由于当时移动互联网被炒得很火，同时很多小公司需要Cocos2D，这个博客凭着天时也火起来了。一旦开始火起来，我的压力就大了。我当时还在兼职，工作压力还蛮大的，学校事情也多，手上还有一个游戏项目，而且全部只能靠我自己。但是，每每我不想翻译的时候，只要想到还有那么多读者在等着我发文章，我就又有动力了。为此，那段时间，我晚上写代码一度到2、3点。时间确实是不够。</p>
+
+<p>后面我便萌生念头，让热心网友和我一起来做翻译的事情。果然，程序员社区还是有很多热心人士的，Iven、小狼、北方、skingTree，Benna，糖炒小虾、u0u0、无敌葫芦娃、蓝羽、大侠自来也等等。这些人给我的博客贡献了不少文章，再次感谢你们！</p>
+
+<p>后来，由于读者数量越来越多。我又建了相应的QQ群，由于QQ群讨论的很多东西都流失了。同样的问题被反复问及，有时候不回答，别人还以为你不友好。所以，也导致我和Iven后来一起创办“泰然论坛”的想法。</p>
+
+<p>讲了这么多，其实我觉得写博客并没有那么难。看到国外好的文章，我们可以举手之劳翻译之。自己花了几个小时解决某个问题的方案也可以用博客来记录之。这样做不仅可以方便以后查阅，还可以帮助到他人，交到很多朋友，何乐而不为呢？</p>
+
+<p>再后来，我又自己申请域名，建立了自己的wordpress博客。到现在，我放弃了自己花了200块大洋买的空间，回归开源的怀抱，我采用Github来托管我的博客。</p>
+
+<p>为什么我要这样折腾呢？</p>
+
+<h2>为什么转到wordpress</h2>
+
+<p>其实我完全可以在博客园上面一直写博客，而且免费，平台大，人气足，往首页随便发一篇文章都有好几百的pv。但是，我想拥有自己的域名，拥有自己的主机空间。说白了，我想折腾了。</p>
+
+<p>当然，折腾是有代价的。除了经济上的开销以外，更多的是新平台，新环境的适应。我在wordpress平台上面大概花了2-3个月，也发表了10几篇文章。（有中文的，也有英文的，现在都转到octopress博客平台上来了。）</p>
+
+<p>wordpress给我的感觉是很成熟，很傻瓜化，很容易上手，安装过程只要1分钟。然后选择一个合适的主题，装上一堆插件就可以马上写博客了。作为一个非常成熟的CMS系统，wordpress真的很强大，而且速度很快。作为个人博客来讲，真的够用了。</p>
+
+<p>但是，我不喜欢它的编辑器，太简陋了，没有博客园的好用。其实博客园的也不太好用，因为我习惯了博客园的编辑器，所以会觉得wordpress更烂。当然，我也有尝试使用百度开发的ueditor编辑器。虽然功能强大了，但是，有时候容易把好不容易排好版的文章的样式给搞乱。这个实在是让人抓狂。(后面我发现，我不是不喜欢wordpress的编辑器，而是不喜欢那样写博客的方式，我希望写博客和写代码一样方便)</p>
+
+<p>而且wordpress采用php开发，php我不熟悉，所以，有些定制功能，我可能不会。如果全部是带着问题到处google，我也觉得累。为了写一篇博客，何苦这么麻烦了。更何况我对php开发web应用也没多大兴趣。（其实我一直就不太喜欢web开发，不管是任何平台的。不过最近我对django和ruby
+on rails有了一点兴趣了。）</p>
+
+<p>我冲着wordpress更多的控制权，我投奔了她的怀抱。但是，由于我不喜欢她的编辑文章和发布博客的方式，我最终还是决定离开她了。</p>
+
+<h2>为什么我转到octopress</h2>
+
+<p>在转到<a href="http://octopress.org/">octopress</a>之前，先讲一个小插曲。我以前学习过vim，不过没有认真对待它。前段时间为了使用cocos2d-x的lua和jsbinding来写点东西。发现没有好用的编辑器，textMate和sublime text2都不错，可是它们离我心目中的IDE还差不少。由于，我google之，我发现vim满足我的要求。于是乎，我重拾vim。这一次，我学习得非常快。我采用github和pathogen来管理我的vim插件和配置。而且由于practical Vim这本书的出现，让我对vim的认识更多了。</p>
+
+<blockquote><p>Vim真是无所不能!</p></blockquote>
+
+<p>由于我疯狂地学习vim、实践vim，现在我已经对它爱不释手了。真的不想再换编辑器了，呵呵。要充分发挥vim的能力，首先你得是一个TouchTypist。意味着你至少要能够盲打，同时，你要彻底说服自己不再用鼠标。我是怎么从一个windows用户，天天用鼠标+现代IDE来开发程序的程序员转向vim的呢？答案其实很简单：自从我接触mac以后，自从我接触mac的touch板以后。鼠标对我来说就是多余的，除了打dota的时候可能需要使用。mac系统的手势太好用了。</p>
+
+<p>用了vim以后，我就开始尝试用markdown语法+vim编辑器来向wordpress平台发博客。但是，它对图片和代码支持不好。wordpress本身也没有提供太好的markdown语法的支持。于是乎，我就找到了octopress。</p>
+
+<blockquote><p>Octopress: A blogging framework for hackers.</p></blockquote>
+
+<p>这是octopress的首页说明，酷吧！使用octopress，你可以像写代码一样写博客。同时，它与vim完美结合，并且让我的coding、blogging、git工作流程顺畅无比。我从未如此开心，原来博客还可以这样写的。当然，这里我不是推销员，我只是介绍一下我喜欢的菜。具体用什么工具和博客平台，是大家的选择，萝卜白菜各有所爱嘛。而且最重要的不是平台，而是博文，要坚持写博客才是最重要的。但是，octopress让我有想写博客的欲望。：）</p>
+
+<p>最后，octopress采用Html5+css3构建，同时支持<a href="http://liquidmarkup.org/">liquid</a>和ruby。（其实python也有类似的博客系统，不过貌似octopress社区更活跃一点）我可以通过此博客慢慢过渡到Ruby on Rails.</p>
+
+<p>关于octopress博客的搭建，大家可以google之。网上有大量的文章可供参考，其实官方的文档就足够了，非常详尽。如果大家想折腾的，可以去尝试一下。如果遇到什么问题，可以在本文下方留言。如果问题我也遇到了，我会跟大家分享滴～</p>
+
+<p>最后，贴几篇文章，讲老外为什么从wordpress转到jekyll的（octopress基于jekyll，但是，更容易使用，推荐像我一样的新手使用）</p>
+
+<p><a href="http://vitobotta.com/migrating-from-wordpress-to-jekyll-part-one-why-I-gave-up-on-wordpress/">why I migrate from wordpress to jekyll</a></p>
+
+<p><a href="http://vitobotta.com/how-to-migrate-from-wordpress-to-jekyll/">How to migrate from wordpress to jekyll</a></p>
+
+<p>最后，我贴出本文的vim中markdown编辑的一个截图吧,秀一下，呵呵：）</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/vimoctopress.png" width="750" height="300"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[make your gvim a IDE on Windows 7]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7/"/>
+    <updated>2012-12-20T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/20/make-gvim-a-ide-on-windows-7</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>According to the online survey, Vim become the second most favourite IDE in the world. Really surprising, don&#8217;t you?</p>
+
+<p>I have successfully configured Vim on my Mac, using git and pathogen to manage my Vim plugins. Here is my Github<a href="https://github.com/andyque/dotvim">Repository</a>.</p>
+
+<p>Because I am a big fan of cocos2d, so I set up another Github Repository,named
+<a href="https://github.com/andyque/Cocos2DTags">Cocos2DTags</a> . I use Exuberant Ctags 5.8 to generate ctags for code and tag
+navigations. Due to the lack of good understanding of modern javascript programming, I use DoctorJs(Jsctags) to generate js tags.</p>
+
+<p>I have made my Vim very suitable for c/c++, lua and javascript development, especially for cocos2d-x and cocos2d-html5 game development. The above three repo is still young, but I will make them better with more practice and efforts.</p>
+
+<p>I&#8217;m a little compulsive, so I want to make my Vim running on every platform. Recently mainly for windows, mac and ubuntu. The configuration process for mac and ubuntu is intuitive. But it&#8217;s not the same with windows. So this blog post is mainly for recoding the configure process of gvim on windows 7 64-bit platform.</p>
+
+<!--more-->
+
+
+<h2>Installation</h2>
+
+<p>Install gvim on windows is very easy. You can download the green version of <a href="http://code.google.com/p/vim-win3264/downloads/detail?name=vim73-x64.zip&amp;can=2&amp;q=">gvim</a>. This is a 64-bit version of gvim. So make sure your windows system is 64-bit. After download it, you can extract it into  your login user account. Like c:/User/xxx(the &#8220;xxx&#8221; is your account name). Then open the vim73 directory, and double click the install.exe to install gvim. After installation, you can find three gvim shortcuts on your desktop.</p>
+
+<h2>Configure your existing Vim Repo</h2>
+
+<ul>
+<li>Use git to clone my repo to <code>vimfles</code> directory. This fold lies in the same level with vim73 directory . The vimfiles directory looks like the following:</li>
+</ul>
+
+
+<p><img class="left" src="http://andyque.github.com/images/posts/win7vimfiles.jpg" width="750" height="300"></p>
+
+<ul>
+<li>Configure your <em>vimrc file in your $HOME directory. (Note: $HOME is the c:/User/xxx). Add the following scripts to your </em>vimrc file.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">source</span> <span class="err">$</span><span class="n">VIMRUNTIME</span><span class="p">..</span><span class="err">\</span><span class="n">vimfiles</span><span class="err">\</span><span class="n">vimrc</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now the gvim can work with your existing Vim configurations.</p>
+
+<h2>Configure your plugins</h2>
+
+<ul>
+<li><p>Configure TagBar and Cppomnicomplete plugin. You should install Exuberant Ctags 5.8, and put catgs.exe to your&#8221;PATH&#8221;(Like System32 directory).</p></li>
+<li><p>Install Python2.7.1 64-bit versioin.</p></li>
+<li><p>Install splint for c++ syntax checking, jslint for javascript and luac for lua syntax checking.</p></li>
+<li><p>Configure snipMate plugin. Open vimfile/bundle/snipMat/plugin/snipMat.vim,add the following code to replace the 24th line .</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">let</span> <span class="n">snippets_dir</span> <span class="o">=</span> <span class="n">substitute</span><span class="p">(</span><span class="n">substitute</span><span class="p">(</span><span class="n">globpath</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rtp</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="o">/</span><span class="err">&#39;</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="sc">&#39;,&#39;</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">),</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="err">\\</span><span class="p">,</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">snippets</span><span class="p">,</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;g&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Last revise</h2>
+
+<p>We can add the following scripts at the end of _vimrc files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">set</span> <span class="n">guioptions</span><span class="o">-=</span><span class="n">m</span>
+</span><span class='line'><span class="n">set</span> <span class="n">guioptions</span><span class="o">-=</span><span class="n">T</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>These two lines can hidden your gvim Toolbar and Menubar.</p>
+
+<p>If you don&#8217;t like win32 command line commands, you can install <a href="http://dl.vmall.com/c0l2p58pa6">this package</a> for convenience.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[configuration vim and opencv2.4.2 on macos 10.8.2]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/"/>
+    <updated>2012-12-17T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>Now vim has become the &#8220;killer&#8221; editor for me. I use it for coding c/c++,lua,javascript and I find it is very powerful for scripting languages.</p>
+
+<p>Recently, I am studying the OpenCV library. So I want to make my vim suitable for developing opencv programs.</p>
+
+<p>Here is the configuration process.</p>
+
+<!--more-->
+
+
+<h2>Install OpenCV 2.4.2</h2>
+
+<p>You can follow these two links for the installation instructions.</p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/">http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/</a></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/">http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/</a></p>
+
+<h2>Generate opencv ctags</h2>
+
+<p>In order to generate ctags for opencv,you should install stags first. But be careful that the default ctags program shipped with mac is outdated. You should use homebrew to install the newest version of ctags.</p>
+
+<h3>Install Exuberant CTags</h3>
+
+<p>Open your terminal and write the following commands:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">brew</span> <span class="n">install</span> <span class="n">ctags</span><span class="o">-</span><span class="n">exuberant</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you wonder whether the installation is successfully or not. You can type the &#8220;ctags &#8211;version&#8221;.If you get the following output, then congratulations, you did it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">uberant</span> <span class="n">Ctags</span> <span class="mf">5.8</span><span class="p">,</span> <span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="mi">1996</span><span class="o">-</span><span class="mi">2009</span> <span class="n">Darren</span> <span class="n">Hiebert</span>
+</span><span class='line'>  <span class="nl">Compiled:</span> <span class="n">Nov</span>  <span class="mi">7</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">16</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mi">27</span>
+</span><span class='line'>  <span class="nl">Addresses:</span> <span class="o">&lt;</span><span class="n">dhiebert</span><span class="err">@</span><span class="n">users</span><span class="p">.</span><span class="n">sourceforge</span><span class="p">.</span><span class="n">net</span><span class="o">&gt;</span><span class="p">,</span> <span class="nl">http:</span><span class="c1">//ctags.sourceforge.net</span>
+</span><span class='line'>  <span class="n">Optional</span> <span class="n">compiled</span> <span class="nl">features:</span> <span class="o">+</span><span class="n">wildcards</span><span class="p">,</span> <span class="o">+</span><span class="n">regex</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After installation, We can use ctags to generate tag list for opencv code auto completion.</p>
+
+<h3>Generate ctags.</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+</span><span class='line'><span class="n">ctags</span> <span class="o">-</span><span class="n">R</span> <span class="o">--</span><span class="n">c</span><span class="o">++-</span><span class="n">kinds</span><span class="o">=+</span><span class="n">p</span> <span class="o">--</span><span class="n">fields</span><span class="o">=+</span><span class="n">iaS</span> <span class="o">--</span><span class="n">extra</span><span class="o">=+</span><span class="n">q</span> <span class="p">.</span><span class="o">/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then you can use the generated tags for auto completion. For more information, you can refer to this <a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">link</a>.</p>
+
+<h2>Configure your vimrc file</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="s">&quot;add command to complie opencv program&quot;</span>
+</span><span class='line'><span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">silent</span><span class="o">&gt;&lt;</span><span class="n">leader</span><span class="o">&gt;</span><span class="mi">2</span> <span class="o">:</span><span class="n">call</span> <span class="n">CompileRunOpencv</span><span class="p">()</span> <span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">function</span><span class="o">!</span> <span class="n">CompileRunOpencv</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">let</span> <span class="n">IncDir</span> <span class="o">=</span> <span class="s">&quot;/usr/local/include&quot;</span>
+</span><span class='line'>    <span class="n">let</span> <span class="n">LibDir</span> <span class="o">=</span> <span class="s">&quot;/usr/local/lib&quot;</span>
+</span><span class='line'>    <span class="n">let</span> <span class="n">Libs</span> <span class="o">=</span> <span class="s">&quot;-lopencv_core -lopencv_highgui -lopencv_imgproc&quot;</span>
+</span><span class='line'>    <span class="n">exec</span> <span class="s">&quot;w&quot;</span>
+</span><span class='line'>    <span class="n">exec</span> <span class="s">&quot;lcd %:p:h&quot;</span>
+</span><span class='line'>    <span class="n">exec</span> <span class="s">&quot;r !g++ -I&quot;</span> <span class="p">.</span> <span class="n">IncDir</span> <span class="p">.</span> <span class="s">&quot; -L&quot;</span> <span class="p">.</span> <span class="n">LibDir</span> <span class="p">.</span> <span class="s">&quot; % &quot;</span> <span class="p">.</span> <span class="n">Libs</span> <span class="p">.</span> <span class="s">&quot; -o %&lt; &quot;</span>
+</span><span class='line'>    <span class="n">echo</span> <span class="s">&quot;compile finished!&quot;</span>
+</span><span class='line'><span class="n">endfunc</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, you can use (leader 2) to compile your opencv file.</p>
+
+<p>At last, I post my macvim screen here:</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/myvim.jpg" width="750" height="300"></p>
+
+<h2>Limitations</h2>
+
+<p>With the above method, you can only compile one file at a time. So if you have more than one file, you could change theresponding g++ compile instructions.</p>
+
+<h2>References</h2>
+
+<p><a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim</a></p>
+
+<p><a href="http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim">http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim</a></p>
+
+<p><a href="http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/">http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/</a></p>
+
+<p><a href="http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716">http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocos2d classic tutorial demo revisit]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/"/>
+    <updated>2012-12-04T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/ScreenshotSmall1.jpg" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>These tutorials series are a attempt trying to reimplement classic coco2d tutorials with cocos2d-html5 and cocos2d-x(use lua &amp; native language c++).</p>
+
+<p>I do this job mainly for two reasons:</p>
+
+<ul>
+<li><p>cocos2d-x and cocos2d-html5 are extremly lack of game tutorials, most cocos2d tutorials are written with Objective-c. Some people may not be confortable with Objective-c&#8217;s strange syntax and this&#8217;ll be a obstacle for them to learn cocos2d-x and cocos2d-html5.</p></li>
+<li><p>learning javascript and lua,especially the function programming style. At the same time, if I post the porting experience with you, you guys can give me feedback. Then I&#8217;ll learn a lot.</p></li>
+</ul>
+
+
+<p>I will write these post series in the following step:</p>
+
+<ul>
+<li><p>Give a real, playable html5 game made with cocos2d-html5.(Have fun with the game, you can also tweak the gameplay to make it better.)</p></li>
+<li><p>Talk something related to the keypoint of making such a game.</p></li>
+<li><p>Compare the main difference of js, c++ ,lua and objc&#8217;s implementation(Note:All of them are cocos2d style).</p></li>
+</ul>
+
+
+<p>I think during the process, it&#8217;ll make a difference. :)</p>
+
+<!--more-->
+
+
+<h2>Game Showcase</h2>
+
+<p><strong>Note: Click to shoot bad enemies!</strong></p>
+
+<iframe width="480" height="320" src="http://andyque.github.com/games/SimpleGame/index.html"></iframe>
+
+
+<h2>The Keypoint of Making such a game</h2>
+
+<p>This game is made by Raywenderlich.com, the best tutorials website in the world. The SimpleGame tutorial is composed of three part(<a href="http://www.raywenderlich.com/25736/how-to-make-a-simple-iphone-game-with-cocos2d-2-x-tutorial">part1</a>,<a href="http://www.raywenderlich.com/25791/rotating-turrets-how-to-make-a-simple-iphone-game-with-cocos2d-2-x-part-2">part2</a>,<a href="http://www.raywenderlich.com/25806/harder-monsters-and-more-levels-how-to-make-a-simple-iphone-game-with-cocos2d-2-x-part-3">part3</a>), I think it&#8217;s the best introduction tutorials for cocos2d learners. And there are lots of cocos2d game tutorials in Ray&#8217;s site, all of my following work will start from there too. So thank you Ray for making so many awesome tutorials for us. (Note:Now these awesome tutorials have been translated to many languages,I am a Chinese translator in Ray&#8217;s translation team,I am the core member of Tyran tream. You can refer Ray&#8217;s website for <a href="http://www.raywenderlich.com/about#teamtyran">more information</a> about us.)</p>
+
+<p>SimpleGame is a shooting game, I think the keypoint of making this kind of game is:</p>
+
+<ul>
+<li><p>Caculate shooting path and shooting angles</p></li>
+<li><p>Collison detection between bullets and enemies</p></li>
+<li><p>Spawn enemies and how to design different challange levels</p></li>
+</ul>
+
+
+<p>In these tutorials, you will find it&#8217;s easy for us to implement.Yes it is, because it&#8217;s a introduction tutorial. Not yet, though it&#8217;s a simple game, but it&#8217;s a complete game. It&#8217;s easy usablity mainly due to the desin of cocos2d. I think it&#8217;s the most awesome 2d game framework. You can write games even though you don&#8217;t know much about the low level graphic APIs. At the same time, you can also add your own graphic specific code to the framework. I highly recommend you to try cocos2d when you want to make you own games.</p>
+
+<p>For the three keypoint, you should be familar with High School Triangle and some APIs providered by cocos2d. You can refer to the code for more details. In this simple game tutorial,the enemy type and level design is very simple, but it points you to the right direction. You can do more with this minimum game.</p>
+
+<h2>Implementation Details Comparison</h2>
+
+<p>I think it&#8217;s hard for me to compare all the details of these implementations. It&#8217;s no need to do so, you can refer to the soucecode for more informations. What I am talking here is the &#8220;Biggest difference&#8221; when I am porting them.</p>
+
+<p>When porting Objective-c code to c++, it&#8217;s not very nonintuitive, you can refer to cocos2d-x.org for more infos. But the site don&#8217;t talk much about how to port c++ to js and lua. If you are familar with all these languages, I think it&#8217;s an easy job for you. But even you know these three languages well, maybe there are still some tricks you&#8217;ll want to know in advance.</p>
+
+<ul>
+<li><p>cocos2d-html5 use js to mimic object oriented programming style. The class and inheritence idea are taken from  &#8221;<a href="http://ejohn.org/blog/simple-javascript-inheritance/">Simple JavaScript Inheritance</a>&#8221;, it makes our life easier when we use js to write object oriented code. So if you are familar with cocos2d-x&#8217;s cpp programming style, it&#8217;ll not be very difficult for you to rewrite it with js. Cocos2d-html5 use &#8220;cc&#8221; global variable to mimic a namespace where all cocos2d stuff are stay in. If you want to get a sprite, you can use cc.Sprite.create to accomplish it. Most cocos2d-x functionlity are ported to cocos2d-html5. You&#8217;d better refer to the show case &#8220;Moon Warrior&#8221; when you don&#8217;t know how to implement a specific feature.</p></li>
+<li><p>The future of cocos2d maybe is jsbinding, one promise that one codebase can run every platform(ios,android,browse,desktp etc). So we can learn it earlier for preparing.</p></li>
+<li><p>cocos2d-x&#8217;s lua binding is made with tolua++, it makes lua API almostly the same as c++ API. Jsbinding does change some function and micro names, but lua doesn&#8217;t. Sure you can do that if you like. You can also change tolua++ bindings or wrap a high level lua API based on the default lua bindings.</p></li>
+</ul>
+
+
+<p>When porting code to lua style, it really takes me some time. The reasons are so many.</p>
+
+<ul>
+<li><p>I am new to lua and tolua++. But more important thing is  that I try to programming lua code use cpp style. It&#8217;s totally wrong! Lua comes with table and function programming, I should programming lua in another different sytle, yes, lua style.</p></li>
+<li><p>Don&#8217;t use CCArray in lua code, use table instead.</p></li>
+<li><p>Don&#8217;t try to inherit C++ class from lua and it&#8217;s not proper to inheretence tolua++ class from lua side. Treat tolua++ class as a table. You could add field and method to it directly. No class, no inheritance,it&#8217;s all Tables!</p></li>
+<li><p>If you want to schedule a function in lua,you&#8217;ll use CCDirector&#8217;s Scheduler field to accomplish.</p></li>
+<li><p>If you want to add some code to CCNode(all of it&#8217;s subclasses)&#8217;s onEnter and onExit method, you can use CCNode&#8217;s registerScriptHandler function.</p></li>
+</ul>
+
+
+<p>There are more details you&#8217;ll want to know, go ahead, grab the code and dig into it.</p>
+
+<p>Enjoy, happy coding! :)</p>
+
+<p>Source code links:</p>
+
+<ul>
+<li><a href="https://www.dropbox.com/s/ov5d1ltleb7pvmp/SimpleGame-cpp.zip">cpp version</a></li>
+<li><a href="https://www.dropbox.com/s/zgwdqdhifbroqu3/SimpleGame-js.zip">javscript version</a></li>
+<li><a href="https://www.dropbox.com/s/t1nr3k31n26asm8/SimpleGame-lua.zip">lua version</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：委托和委托设计模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/"/>
+    <updated>2012-11-19T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>前言：</p>
+
+<p>前一篇文章讨论了cocos2d-x里面的中介者模式，但是，由于概念把握上面的偏差，我把GoF的中介者模式搞混淆了。幸好有读者给我提出了这个问题，我在上一篇文章中也补充说明了。虽然我谈到的应用场景跟中介者模式有点类似，但是，经典的模式就是模式，我不能随便篡改，更不能张冠李戴。所以，这篇文章我将谈到的是委托模式（delegation pattern），而不是GoF里面的代理模式（Proxy pattern）,虽然delegate也可以翻译成“代理”，但是，为了以示区别，这里使用委托。当然，文章观点如果有误，欢迎大家指出。</p>
+
+<!--more-->
+
+
+<p>在讨论cocos2d-x里面的委托模式之前，先来讲讲什么是委托，以及c++里面如何实现委托。委托通常还会跟回调、闭包联系在一起，而委托和委托模式也有一点区别。下面先看看委托模式的例子</p>
+
+<p>一个打印机类的委托模式实现：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">RealPrinter</span> <span class="p">{</span> <span class="c1">// the &quot;delegate&quot;</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>     <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//do something</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'> <span class="p">}</span><span class="err">；</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Printer</span> <span class="p">{</span>      <span class="c1">// the &quot;delegator&quot;</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>     <span class="n">Printer</span><span class="p">()</span><span class="o">:</span> <span class="n">p</span><span class="p">(</span><span class="k">new</span> <span class="n">RealPrinter</span><span class="p">()){}</span> <span class="c1">// create the delegate</span>
+</span><span class='line'>     <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>       <span class="n">p</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span> <span class="c1">// delegation</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'>     <span class="o">~</span><span class="n">Printer</span><span class="p">(){</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span> <span class="o">!=</span> <span class="n">p</span><span class="p">){</span>
+</span><span class='line'>          <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'><span class="k">private</span><span class="o">:</span>
+</span><span class='line'>     <span class="n">RealPrinter</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</span><span class='line'> <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">Printer</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Printer</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">p</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span>  <span class="c1">//client don’t know the exists of delegate class</span>
+</span><span class='line'>    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Printer这个类要实现打印功能，它不是自己去实现，而是委托RealPrinter这个类来实现。更一般化的示例如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">PrinterDelegate</span><span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">virtual</span> <span class="o">~</span><span class="n">PrinterDelegate</span><span class="p">(){}</span> <span class="c1">// why virtual function , see Effective c++ Item 7.</span>
+</span><span class='line'>    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">RealPrinter</span> <span class="o">:</span> <span class="k">public</span> <span class="n">PrinterDelegate</span> <span class="p">{</span> <span class="c1">// the &quot;delegate&quot;</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//do something</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Printer</span><span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">Printer</span><span class="p">()</span><span class="o">:</span><span class="n">delegate</span><span class="p">(</span><span class="k">new</span> <span class="n">RealPrinter</span><span class="p">){}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">print</span><span class="p">(){</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">!=</span> <span class="n">delegate</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">delegate</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="o">~</span><span class="n">Printer</span><span class="p">(){</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span> <span class="o">!=</span> <span class="n">delegate</span><span class="p">){</span>
+</span><span class='line'>          <span class="k">delete</span> <span class="n">delegate</span><span class="p">;</span>
+</span><span class='line'>          <span class="n">delegate</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>     <span class="p">}</span>
+</span><span class='line'><span class="k">private</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">PrinterDelegate</span> <span class="o">*</span><span class="n">delegate</span><span class="p">;</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">Printer</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Printer</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">p</span><span class="o">-&gt;</span><span class="n">print</span><span class="p">();</span>  <span class="c1">//client don’t know the exists of delegate class</span>
+</span><span class='line'>    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>看完这个实现之后，相信大家对objc里面的delegate如何用c++实现也差不多有了解了吧。其实很简单，就是一个针对接口编程嘛。关于如何实现mvc，Cocos2d-x中文论坛里面已经有一个人给出了一个<a href="http://cn.cocos2d-x.org/bbs/forum.php?mod=viewthread&amp;tid=686&amp;highlight=mvc">样例实现</a>，具体我没怎么看，大家参考一下吧。</p>
+
+<p>看完这个实现之后，你可能会说，“切！这就是你说的委托模式啊，也太简单了吧”。不过，我们要把委托更一般化，或者更具体化。用过c＃的朋友都知道，c#里面有一种类型delegate，它可以申明委托方法，从而实现事件驱动编程。具体的内容读者可以百度“c#的委托和事件”。</p>
+
+<p>其实委托就是一个方法，但是它可以被当作“First-classvariable”来对待。即函数可以被存储，被传参，还可以从其它函数内部返回。拥有这种特性，同时大量采用这种特性的语言还有javascript，lua等，这也是现在我们津津乐道的函数式编程。那么c++能不能拥有函数式编程体验呢？答案是肯定的。c++中的函数指针，指向成员函数的指针、函数子对象都可以被存储、被传参，还可以从其它函数内部返回。而cocos2d-x里面也是大量采用了这种指向成员函数的指针来实现委托，这个留到后面再讨论。自从c++11的标准发布以后，我们还可以采用lambda表达式。那么c++到底有多少种方式可以实现委托呢？请参考这个<a href="http://stackoverflow.com/questions/9568150/what-is-a-c-delegate">链接</a>。对于更多的实现委托的方式，可以参考文章结尾给出的链接，很重要哦，感兴趣的读者不可错过。看完这些文章，相信读者对于什么是委托、c++里面如何实现委托以及什么是委托模式，它们之间有什么区别应该比较清楚了。</p>
+
+<p>好了，讲了这么多题外话，现在回到cocos2d-x的委托设计模式发掘中来吧！</p>
+
+<h3>一、应用场景</h3>
+
+<p>在挖掘委托模式之前，我们先探究一下，什么情况下会使用委托模式。（因为我们前面回答了what和how的问题，现在来研究下when）。如果我们了解了应用委托模式的一般原则和场景，那么接下来的发掘过程会容易很多。</p>
+
+<p>一个典型的应用场景是GUI编程中，当一个按钮被点击或者一个窗口被关闭时，程序需要做相应的响应，这时候就需要委托了。什么意思呢？因为我们的GUI程序一直在等待用户输入，然后根据用户输入作出相应的响应，在用户没有做出“按下按钮”这个动作之前，我们的程序是不知道如何响应的。这个按钮被按下去的响应动作，在你设计按钮类的时候是无法确定的，必须在客户程序中指定。客户程序实现响应按钮事件的接口，然后注册，这样当事件发生的时候，客户端程序类（相当于委托类）就可以作出定制的处理了。</p>
+
+<p>这种在运行时刻进行任务委派的功能，在设计框架和可重用的组件的时候非常有用，大名鼎鼎的MVC就大量采用了委托设计模式（观察者模式和策略模式都可以看到是一般化的委托模式）。</p>
+
+<p>这时候，我们再来挖掘cocos2d-x里面的委托设计模式，其实已经非常简单了。Cocos2d-x里面的CCMenu的响应事件，CCControlButton的响应事件，还有一大堆scheduler的实现，都采用了委托设计模式。它的实现细节就是采用了指向成员函数的指针，不过由于采用了宏定义的方式，所以编写代码还算方便。打开CCObject.h，你可以看到一大堆函数指针和相关的宏定义：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_SCHEDULE</span><span class="p">)(</span><span class="kt">float</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_CallFunc</span><span class="p">)();</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_CallFuncN</span><span class="p">)(</span><span class="n">CCNode</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_CallFuncND</span><span class="p">)(</span><span class="n">CCNode</span><span class="o">*</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_CallFuncO</span><span class="p">)(</span><span class="n">CCObject</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_MenuHandler</span><span class="p">)(</span><span class="n">CCObject</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_EventHandler</span><span class="p">)(</span><span class="n">CCEvent</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">int</span> <span class="p">(</span><span class="n">CCObject</span><span class="o">::*</span><span class="n">SEL_Compare</span><span class="p">)(</span><span class="n">CCObject</span><span class="o">*</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#define schedule_selector(_SELECTOR) (SEL_SCHEDULE)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define callfunc_selector(_SELECTOR) (SEL_CallFunc)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define callfuncN_selector(_SELECTOR) (SEL_CallFuncN)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define callfuncND_selector(_SELECTOR) (SEL_CallFuncND)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define callfuncO_selector(_SELECTOR) (SEL_CallFuncO)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define menu_selector(_SELECTOR) (SEL_MenuHandler)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define event_selector(_SELECTOR) (SEL_EventHandler)(&amp;_SELECTOR)</span>
+</span><span class='line'><span class="cp">#define compare_selector(_SELECTOR) (SEL_Compare)(&amp;_SELECTOR)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>上面列举的是指向成员函数的指针来实现委托，那有没有采用接口来实现委托的呢？答案也是肯定的。在解析CocosBuilder生成的文件的时候，我们定制的类如果要关联成员变量，或者定义控件的响应消息的话，都需要实现相应的委托接口，如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">AnimationsTestLayer</span>
+</span><span class='line'><span class="o">:</span> <span class="k">public</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">CCLayer</span>
+</span><span class='line'><span class="p">,</span> <span class="k">public</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCBSelectorResolver</span>
+</span><span class='line'><span class="p">,</span> <span class="k">public</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCBMemberVariableAssigner</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">virtual</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">SEL_MenuHandler</span> <span class="n">onResolveCCBCCMenuItemSelector</span><span class="p">(</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pTarget</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">CCString</span> <span class="o">*</span> <span class="n">pSelectorName</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">virtual</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">SEL_CCControlHandler</span> <span class="n">onResolveCCBCCControlSelector</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pTarget</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">CCString</span> <span class="o">*</span> <span class="n">pSelectorName</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">virtual</span> <span class="kt">bool</span> <span class="n">onAssignCCBMemberVariable</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pTarget</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">CCString</span> <span class="o">*</span> <span class="n">pMemberVariableName</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">CCNode</span> <span class="o">*</span> <span class="n">pNode</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">onCCControlButtonIdleClicked</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pSender</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCControlEvent</span> <span class="n">pCCControlEvent</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">onCCControlButtonWaveClicked</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pSender</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCControlEvent</span> <span class="n">pCCControlEvent</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">onCCControlButtonJumpClicked</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pSender</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCControlEvent</span> <span class="n">pCCControlEvent</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">onCCControlButtonFunkyClicked</span><span class="p">(</span><span class="n">cocos2d</span><span class="o">::</span><span class="n">CCObject</span> <span class="o">*</span> <span class="n">pSender</span><span class="p">,</span> <span class="n">cocos2d</span><span class="o">::</span><span class="n">extension</span><span class="o">::</span><span class="n">CCControlEvent</span> <span class="n">pCCControlEvent</span><span class="p">);</span>
+</span><span class='line'><span class="err">｝</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这中间很多代码省略掉了，具体的可以查考cocos2d-x自带的test里面的extensionTest。</p>
+
+<h3>二、该模式优缺点</h3>
+
+<p>优点：</p>
+
+<p>1、解耦，将应用相关的内容与框架完全分享出来，在设计可重用的组件的时候特别有用。</p>
+
+<p>2、可扩展性和可配置性高，而且可以在运行时候切换委托对象，具有很强的灵活性。</p>
+
+<p>缺点：</p>
+
+<p>1、采用接口的实现，由于使用了虚函数，所以性能上会有一点损失。虽然采用指向成员函数的指针的方式来实现效率非常高，但是，语法很诡异，使用起来其实还是不太爽的。尽管cocos2d-x已经用宏定义让使用方便了一些。</p>
+
+<p>2、如果过度使用，容易导致职责分散，导致维护麻烦。</p>
+
+<h3>三、定义及一般实现</h3>
+
+<p>定义：参考<a href="http://en.wikipedia.org/wiki/Delegation_pattern">维基百科</a>（因为我实在是很难给出一个精确的定义orz）</p>
+
+<p>一般实现：也请参考<a href="http://en.wikipedia.org/wiki/Delegation_pattern">维基百科</a>（呵呵，其实之前已经在文章最开始的时候给出来了）</p>
+
+<h3>四、游戏开发中如何运用此模式</h3>
+
+<p>其实就是你要设计一些可重用的组件，或者有些行为在编译的时候无法确定，需要根据运行时环境指定，也可以采用委托。其实说白了，也就是对象组合+针对接口编程的产物。如果遵守了这些良好的设计原则，你的软件系统之中到处可以见到委托的缩影。</p>
+
+<p>当然，前面讨论的委托还是两个对象之间通信的一种方式。为什么不直接通信呢？因为解耦嘛，你懂的。</p>
+
+<p>最后，我还是给出一个我自己使用委托设计的可重用的<a href="http://dl.vmall.com/c0of5hl18w">模态对话框类</a>。注意，这里采用的是cocos2d-iphone设计的。读者如果有兴趣，可以改成c++来实现，权当是一次练手的机会啦。</p>
+
+<h3>五、与其它模式的关系</h3>
+
+<p>委托模式与mvc、观察者和策略模式有着千丝万缕的联系：）。</p>
+
+<h3>References:</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Delegation_(programming">http://en.wikipedia.org/wiki/Delegation_(programming)</a>)</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Delegation_pattern">http://en.wikipedia.org/wiki/Delegation_pattern</a></p>
+
+<p><a href="http://allenchou.net/2012/04/easy-c-delegates/">http://allenchou.net/2012/04/easy-c-delegates/</a></p>
+
+<p><a href="http://allenchou.net/2012/04/function-pointers-vs-member-function-pointers/">http://allenchou.net/2012/04/function-pointers-vs-member-function-pointers/</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible">http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible</a></p>
+
+<p><a href="http://stackoverflow.com/questions/9568150/what-is-a-c-delegate">http://stackoverflow.com/questions/9568150/what-is-a-c-delegate</a></p>
+
+<p><a href="http://www.cppblog.com/huangwei1024/archive/2010/11/17/133870.html">http://www.cppblog.com/huangwei1024/archive/2010/11/17/133870.html</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/11464/Yet-Another-C-style-Delegate-Class-in-Standard-C">http://www.codeproject.com/Articles/11464/Yet-Another-C-style-Delegate-Class-in-Standard-C</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/13287/Fast-C-Delegate">http://www.codeproject.com/Articles/13287/Fast-C-Delegate</a></p>
+
+<p><a href="http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates">http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates</a></p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：中介者模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator/"/>
+    <updated>2012-11-12T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/11/12/cocos2d-x-desin-patterns-8-mediator</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300">
+前言：</p>
+
+<p>上上周写了关于<a href="http://www.zilongshanren.com/cocos2d-x-design-pattern-6-observer/">cocos2d-x里面的观察者模式</a>，文章最后提到一个应用场景：“你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。”</p>
+
+<p>关于这两个层之间如何通信的问题，读者Llllong和我畅快淋漓地讨论了一番，详细的内容可以参考那篇文章的留言部分。最后，我们总结出三种通信方式：委托、观察者模式、中介者模式。（PS：剧透一下，下周跟大家一起来探讨一下cocos2d-x里面的委托设计模式。我去年翻译了<a href="http://www.cnblogs.com/andyque/archive/2012/03/11/2390814.html">cocos2d如何实现mvc系列文章</a>，里面涉及到委托的使用，可是代码是objc写的，有一些童鞋不知道c++如何实现委托，导致port代码有困难。别急，下周我们见分晓。）</p>
+
+<p>本文将延续前面几篇文章的风格，跟大家一起来探讨cocos2d-x里面的中介者模式。也非常欢迎读者对此文进行拍砖，很多思绪的火光，“拍着拍着”就冒出来了。</p>
+
+<!--more-->
+
+
+<h2>1、应用场景</h2>
+
+<p>谈到中介者模式这个词，我马上就想到了cocos2d-x里面的CCDirector类。这个类除了应用了单例模式，还应用了中介者模式。Why？因为它封装了CCScheduler、CCActionManager、CCTouchDispatcher、CCKeypadDispatcher和CCAccelerometer这五个对象的交互。它使得这几个对象之间的交互不需要显式地相互引用，使其耦合度变低。当然更多的是使得我们游戏中的对象可以方便地与这些类进行交互，而不需要显式地引用这些类。同时，由于CCDirector类被设计成单例类，这样更加方便了客户程序。</p>
+
+<p>由于之前CCScheduler、CCActionManager、CCTouchDispatcher这些类都被设计成了单例类，现在通过CCDirector这个中介类，减少了系统中单例的数目，同时也使得这些类获得了单例的属性。（唯一实例和全局访问点都靠CCDirector类来保障，这也是我为什么在介绍单例模式的时候讲过一句话“至少需要一个单例模式”的原因，因为其它“单例”可以通过此单例也获得“单例的属性”）</p>
+
+<p>补充：我这里介绍的CCDirector的应用场景，跟GoF标准中介者设计模式存在一定出入，但是，我觉得某些思想是相通的。GoF中提到的中介者模式的本质是“封装交互”，这一点在CCDirector类中并没有体现出来。我这里冒然将二者联系在一起，实属认识上的不足，可能得了所谓的“模式病”吧。大家注意区分一下就行啦。所以，我感觉有时候设计思想比模式本身更重要，希望我尽快修成正果。</p>
+
+<h2>2、使用该模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）、把多个同事对象的交互封装到一个中介者对象中，使得同事对象之间松散耦合，互不依赖</p>
+
+<p>2）、集中控制交互</p>
+
+<p>3）、多对多变成了一对多</p>
+
+<p>缺点：</p>
+
+<p>1）、容易造成中介者对象变成巨无霸类，维护和修改变得更加困难</p>
+
+<h2>3、模式定义及一般实现</h2>
+
+<p>定义：</p>
+
+<p>用一个中介对象来封装一系列的对象交互。中介者使得各对象不需要显式地相互引用，从而使其松散耦合，而且可以独立地改变它们之间的交互。</p>
+
+<p>UML图：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/mediator.jpg" width="750" height="300"></p>
+
+<p>一般实现：参考<a href="http://en.wikipedia.org/wiki/Mediator_pattern">wikipedia</a></p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>游戏世界里的对象关系非常复杂，如果设计得不好，极容易形成强耦合。而游戏天生又是需要经常更新、修改bug和升级的，这就导致了游戏程序的维护和扩展非常地难。使用中介者模式可以减少游戏世界里面对象之间的多对多关系，使之转变成多对一的关系。</p>
+
+<p>关于中介者的实现，可以把AppDelegate类设计成中介者对象，也可以自定义中介者对象，比如GameManager类。把此类设计成单例类，可以方便访问，同时，此类可以拥有像gameScene，levelSaver等类的引用，方便其它对象与这些对象进行交互。</p>
+
+<h2>5、与其它模式的关系</h2>
+
+<p>中介者模式的实现可以采用单例模式，参考CCDirector的实现。同时，在处理同事对象之间的交互的时候，可以采用观察者模式。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：组合模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/11/05/cocos2d-x-design-patterns-7-composite/"/>
+    <updated>2012-11-05T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/11/05/cocos2d-x-design-patterns-7-composite</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>在开始挖掘cocos2d-x里面的组合模式之前，我武断地下个结论：</p>
+
+<p>“几乎所有与GUI相关的框架设计都应用了组合设计模式”。（PS：大家注意我的用词，是“几乎所有”，给自己留条后路，哈哈）</p>
+
+<h2>1、应用场景</h2>
+
+<p>Cocoa编程框架APPKit和UIKit都应用了组合模式，各种各样的View及其派生类组成了一棵树状结构的层级视图，而这里面就应用了组合模式。当然，Cocos2D-x里面的Node组织方式也采用的是这个方法，最终游戏界面中的Nodes也会形成一棵树。</p>
+
+<p>说到树，我们马上就会想到树根，树干和树叶。一棵树一般只包含一个根，若干树干和大量的叶子。同时，树干长在树根上，树叶长在树干上。（PS：这有点废话了，不过读者莫急，耐着性着往下看。）对应于Cocos2d-x里面，就是一个游戏有一个主场景GameScene，它是树根，然后它有若干个树干（GameLayer、HudLayer、InputLayer、BackgroundLayer和LevelLayer等），最后，每一个树干又包含若干个树叶（比如sprite、particles、font、TiledMap nodes、etc）。</p>
+
+<!--more-->
+
+
+<p><img class="left" src="http://andyque.github.com/images/posts/tree-nodes-labeled.png" width="750" height="300"></p>
+
+<p>说完了这些，你可能会问了，这跟组合模式有毛关系啊。好，组合模式正式登场！</p>
+
+<p>cocos2d-x里面的CCScene、CCLayer、CCNode派生类(不含CCLayer和CCScene)共同组成了一个树形结构，同时我们可以以一致地方式来处理这些类，比如addChild、removeChild和getChildren。处理“整体-部分关系”（通常是树形结构），并且能够以一致地方式来对待整体与部分，这不正是组合模式的应用场景吗。</p>
+
+<h2>2、使用该模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）、优化处理递归或分级数据结构。</p>
+
+<p>2）、一致地对待组合对象与单个对象，可以简化客户端调用</p>
+
+<p>缺点：</p>
+
+<p>1）、如果是透明实现的组合模式，单个对象也会包含组合对象的方法，这样会给客户端调用造成麻烦，因为单个对象实际上是不会实现这些组合对象的方法的。</p>
+
+<h2>3、模式定义及一般实现</h2>
+
+<p>模式定义：</p>
+
+<p>将对象组合成树形结构以表示“部分整体”的层次结构。组合模式使得用户对单个对象和使用具有一致性。</p>
+
+<p>UML类图：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/600px-Composite_UML_class_diagram_fixed.svg_.png" width="750" height="300"></p>
+
+<p>一般实现：参考<a href="http://www.cnblogs.com/tiandsp/archive/2012/06/26/2563575.html">这篇文章</a></p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>因为游戏开发不是设计框架，基本上使用组合模式的情形不多。但是，如果有递归或者树形结构的对象关系，都可以考虑使用组合模式。</p>
+
+<h2>5、与其它模式的关系</h2>
+
+<p>暂不讨论</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：观察者模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/10/29/cocos2d-x-design-pattern-6-observer/"/>
+    <updated>2012-10-29T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/10/29/cocos2d-x-design-pattern-6-observer</id>
+    <content type="html"><![CDATA[<h2>1、应用场景</h2>
+
+<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>前面在介绍单例模式的时候，提到了一个类CCNotificationCenter，它除了应用单例模式以外，还应用了观察者模式。CCNotificationCenter类是观察者模式中的目标对象，而CCNotificationObserver则是观察者。</p>
+
+<p>一个目标对象可以注册多个观察者，当目标对象的状态改变的时候，可以通知观察者对象作出相应的响应。这是标准的观察者模式的实现，但是CCNotificationCenter稍微有些许差别。</p>
+
+<!--more-->
+
+
+<p>首先，CCNotificationCenter不是通过自身状态改变来通知观察者，而是通过显式地发送观察者感兴趣的消息（postNotification）来通知它们。每一种消息类型可以对应多个观察者，同时，每一个观察者也可以“观察”多个消息类型。其次，观察者定义相应的响应事件同消息类型关联，当某个地方触发postNotification来广播一个消息的时候，CCNotificationCenter会遍历所有的观察者，判断它们注册的消息类型是否匹配，如果匹配，则触发相应的注册响应事件。最后，该观察者模式采用的是推模型，即由目标对象去通知所有的观察者。</p>
+
+<p>其实CCNotificationCenter和CCNotificationObserver更准确的叫法是：<a href="http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">订阅发布模式</a>。</p>
+
+<h2>2、使用此模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）实现了目标对象和观察者之间的抽象耦合，在本例中，则是实现了消息与观察者的抽象耦合。可以定义一种消息与消息处理对象的一对多的关系，而不用担心彼此的实现细节。</p>
+
+<p>2）观察者模式可以定义某种意义上的广播通信机制。</p>
+
+<p>3）实现订阅者与发布者的松散耦合，同时保障了良好的扩展性。</p>
+
+<p>缺点：</p>
+
+<p>1）注册成为CCNotificationCenter的观察者后，如果忘记调用removeObserver，则会引起内存泄漏。因为addObserver会把观察者的引用计算加1.</p>
+
+<h2>3、此模式的定义及一般实现</h2>
+
+<p>定义：</p>
+
+<p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+
+<p>UML图：
+<img class="left" src="http://andyque.github.com/images/posts/500px-Observer.svg_.png" width="750" height="300"></p>
+
+<p>一般实现：参考CCNotificationCenter.h和CCNotification.cpp文件的实现</p>
+
+<h2>4、游戏开发中如何运用此模式</h2>
+
+<p>我们考虑cocos2d-x中一个非常典型的应用场景，你的GameScene里面有两个layer，一个gameLayer，它包含了游戏中的对象，比如玩家、敌人等。另一个层是HudLayer，它包含了游戏中显示分数、生命值等信息。如何让这两个层相互通信。</p>
+
+<p>第一种办法，你可以让gameLayer包含一个hudLayer的引用，同时也可以让hudLayer包含一个gameLayer的引用。注意！这里问题出现了，如果两个类都包含彼此的强引用（所谓强引用就是retain），就会引起循环引用的情况，如果其中一个类包含的是弱引用，问题就不会出现。循环引用是使用引用计数管理内存的一个致命弱点，会导致资源永远得不到释放，而且查错起来非常麻烦。</p>
+
+<p>第二种办法，把gameScene做成一个单例，同时让gameScene包含gameLayer和hudLayer的弱引用，这样就可以直接通过[GameScene sharedInstance].gameLayer或者[GameScene sharedInstance].hudLayer来访问了。</p>
+
+<p>第三种办法，使用gameLayer->getParent()获得gameScene，再使用gameScene来获得hudLayer。</p>
+
+<p>第四种办法，使用CCNotificationCenter。当hudLayer注册它感兴趣的消息，当gameLayer需要通知hudLayer的时候，只需通过CCNotificationCenter发送一个对应的消息即可。</p>
+
+<h2>5、此模式与其它模式的关系</h2>
+
+<p>观察者模式是实现MVC模式的重要组成部分，一个model可以对应多个views，model就是目标对象，而view则是观察者，当model改变的时候，要通知所有的view也相应的改变。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：防御式编程模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming/"/>
+    <updated>2012-10-21T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/10/21/cocos2d-x-design-patterns-5-protection-programming</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>声明：防御式编程是提高程序代码质量的一种手段，它不能算是真正意义上的模式。但是，这里，我还是要给它冠之以“模式”二字。</p>
+
+<p>原因有2：</p>
+
+<p>1.cocos2d-x的框架源代码大量采用了防御式编程技术，用来确保框架的代码质量和稳定性。</p>
+
+<p>2.标题党，引起大家对于防御式编程的重视。特别是当大家给cocos2d-x贡献源代码的时候，更应该要注意保证代码质量。因为，王哲大大在review很多人给cocos2d-x贡献代码时发现，这种防御式编程代码并不多，需要引起我们的注意。</p>
+
+<!--more-->
+
+
+<h2>1.应用场景</h2>
+
+<p>首先，第一个大量使用的是CCLayer的init函数：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="kt">bool</span> <span class="n">CCLayer</span><span class="o">::</span><span class="n">init</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">bool</span> <span class="n">bRet</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">do</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">CCDirector</span> <span class="o">*</span> <span class="n">pDirector</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">CC_BREAK_IF</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">pDirector</span> <span class="o">=</span> <span class="n">CCDirector</span><span class="o">::</span><span class="n">sharedDirector</span><span class="p">()));</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">-&gt;</span><span class="n">setContentSize</span><span class="p">(</span><span class="n">pDirector</span><span class="o">-&gt;</span><span class="n">getWinSize</span><span class="p">());</span>
+</span><span class='line'>        <span class="n">m_bIsTouchEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">m_bIsAccelerometerEnabled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>        <span class="c1">// success</span>
+</span><span class='line'>        <span class="n">bRet</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">bRet</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这里使用了do…while(0);惯用法，同时配合CC_BREAK_IF宏来做错误处理。关于为什么要使用do…while(0)惯用法，可以参考<a href="http://www.cnblogs.com/baiyanhuang/archive/2009/09/16/1730736.html">这篇文章</a>：</p>
+
+<p>另一个地方就是一些内存管理的宏，这些宏可以帮助我们编写更健壮的内存管理代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#define CC_SAFE_DELETE(p)            do { if(p) { delete (p); (p) = 0; } } while(0)</span>
+</span><span class='line'><span class="cp">#define CC_SAFE_DELETE_ARRAY(p)     do { if(p) { delete[] (p); (p) = 0; } } while(0)</span>
+</span><span class='line'><span class="cp">#define CC_SAFE_FREE(p)                do { if(p) { free(p); (p) = 0; } } while(0)</span>
+</span><span class='line'><span class="cp">#define CC_SAFE_RELEASE(p)            do { if(p) { (p)-&gt;release(); } } while(0)</span>
+</span><span class='line'><span class="cp">#define CC_SAFE_RELEASE_NULL(p)        do { if(p) { (p)-&gt;release(); (p) = 0; } } while(0)</span>
+</span><span class='line'><span class="cp">#define CC_SAFE_RETAIN(p)            do { if(p) { (p)-&gt;retain(); } } while(0)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最后一个地方，就是在函数的入口处，或者需要保证某些“不变量”的时候，使用assert断言来确保参数和返回结果的有效性。这个在cocos2d-x的源代码中也到处是可以看到的。</p>
+
+<h2>2.使用此模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>提高代码质量，使得代码的健壮性和稳定性都有保障。可以防止子程序由于接收到了非法数据而遭受破坏。</p>
+
+<p>缺点：</p>
+
+<p>过度的防御式编程也会引来问题，如果你在每一个能想到的地方用每一种能想到的方法检查从参数传入的数据，那么你的程序将会变得臃肿而缓慢。更糟糕的是，防御式编程引入的额外代码增加了软件的复杂度。所以运用是需谨慎。</p>
+
+<h2>3.此模式的定义及一般实现</h2>
+
+<p>子程序应该不因传入错误数据而被破坏，哪怕是由其他子程序产生的错误数据。</p>
+
+<p>我们一般可以采用以下手段来进行防御式编程：</p>
+
+<p>1）检查每个子程序的入口参数，记住“垃圾进、垃圾出”这个隐喻。必要的时候可以使用断言来确保函数的先验条件是符合假定的。因为很多时候，我们编写代码都是隐藏了一系列的假定的，只是你自己没有感觉到，有时候，这些假定没有关系，出了bug也容易找出来。但是，有时候，就不是那么幸运了。</p>
+
+<p>2）不要直接使用文字常量，比如3、“Hero.png”这种常量。尽可能地定义const定义常量或者使用宏定义。</p>
+
+<p>3）尽可能让函数返回一些东西，这样如果当函数运行出现问题时，可以根据返回值做一些处理。如果全部设计成void类型的函数，那么出现异常要么就是try—catch，要么就是直接让程序崩溃了。由于c++的异常机制并不是那么完善，所以，也一直为人们所诟病，cocos2d-x里面几乎没有使用c++的异常处理机制。最后，必要的时候要检查函数里面调用其它子程序时的返回值。</p>
+
+<h2>4.实际开发中如何采用此模式</h2>
+
+<p>在实际开发中，我个人觉得必要的防御式编程的态度和做法还是要有的。特别是函数的输入输出，因为函数的逻辑部分是我们关注地最多的，虽然它是最复杂的，但是，往往这部分出错的概率不高。</p>
+
+<p>相反，是函数的一些边界条件和异常情况导致程序bug的滋生。有些时候除了验证函数参数的数据值范围有效性以外，更加要注意的是验证数据的业务条件是否满足。这一点恰恰最容易被忽视。</p>
+
+<p>在做内存管理的时候，尽可能地使用cocos2d-x里面定义的一些宏来清理资源，比如CC_SAFE_DELETE等。当实现自定义的CCLayer对象的时候，也尽可能地采用do…while(0)的写法，如果里面出现问题，可以用CC_BREAK_IF来判断并退出。</p>
+
+<h2>5.此模式与其它模式的关系</h2>
+
+<p>暂不讨论</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之 ：外观模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/10/15/cocos2d-x-design-patterns-facade/"/>
+    <updated>2012-10-15T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/10/15/cocos2d-x-design-patterns-facade</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<h2>1.应用场景</h2>
+
+<p>Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。</p>
+
+<p>对于大多数用户来讲，游戏中操作声音，无非就是播放背景音乐和音效。CocosDenshion这个子系统封装了OpenAL，屏蔽了OpenAL操作声音的低级API。它提供了CDSoundEngine、CDAudioManager两个类来操作和管理声音。具体这两个类是如何工作的这里就不再讨论了，感兴趣的读者可以自行去研究相关代码。虽然CocosDenshion子系统已经封装了低级的操作声音的API，但是对于用户来讲，还是得了解该系统内部的类是如何一起协作来完成声音处理任务的。这样会加大用户使用此子系统的难度，同时，也使得客户程序与该子系统紧密耦合了。假如哪一天该子系统内部实现功能的组合有所变化，这势必会影响到客户程序。众所周知，操作游戏音乐的代码是分散在游戏代码各处的，那样会造成“散弹式”修改。这是个严重的代码坏味道，需要引起警觉，果断重构之！</p>
+
+<!--more-->
+
+
+<p>而外观模式就可以完美地解决此问题，SimpleAudioEngine就是最好的例子。如果使用过SimpleAudioEngine的人会发现，它实在是太简单了。但是，SimpleAudioEngine并不是万能的，比如，它就无法实现循环播放音效的功能。但是，没有关系，你可以使用CDSoundEngine来实现这个功能。</p>
+
+<p>请注意，SimpleAudioEngine并没有增加新的功能，而只是把子系统现有的类进行组合来完成一些常用的任务，简化客户程序的使用。子系统对于外观类是不知情的，即子系统不会包含外观类的指针。</p>
+
+<h2>2.使用外观模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）它对客户屏蔽子系统组件，因而减少了客户处理的对象的数目，并使得子系统使用起来更加方便。</p>
+
+<p>2）它实现了子系统与客户之间的松耦合关系，而子系统内部的功能组件往往是紧密耦合的，这样当子系统功能组件发生变化的时候，只需要修改外观类的实现就可以了，避免了程序代码的“散弹式”修改。</p>
+
+<p>3）同时，外观类并不限制客户直接使用子系统的功能组件，如果客户想使用子系统的更加高级的功能，可以越过外观类直接访问子系统的类。</p>
+
+<p>缺点：</p>
+
+<p>1）过多的或者不太合理的Façade也容易让人迷惑。到底是调用Façade好呢，还是直接调用子系统的模块好呢。</p>
+
+<h2>3.外观模式的定义及一般实现</h2>
+
+<p>UML图：
+<img class="left" src="http://andyque.github.com/images/posts/FacadeDesignPattern.png" width="750" height="300"></p>
+
+<p>定义：
+为子系统中的一组接口提供一个一致的界面，它定义了一个高层接口，这个接口使得子系统更加容易使用。它很好地体现了“最少知识原则”。</p>
+
+<p>它的本质是：封装交互、简化调用。</p>
+
+<p>实现(摘至维基百科)：</p>
+
+<p>考虑下面一个例子：</p>
+
+<p>设计你（You）如何与一台计算机（facade）进行交互，而计算机是一个非常复杂的系统，它内部包含CPU、HardDrive等。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cm">/* Complex parts */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CPU</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">freeze</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">jump</span><span class="p">(</span><span class="kt">long</span> <span class="n">position</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">execute</span><span class="p">()</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Memory</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">load</span><span class="p">(</span><span class="kt">long</span> <span class="n">position</span><span class="p">,</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">HardDrive</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="n">byte</span><span class="p">[]</span> <span class="n">read</span><span class="p">(</span><span class="kt">long</span> <span class="n">lba</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Facade */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Computer</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">CPU</span> <span class="n">cpu</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">Memory</span> <span class="n">memory</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="n">HardDrive</span> <span class="n">hardDrive</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="n">Computer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">cpu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CPU</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">memory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Memory</span><span class="p">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="p">.</span><span class="n">hardDrive</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HardDrive</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">void</span> <span class="n">startComputer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">freeze</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">memory</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">BOOT_ADDRESS</span><span class="p">,</span> <span class="n">hardDrive</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">BOOT_SECTOR</span><span class="p">,</span> <span class="n">SECTOR_SIZE</span><span class="p">));</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">jump</span><span class="p">(</span><span class="n">BOOT_ADDRESS</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">cpu</span><span class="p">.</span><span class="n">execute</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* Client */</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">You</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="kt">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">Computer</span> <span class="n">facade</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Computer</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">facade</span><span class="p">.</span><span class="n">startComputer</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4.游戏开发中如何运用此模式</h2>
+
+<p>游戏开发过程中，暂时还没发现此模式的明显用法。不过，模式不是说学习了一定要马上就用到，那样会导致过度设计。如果读者开发游戏过程中，积累出一套比较成熟的框架，而这个框架又可以划分多个子系统，比如碰撞子系统、网络子系统、数据持久化子系统等。当外部使用此子系统时，操作的类过多，理解起来特别复杂时，这时候就可以考虑引入一个Façade类，来简化客户程序与子系统之间的调用关系。</p>
+
+<h2>5.外观模式与其它模式的关系</h2>
+
+<p>通常来讲只需要一个外观类，所以可以采用单例模式。</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocosd-x设计模式之三：管理者模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/"/>
+    <updated>2012-10-10T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/10/10/cocos2d-x-design-pattern-3-managers</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？</p>
+
+<p>管理者（Manager）就是专门负责管理其它类的实例的类，比如Cocoa里面的NSFontManager、NSInputManager、NSFileManager和NSLayoutManager类。此模式和“二段构建模式”一样，也没有出现在GoF的23个设计模式中，但是《Cocoa设计模式》一书中有提及，感兴趣的读者可以去查阅一下。</p>
+
+<!--more-->
+
+
+<h2>1.应用场景：</h2>
+
+<p>在cocos2d-x里面有大量的应用，比如之前在介绍单例模式中提到的CCTextureCache, CCSpriteFrameCache, CCAnimationCache和CCShaderCache类。</p>
+
+<p>这些管理者一般被设计成单例类。</p>
+
+<p>为什么管理者类要设计成单例呢？因为管理者一般会采用key-value的形式来管理其它类的实例，每当需要获取一个管理者中的实例时，只需要提供一个惟一的键值字符串就可以得到一个与之对应的惟一实例。如果允许存在多个管理者实例的话，那么每个管理者都会维护各自的key-value pairs。这样显然就不能通过键值字符串来获得惟一对象实例了。</p>
+
+<p>CCSpriteFrameCache类通过定制的plist文件来实例化一系列相关的CCSpriteFrame实例，然后只需要提供精灵帧的名字就可以得到相应的CCSpriteFrame实例了。从这个意义上来说，CCSpriteFrameCache类也可以说是一个工厂类，专门负责生产CCSpriteFrame实例。同时，如果精灵帧名字相同的话，那么获取的精灵帧实例也是相同的。</p>
+
+<h2>2.使用管理者模式的优缺点。</h2>
+
+<p>优点：为一组相关的对象提供一个统一的全局访问点，同时可以提供一些简洁的接口来获取和操作这些对象。同时，使用此模式来缓存游戏中的常用资源，可以提高游戏运行时性能。</p>
+
+<p>缺点：由于管理者大多采用单例模式，所以，它继承了单例模式所有的缺点，这里就不再赘述了。</p>
+
+<h2>3.管理者模式的定义</h2>
+
+<p>管理者类（cache类）可以简化一些可以重用的资源（比如字体、纹理、精灵帧等）的创建和管理工作。管理者模式其实是个混合模式，它综合了单例模式、外观模式和工厂模式。该模式在游戏开发中比较常见，很多需要提升游戏运行性能的场合都运用了此模式。</p>
+
+<p>此模式的动机：提供一个统一的接口来管理一组相关对象的实例化和访问。</p>
+
+<p>它的一般实现如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">TestManager</span><span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">static</span> <span class="n">TestManager</span> <span class="o">*</span><span class="n">sharedTestManager</span><span class="p">(){</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">m_psManager</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="n">m_psManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TestManager</span><span class="p">;</span>
+</span><span class='line'>            <span class="n">instanceTable</span> <span class="o">=</span> <span class="n">CCDictionary</span><span class="o">::</span><span class="n">create</span><span class="p">();</span>
+</span><span class='line'>            <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">retain</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">m_psManager</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">purge</span><span class="p">(){</span>
+</span><span class='line'>        <span class="n">CC_SAFE_DELETE</span><span class="p">(</span><span class="n">m_psManager</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">CC_SAFE_RELEASE_NULL</span><span class="p">(</span><span class="n">instanceTable</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">registeInstance</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">,</span><span class="n">CCObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">){</span>
+</span><span class='line'>        <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">setObject</span><span class="p">(</span><span class="n">ojb</span><span class="p">,</span><span class="n">key</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">CCObject</span><span class="o">*</span> <span class="n">getInstance</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">key</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">instanceTable</span><span class="o">-&gt;</span><span class="n">objectForKey</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="k">private</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">static</span> <span class="n">TestManager</span><span class="o">*</span> <span class="n">m_psManager</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">CCDictionary</span> <span class="o">*</span><span class="n">instanceTable</span><span class="p">;</span> <span class="c1">//用来管理其它类的一组实例</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="n">TestManager</span><span class="o">*</span> <span class="n">TestManager</span><span class="o">::</span><span class="n">m_psManager</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>4.游戏开发中如何运用此模式</h2>
+
+<p>在cocos2dx游戏开发中，经常需要使用CCAnimate动作来播放动画，这些动作的创建运行时开销是比较大的，一般采用的方式都是在node的init方法中创建好，然后retain。之后需要使用的时候直接引用此动作即可，前提是你得声明许多CCAnimate对象的弱引用。这里，我们可以为之创建一个CCAnimateCache类，专门用来管理这些动画动作实例。这样对于游戏中经常变换状态需要更换不同的动画时，可以从此CCAniamteCache类中获取相应动画引用，非常方便，同时可以提高游戏性能。相应的，也可以为Action创建相应的类。</p>
+
+<p>引申：但凡那些对象，在运行时创建的时间开销特别大时，而又要经常重复使用时，都可以采取此模式来提高运行时性能。</p>
+
+<h2>5.此模式经常与单例模式配合使用，它的一些设计思想也掺合了外观模式和工厂模式。</h2>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocos2d-x设计模式发掘之二：二段构建模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/"/>
+    <updated>2012-09-26T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>乍一看标题，大家可能会觉得很奇怪，神马是“二段构建模式”呢？</p>
+
+<p>所谓二段构建，就是指创建对象时不是直接通过构建函数来分配内存并完成初始化操作。取而代之的是，构造函数只负责分配内存，而初始化的工作则由一些名为initXXX的成员方法来完成。然后再定义一些静态类方法把这两个阶段组合起来，完成最终对象的构建。因为在《Cocoa设计模式》一书中，把此惯用法称之为“Two Stage Creation”，即“二段构建”。因为此模式在cocos2d里面被广泛使用，所以把该模式也引入过来了。</p>
+
+<!--more-->
+
+
+<h2>1.应用场景：</h2>
+
+<p>二段构建在cocos2d-x里面随处可见，自从2.0版本以后，所有的二段构建方法的签名都改成create了。这样做的好处是一方面统一接口，方便记忆，另一方面是以前的类似Cocoa的命名规范不适用c++，容易引起歧义。下面以CCSprite为类，来具体阐述二段构建的过程，请看下列代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="c1">//此方法现在已经不推荐使用了，将来可能会删除</span>
+</span><span class='line'><span class="n">CCSprite</span><span class="o">*</span> <span class="n">CCSprite</span><span class="o">::</span><span class="n">spriteWithFile</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pszFileName</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">CCSprite</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="n">pszFileName</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">CCSprite</span><span class="o">*</span> <span class="n">CCSprite</span><span class="o">::</span><span class="n">create</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pszFileName</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">CCSprite</span> <span class="o">*</span><span class="n">pobSprite</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CCSprite</span><span class="p">();</span>  <span class="c1">//1.第一阶段，分配内存</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">pobSprite</span> <span class="o">&amp;&amp;</span> <span class="n">pobSprite</span><span class="o">-&gt;</span><span class="n">initWithFile</span><span class="p">(</span><span class="n">pszFileName</span><span class="p">))</span>  <span class="c1">//2.第二阶段，初始化</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">pobSprite</span><span class="o">-&gt;</span><span class="n">autorelease</span><span class="p">();</span>  <span class="c1">//！！！额外做了内存管理的工作。</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">pobSprite</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">CC_SAFE_DELETE</span><span class="p">(</span><span class="n">pobSprite</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如上面代码中的注释所示，创建一个sprite明显被分为两个步骤：1.使用new来创建内存；2.使用initXXX方法来完成初始化。</p>
+
+<p>因为CCSprite的构造函数也有初始化的功能，所以，我们再来看看CCSprite的构建函数实现：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">CCSprite</span><span class="o">::</span><span class="n">CCSprite</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class='line'><span class="o">:</span> <span class="n">m_pobTexture</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span>
+</span><span class='line'><span class="p">,</span> <span class="n">m_bShouldBeHidden</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>很明显，这个构建函数所做的初始化工作非常有限，仅仅是在初始化列表里面初始化了m_pobTexture和m_bShouldBeHidden两个变量。实际的初始化工作大部分都放在initXXX系列方法中，大家可以动手去查看源代码。</p>
+
+<h2>2.分析为什么要使用此模式？</h2>
+
+<p>这种二段构建对于C++程序员来说，其实有点别扭。因为c++的构造函数在设计之初就是用来分配内存+初始化对象的。如果再搞个二段构建，实则是多此一举。但是，在objective-c里面是没有构造函数这一说的，所以，在Cocoa的编程世界里，二段构建被广泛采用。而cocos2d-x当初是从cocos2d-iphone移植过来了，为了保持最大限度的代码一致性，所以保留了这种二段构建方式。这样可以方便移植cocos2d-iphone的游戏，同时也方便cocos2d-iphone的程序员快速上手cocos2d-x。</p>
+
+<p>不过在后来，由于c++天生不具备oc那种可以指定每一个参数的名称的能力，所以，cocos2d-x的设计者决定使用c++的函数重载来解决这个问题。这也是后来为什么2.0版本以后，都使用create函数的重载版本了。</p>
+
+<p>虽然接口签名改掉了，但是本质并没有变化，还是使用的二段构建。二段构建并没有什么不好，只是更加突出了对象需要初始化。在某种程度上也可以说是一种设计强化。因为忘记初始化是一切莫名其妙的bug的罪魁祸首。同时，二段构建出来的对象都是autorelease的对象，而autorelease对象是使用引用计数来管理内存的。客户端程序员在使用此接口创建对象的时候，无需关心具体实现细节，只要知道使用create方法可以创建并初始化一个自动释放内存的对象即可。</p>
+
+<p>在一点，在《Effective Java》一书中，也有提到。为每一个类提供一个静态工厂方法来代替构造函数，它有以下三个优点：</p>
+
+<ul>
+<li><p>与构造函数不同，静态方法有名字，而构造函数只能通过参数重载。</p></li>
+<li><p>它每次被调用的时候，不一定都创建一个新的对象。比如boolean.valueof(boolean)。</p></li>
+<li><p>它还可以返回原类型的子类型对象。</p></li>
+</ul>
+
+
+<p>因此，使用二段构建的原因有如下几点：- 兼容性、历史遗留原因。（这也再次印证了一句话，一切系统都是遗留系统，呵呵）</p>
+
+<ul>
+<li><p>二段构建有其自身独有的优势。</p></li>
+<li><p>构造函数执行期间是不能调用virtual函数的（即使调用了virtual，编译器也会用静态调用机制而不是virtual机制，详见Effective C＋＋条款9），如果不用二段建构方式，在基类的构造函数里就不能调用virtual函数实现子类需要定制化的功能，比如当需要采用模板方法这样的设计模式做初始化的时候。但如果使用二段建构，就可以把这部分放在init()里，实现了初始化时使用模板方法的方式。构造函数里无法通过irtual函数实现虚函数机制，但init函数调用的时候，就可以调用virtual函数了（感谢nichos）</p></li>
+<li><p>如果在构造函数中调用可能异常退出的函数，那么当异常发生，函数调用栈马上弹出，直到找到try cathc为止。也就是说分配出的内存来不急释放(在构造函数里发生异常，甚至连分配出的内存指针都拿不到)，函数执行就中止了。进行两段构造可以提供一个进行try catch的机会，Symbian的两段构造+清除栈的处理方式比这里提到的策略安全的多。（感谢omega）</p></li>
+</ul>
+
+
+<h2>3.使用此模式的优缺点是什么？</h2>
+
+<p>优点：</p>
+
+<ul>
+<li><p>显示分开内存分配和初始化阶段，让初始化地位突出。因为程序员一般不会忘记分配内存，但却常常忽略初始化的作用。</p></li>
+<li><p>见上面分析《Effective Java》的第1条：“为每一个类提供一个静态工厂方法来代替构造函数”</p></li>
+<li><p>除了完成对象构建，还可以管理对象内存。</p></li>
+</ul>
+
+
+<p>缺点：</p>
+
+<ul>
+<li>1.不如直接使用构造函数来得直白、明了，违反直觉，但这个是相对的。</li>
+</ul>
+
+
+<h2>4.此模式的定义及一般实现</h2>
+
+<p>定义：将一个对象的构建分为两个步骤来进行：1.分配内存 2.初始化它的一般实现如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">class</span> <span class="nc">Test</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="k">public</span><span class="o">:</span>
+</span><span class='line'>    <span class="c1">//静态工厂方法</span>
+</span><span class='line'>    <span class="k">static</span> <span class="n">Test</span><span class="o">*</span> <span class="n">create</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">Test</span> <span class="o">*</span><span class="n">pTest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span><span class="p">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">pTest</span> <span class="o">&amp;&amp;</span> <span class="n">pTest</span><span class="o">-&gt;</span><span class="n">init</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//这里还可以做其它操作，比如cocos2d-x里面管理内存</span>
+</span><span class='line'>            <span class="k">return</span> <span class="n">pTest</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="c1">//</span>
+</span><span class='line'>    <span class="n">Test</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">//分配成员变量的内存，但不初始化</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">bool</span> <span class="n">init</span><span class="p">(){</span>
+</span><span class='line'>        <span class="c1">//这里初始化对象成员</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="k">private</span><span class="o">:</span>
+</span><span class='line'>    <span class="c1">//这里定义数据成员</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>5.在游戏开发中如何运用此模式</h2>
+
+<p>这个也非常简单，就是今后在使用cocos2d-x的时候，如果你继承CCSprite实现自定义的精灵，你也需要按照“二段构建”的方式，为你的类提供一个静态工厂方法，同时编写相应的初始化方法。当然，命名规范最好和cocos2d-x统一，即静态工厂方法为create，而初始化方法为initXXXX。## 6.此模式经常与哪些模式配合使用</p>
+
+<p>由于此模式在GoF的设计模式中并未出现，所以暂时不讨论与其它模式的关系。</p>
+
+<p>最后看看cocos2d-x创始人王哲对于为什么要设计成二段构建的看法：</p>
+
+<p>“其实我们设计二段构造时首先考虑其优势而非兼容cocos2d-iphone. 初始化时会遇到图片资源不存在等异常，而C++构造函数无返回值，只能用try-catch来处理异常，启用try-catch会使编译后二进制文件大不少，故需要init返回bool值。Symbian, Bada SDK，objc的alloc + init也都是二阶段构造”。欢迎读者批评指正，</p>
+
+<p>如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocos2d-x设计模式发掘之一：单例模式]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/"/>
+    <updated>2012-09-23T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/23/cocos2d-x-design-pattern-singleton1</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>本系列文章我将和大家一起来发掘cocos2d-x中所使用到的设计模式，同样的，这些模式在cocos2d-iphone中也可以找到其身影。</p>
+
+<p><strong>声明</strong>：这里发掘模式只是我的个人爱好，通过这个过程，我希望能加深自己对于设计模式运用的理解。关于模式的学习，市面上已经有许多非常好的书籍了。比如《Head First设计模式》、GoF的设计模式，还有《研磨设计模式》等。如果读者对于设计模式完全不了解的话，建议先阅读上面至少一本书籍，了解设计模式之后再阅读本系列文章。这样大家才会有相互交流的共同语言。</p>
+
+<p>为什么要发掘设计模式呢？因为设计模式本身就是人们在一些面向对象的软件系统里面发掘出来的，在一定的场景之下可以重用的解决方案。通过对模式的挖掘，我可以借此机会学习一下这些优秀的设计思想。因为我觉得，一个好的开源游戏框架除了能给我们开发者带来开发效率的提升以外，还应该被我们吸收其设计思想，这样它的价值才能完整。</p>
+
+<!--more-->
+
+
+<p>本系列文章将按照如下思路进行模式挖掘：
+- 找出某个设计模式的应用场景（类、类结构、对象结构，必要时结合UML类图）
+- 分析为什么要使用此模式（即设计决策）
+- 使用此模式的优缺点是什么（任何事务都有两面性，设计模式也不例外）
+- 此模式的定义及一般实现（这个在GoF的经典书籍里面有，这里借用一下）
+- 在游戏开发中如何运用此模式（自己对于模式运用场景的理解）
+- 此模式经常与哪些模式配合使用（这个也基本是从GoF的书籍里面借用了）</p>
+
+<h2>1、应用场景</h2>
+
+<p>Cocos2D-x中的单例如下：CCDirector,CCTextureCache,CCSpriteFrameCache,CCAnimationCache,CCUserDefault,CCNotificationCenter，CCShaderCache，CCScriptEngineManager，CCPoolManager，CCFileUtils，CCProfiler，SimleAudioEngie，CCConfiguration，CCApplication，CCDirectorCaller（ios平台），CCEGLView。</p>
+
+<p>为什么会存在这样一些单例呢？</p>
+
+<p>首先是CCDirector单例，它负责管理初始化OpenGL渲染窗口以及游戏场景的流程控制，它是cocos2dx游戏开发中必不可少的类之一。为什么要把此类设计成单例对象呢？因为，一个游戏只需要有一个游戏窗口就够了，所以，只需要初始化一次OpenGL渲染窗口。而且场景的流程控制功能，也只需要存在一个这样的场景控制对象即可。为了保证CCDirector类只存在一个实例对象，就必须使用单例模式。</p>
+
+<p>接下来是CCTextureCache单例。此类主要负责加载游戏当中所需要的纹理图片资源，这些资源加载好以后，就可以一直保留在内存里面，当下次再需要使用此纹理的时候，直接返回相应的纹理对象引用就可以了，无需再重复加载。当然，这样做可能会很浪费内存，所以cocos2dx采用了一种引用计数的方式来管理对象内存，当纹理刚被加载进来的时候，引用计数为1。如果使用此纹理对象创建一个精灵，那么此纹理对象引用会加1.如果精灵被释放，则相应的引用计数减1.当纹理的引用计数变为0的时候，纹理所占用的内存自然就会被释放掉。这也是为什么在收到内存警告的时候，会调用CCTextureCache的removeUnusedTextures方法。此方法会将所有引用计数为1的纹理对象全部释放掉。单从字面上看，Cache，即缓存的意思。它以牺牲一定的内存压力为代价，带来的是游戏性能的提升。这种cache技术，在游戏开发中比比皆是。注：IO操作对游戏性能影响非常大，要极力避免！！！</p>
+
+<p>类似的CCSpriteFrameCache、CCAnimationCache和CCShaderCache，它们也都是缓存类，分别负责缓存SpriteFrame、Animation和Shader。这样做的原因无非就是为了性能，以空间换时间。</p>
+
+<p>接下来，看看CCUserDefault。此类主要是用来保存游戏中的数据用的，它会创建一个xml文件，并把用户自定义的数据以key-value的形式存储到此xml文件中。此类为什么会变成单例类呢？原因也很简单，因为类似这种操作数据文件，或者配置文件的类，通常只需要在程序运行过程中存在一个实例即可。</p>
+
+<p>接着是CCNotificationCenter，这是一个通知中心，它其实还运用了一个观察者模式，这里暂时不讨论。该通知中心理论上也是只需要一个就够了。但是，cocos2d-x在实现此单例的时候，并没有将此类的构造函数私有么，我在猜想，是不是开发人员有意为之呢？或者多个通知中心也有其存在的价值。这个大家可以讨论一下。</p>
+
+<p>CCScriptEngineManager，此类包含一个实现了CCScriptEngineProtocl接口的对象引用，它可以帮助我们方便地找到LuaEngine对象。这里单例的作用纯粹变成了LuaEngine的一个全局访问点了。为什么不直接把LuaEngine作为单例对象呢？是否在某些情况之下，可能需要创建多个LuaEngine对象？如果考虑到cocos2d-x还可以同时支持其它的脚本引擎，那也可以相应的把另外的脚本引擎设计成单例类。当然，这样做无疑会使引擎里面的单例过多。考虑到单例模式近年来被广大开发者所诟病，已将其列入“反模式”。这里引用CCScriptEngineManager单例类，给其它引擎对象提供访问的惟一全局点，这也不失为一个办法。不知我的推测是否正确？</p>
+
+<p>CCPoolManager，此类是用来管理AutoReleasePool对象栈的。因为cocos2d-x采用的是基于引用计数的方式来管理动态内存，所以采用引用计数的被托管对象都被放入一个当前的autoReleasePool里面去了。当CCDirector的mainLoop每次更新的时候，都会调用CCPoolManager的pop方法，把当前autoReleasePool里面的所有autoRelease对象的托管状态设置为false，同时把该autoReleasePool清空，而清空的时候则会调用autoReleasePool里面所有对象的release方法来释放内存。此类为什么要设计与单例呢？因为多个地方需要引用此类，为了方便引用，所以设计成单例。</p>
+
+<p>然后是CCFileUtils类。该类是一个工具类。工具类和配置文件类，它们绝大多数情况也都是设计成单例的。因为它们没有存在多个实例的必要。同时，它们也可以实现为一组类方法，这样无需创建对象也能够使用。</p>
+
+<p>然后是CCProfiler类，该类负责cocos2d的性能其运行情况分析，也是一个工具类。所以它设计成单例类的理由与CCFileUtils类差不多。</p>
+
+<p>CCConfiguration类也被设计成了单例对象，此类主要负责管理cocos2d-x的一些OpenGL变量信息。这些信息本可以通过定义一些宏，或者通过一些全局变量来解决的。这里设计成单例类也是更加“面向对象”的体现。因为这些配置信息根本不需存在多个对象。</p>
+
+<p>CCApplication类的设计初衷是获得平台相关的一些信息，最重要的是运行游戏的主循环（main loop）。一个游戏只需要一个应用程序实例，所以设计与单例。</p>
+
+<p>CCEGLView是Cocos2d-x对于EGLView的抽象，不同的平台会有不同的实现，使之可以适用不同的平台。在ios平台上面它是对EAGLView的一个简单的封装。该类表示的是对OpenGL渲染上下文窗口的一种抽象，这是一种虚拟资源，而且只有存在一份实例的可能，所以被设计成单例类。</p>
+
+<p>CCDirectorCaller类是ios平台相关的类，就是对ios平台CCDirector对象的一个封装，使用的是CADisplayLink来运行游戏主循环。该类和CCDirector类差不多，也可以设计成单例。为什么会在CCApplication类里面调用CCDirectorCaller类，是基于分离平台相关代码的考虑。CCApplication是的，CCDirectorCaller也是的。</p>
+
+<p>最后一个是SimpleAudioEngine类，它也被设计成了一个单例类。因为它提供给了开发人员最简单的声音操作接口，可以方便地处理游戏中的背景音乐和音效。此类同时还应用了外观模式，把CocoDenshion子系统中的复杂功能给屏蔽起来了，简化了客户端程序员的调用。该类为什么要设计成单例，是因为到处都要访问它。设计成单例会很方便，而且它与其它对象没有什么联系，不好使用对象组合。</p>
+
+<h2>2.使用单例模式的优缺点</h2>
+
+<p>优点：</p>
+
+<p>1）简单易用，限制一个类只有一个实例，可以降低创建多个对象可能会引起的内存问题的风险，包括内存泄漏、内存占用问题。</p>
+
+<p>缺点：</p>
+
+<p>单例模式因为提供了一个全局的访问点，你可以在程序的任何地方轻而易取地访问到，这本身就是一种高耦合的设计。一旦单例改变以后，其它模块都需要修改。另外，单例模式使得对象变成了全局的了。学过面对对象编程的人都知道，全局变量是非常邪恶的，要尽量不要使用。而且单例模式会使得对象的内存在程序结束之前一直存在，在一些使用GC的语言里面，这其实就是一种内存泄漏，因为它们永远都不到释放。当然，也可以通过提供一些特殊的方法来释放单例对象所占用的内存，比如前面提到的XXXCache对象，都有相应的Purge方法。最后，cocos2dx里面实现的单例，99%都不是线程安全的。</p>
+
+<p>在讨论优缺点的时候，读者想必也看出来了，缺点比优点多多了。这是给大家提个醒，以后使用单例模式的时候要谨慎，不要滥用。因为此模式最容易被滥用。只有真正符合单例模式应用场景的时候，才能考虑。不要为了访问方便，就把任何类都弄成单例，这样，到最后，你会发现你的程序里面就只剩下一堆单例和工厂了。</p>
+
+<p>此外，单例模式正在消减，比如CCActionManager和CCTouchDispatcher在cocos2d1.0之前也是单例，现在变成了CCDirector类的属性了。而且Riq（cocos2d-iphone的作者）也有在邮件中提到，以后CCDirector对象也会变成非单例，并且允许一个游戏中创建多个游戏窗口。</p>
+
+<p>3.单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局的访问点。</p>
+
+<p>UML图：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/Singleton.png" width="750" height="300"></p>
+
+<p>它的一般实现如下所示：</p>
+
+<figure class='code'><figcaption><span>Singleton</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">Singleton</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="k">public</span><span class="o">:</span>
+</span><span class='line'>   <span class="c1">//全局访问点</span>
+</span><span class='line'>   <span class="k">static</span> <span class="n">Singleton</span><span class="o">*</span> <span class="n">SharedSingleton</span><span class="p">()</span>
+</span><span class='line'>   <span class="p">{</span>
+</span><span class='line'>       <span class="k">if</span><span class="p">(</span><span class="nb">NULL</span> <span class="o">==</span> <span class="n">m_spSingleton</span><span class="p">)</span>
+</span><span class='line'>       <span class="p">{</span>
+</span><span class='line'>           <span class="n">m_spSingleton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="p">();</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>       <span class="k">return</span> <span class="n">m_spSingleton</span><span class="p">;</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>  <span class="k">private</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">static</span> <span class="n">Singleton</span><span class="o">*</span> <span class="n">m_spSingleton</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">Singleton</span><span class="p">();</span>
+</span><span class='line'>  <span class="n">Singleton</span><span class="p">(</span><span class="k">const</span> <span class="n">Singleton</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">Singleton</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Singleton</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="n">Singleton</span><span class="o">*</span> <span class="n">Singleton</span><span class="o">::</span><span class="n">m_spSingleton</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注意，这里只是最基本的实现，它没有考虑到线程安全，也没有考虑内存释放。但是，这个实现有两个最基本的要素。一：定义一个静态变量，并把构造函数等设置为私有的。二：提供一个全局的访问点给外部访问。</p>
+
+<p>4.游戏开发中如何运用此模式呢？众所周知，游戏开发中离不开游戏数据保存和加载。这些数据包括关卡数据、游戏进行中的状态数据等。这样一些信息很多游戏模块中都需要访问，所以可以为之设置一个单例对象。我武断地认为，客户端游戏开发中，至少需要一个单例对象。因为一个全局的访问点可以方便很多对象之间的交互。根据之前的讨论，也可以把一些时觉需要用到的类引用保存在此单例对象中，不过只需要保存弱引用即可。使用单例，最严重的就是怕内存泄漏，所以，大家尽量不要把单例类设计地太复杂，也不要让它包含过多的动态内存管理工作。</p>
+
+<p>5.单例模式一般与工厂模式配合使用，因为一般会将工厂类设计成单例对象。比如前面提到的各种cache类，它们也可以看作是某种意义上的工厂对象。由于工厂就是负责生产对象的，而cache类都可以根据用户的需要生产出相应的对象。</p>
+
+<p>最后，看看cocos2d-x创始人王哲对于什么是单例的看法：“这么说吧， 我设计成单例基本就一种抽象情况：独占性资源。比如某个硬件IO （如CCTouchDispatcher, CCAccelerometer），比如公用的缓存区（CCTextureCache, CCUserDefault）。后来有人抱怨单例类太多，想销毁整个cocos2d instance再重建很麻烦，所以小明和riq就把大量单例类放到CCDirector里面管理。”</p>
+
+<p>欢迎读者批评指正，如果有兴趣跟我一起挖掘cocos2d-x中所涉及到的设计模式的朋友，可以给我发邮件：guanghui8827@126.com或者直接留言。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocos2d-x 2.02 版本初体验]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/"/>
+    <updated>2012-09-16T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展,在WIN32平台上面开始使用OPENGL等. 好久没有在WINDOWS平台上面玩cocos2d-x了,今天趁着有时间,重头来过一遍吧.</p>
+
+<p>开发环境: Win7 64bit +  eclipse juno + ndk r8b + android 10 安装配置方面网上已经有很多教程了,</p>
+
+<!--more-->
+
+
+<p>如下:<br />
+<a href="http://blog.csdn.net/nicholasvan/article/details/7772158">http://blog.csdn.net/nicholasvan/article/details/7772158</a>
+<a href="http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/">http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/</a></p>
+
+<p>下面给出配置并运行自带的sample过程中遇到的问题及解决方法:</p>
+
+<p>1.安装c/C++语言插件,并去除错误和警告,具体可以参考我翻译的文章: <a href="http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html">http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html</a></p>
+
+<p>2.<strong> <a href="http://stackoverflow.com/questions/11579135/program-make-not-found-in-path">Program “make” not found in PATH</a></strong> 解决办法:设置PATH环境变量,加入cygwin/bin目录进去.再把项目删除,再重新添加进可以了.注意添加项目的时候,要选中copy project to workspace,这样在删除的时候就不会影响cocos2d-x原来的项目.</p>
+
+<p>3.<strong> </strong><strong><a href="http://blog.csdn.net/spy19881201/article/details/6017889">@override报注解annotation错误 </a></strong>**** 点击项目,右键属性 然后把java –> compiler ->设置成1.6就可以了.具体可以参考下面链接: <a href="http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips">http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips</a></p>
+
+<p>4.导入android项目以后,报target-8错误: 解决办法:打开project.properties ,把target=android-8改成 target=android-10。搞定。 </p>
+
+<p>5.如果找不到cocos2dx/lib下面的java库,也可以在project.properties中添加库的引用: android.library.reference.1=../../../cocos2dx/platform/android/java 添加完之后,移除项目再重新添加就可以了.</p>
+
+<p>6.使用cygwin运行build_native.sh的时候,报make程序找不到.这个只需要重新运行setup.exe,然后在search里面输入make,再鼠标左键把default点成install,再下一步安装就OK了.安装cygwin可以参考这个链接: <a href="http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html">http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html</a></p>
+
+<p>7.如果<a href="http://stackoverflow.com/questions/8821926/android-ndk-library-findlibrary-returned-null">Android NDK library: findLibrary returned null</a>的错误: 请确保你的项目中的libs目录和assets目录引用是否正确,是否包含了项目所需的动态库和资源文件,如果没有,请手动导入.</p>
+
+<p>8.如果在cygwin里面运行build_native.sh文件时报下面的错误:
+<img class="left" src="http://andyque.github.com/images/posts/builde_native_error.jpg" width="750" height="300"></p>
+
+<p>则需要转换文件格式为UNIX格式,下载NotePad++,然后打开build_native.sh,再选择&#8221;编辑&#8221;->&#8221;档案格式转换&#8221;->&#8221;转换为UNIX格式&#8221;.再保存运行就可以了.</p>
+
+<p> 上面的这些问题是我今天遇到的,欢迎大家把自己遇到的问题及解决办法也分享一下,这样也可以省去大家google的时间嘛,而且google有时候还访问不了,呵呵.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Install OpenCV 2.4.2 on Macos 10.8.1]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/"/>
+    <updated>2012-09-13T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2</id>
+    <content type="html"><![CDATA[<p><img class="right" src="http://andyque.github.com/images/posts/helloOpenCVResult-300x210.jpg" width="300" height="300"></p>
+
+<p>前言：由于学习研究需要，又因为有一年多时间没在windows下面做开发了，所以想在mac上面配置一下OpenCV的开发环境。</p>
+
+<p>首先，准备工作，安装好xcode 4.4.1，同时安装command line tool。接下来，安装cmake 2.8.8，这个可以到官网去下载DMG安装包，不过有时候这个网站访问不了。</p>
+
+<p>安装过程：</p>
+
+<p>到opencv官网上下载2.4.2版本，然后解压缩，接下来，运行以下命令来安装opencv:</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span>install opencv 2.4.2</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">cd</span> <span class="n">OpenCV</span><span class="o">-</span><span class="mf">2.4.2</span>
+</span><span class='line'><span class="n">mkdir</span> <span class="n">build</span>
+</span><span class='line'><span class="n">cd</span> <span class="n">build</span>
+</span><span class='line'><span class="n">cmake</span> <span class="o">-</span><span class="n">G</span> <span class="s">&quot;Unix Makefiles&quot;</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_OSX_ARCHITECTURES</span><span class="o">=</span><span class="n">i386</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_C_FLAGS</span><span class="o">=-</span><span class="n">m32</span> <span class="o">-</span><span class="n">D</span> <span class="n">CMAKE_CXX_FLAGS</span><span class="o">=-</span><span class="n">m32</span> <span class="p">..</span>
+</span><span class='line'><span class="n">make</span>
+</span><span class='line'><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下来，打开xcode，新建一个command line tool程序，如下所示：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/1-300x200.jpg" width="750" height="300"></p>
+
+<br/>
+
+
+<p>把type设置为foundation,并命名为HelloOpenCV，如下图所示：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/chooseType-300x202.jpg" width="750" height="300"></p>
+
+<br/>
+
+
+<p>接下来，打开工程的build settings，做以下设置：</p>
+
+<figure class='code'><figcaption><span>set build settings</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">Inside</span> <span class="err">“</span><span class="n">Search</span> <span class="n">Paths</span><span class="err">”</span><span class="o">:</span>
+</span><span class='line'><span class="n">Header</span> <span class="n">Search</span> <span class="n">Paths</span><span class="o">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+</span><span class='line'><span class="n">Library</span> <span class="n">Search</span> <span class="n">Paths</span><span class="o">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span>
+</span><span class='line'><span class="n">Inside</span> <span class="err">“</span><span class="n">Linking</span><span class="err">”</span><span class="o">:</span>
+</span><span class='line'><span class="n">Other</span> <span class="n">Linker</span> <span class="n">Flags</span><span class="o">:</span> <span class="o">-</span><span class="n">lopencv_core</span> <span class="o">-</span><span class="n">lopencv_highgui</span> <span class="o">-</span><span class="n">lopencv_imgproc</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最后，往main.m文件中加入以下代码：</p>
+
+<figure class='code'><figcaption><span>add code to main.m</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">// main.m</span>
+</span><span class='line'><span class="c1">// OpenCVTest</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'><span class="c1">// Created by __MyName__ on 16/09/11.</span>
+</span><span class='line'><span class="c1">// Copyright 2011 __MyCompanyName__. All rights reserved.</span>
+</span><span class='line'><span class="c1">//</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+</span><span class='line'><span class="cp">#import &quot;opencv/cv.h&quot;</span>
+</span><span class='line'><span class="cp">#import &quot;opencv/highgui.h&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">NSAutoreleasePool</span> <span class="o">*</span> <span class="n">pool</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSAutoreleasePool</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">IplImage</span><span class="o">*</span> <span class="n">img</span> <span class="o">=</span> <span class="n">cvCreateImage</span><span class="p">(</span> <span class="n">cvSize</span><span class="p">(</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span> <span class="p">),</span> <span class="n">IPL_DEPTH_8U</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cvCircle</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">cvPoint</span><span class="p">(</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">240</span> <span class="p">),</span> <span class="mi">100</span><span class="p">,</span> <span class="n">cvScalar</span><span class="p">(</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">255</span> <span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cvNamedWindow</span><span class="p">(</span> <span class="s">&quot;OpenCV Window&quot;</span><span class="p">,</span> <span class="n">CV_WINDOW_NORMAL</span> <span class="p">);</span>
+</span><span class='line'>    <span class="n">cvShowImage</span><span class="p">(</span> <span class="s">&quot;OpenCV Window&quot;</span><span class="p">,</span> <span class="n">img</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cvWaitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">cvDestroyWindow</span><span class="p">(</span> <span class="s">&quot;OpenCV Window&quot;</span> <span class="p">);</span>
+</span><span class='line'>    <span class="n">cvReleaseImage</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">img</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">[</span><span class="n">pool</span> <span class="n">drain</span><span class="p">];</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>此时，编译并运行。如果你编译出错的话，你需要修改build settings，把构建方式改成32位的，如下图所示：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/changeArchitecture-300x97.jpg" width="750" height="300"></p>
+
+<p>此时，编译并运行，你将得到如下所示输出：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/helloOpenCVResult-300x210.jpg" width="750" height="300"></p>
+
+<p>注意：如果要使用ffmpeg，那么可以参考这个帖子：<a href="http://tech.enekochan.com/2012/07/27/install-opencv-2-4-2-with-ffmpeg-support-in-mac-os-x-10-8/">
+http://tech.enekochan.com/2012/07/27/install-opencv-2-4-2-with-ffmpeg-support-in-mac-os-x-10-8/
+</a>。不过，需要注意的地方就是，需要重新configure opencv，并且把build目录删除，重新运行下列命令：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">cd</span> <span class="n">build</span>
+</span><span class='line'><span class="n">cmake</span> <span class="p">..(</span><span class="err">注意这里没有加</span><span class="o">-</span><span class="n">i386</span><span class="err">和</span><span class="mi">32</span><span class="err">的位标志</span><span class="p">)</span>
+</span><span class='line'><span class="n">make</span>
+</span><span class='line'><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样，如果想要运行上面的例子，需要修改build settings，去掉i386,同时使用64位的方式来运行程序，如下图所示：</p>
+
+<p><img class="left" src="http://andyque.github.com/images/posts/changeBuildSettings-300x82.jpg" width="800" height="300"></p>
+
+<p>最后，如果想要使用C++，必须把编译器改成LLVM GCC4.2，同时main.m改成main.mm，并在.pch文件的最开始处添加下列代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#ifdef __cplusplus</span>
+</span><span class='line'><span class="cp">#import &quot;opencv2/opencv.hpp&quot;</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>References:</strong></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/" title="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/">http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/</a></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/" title="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/">http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

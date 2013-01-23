@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocos2d classic tutorial demo revisit - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="Introduction These tutorials series are a attempt trying to reimplement classic coco2d tutorials with cocos2d-html5 and cocos2d-x(use lua &amp; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE: Use
+    // jQuery(...), instead of $(...) from here on.
+      jQuery.noConflict();
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+  <a href="https://github.com/andyque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/vimwiki_html/">Wiki</a></li>
+  <li><a href="/vimwiki_html/diary/diary.html">Diary</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocos2d Classic Tutorial Demo Revisit</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T17:49:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/ScreenshotSmall1.jpg" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>These tutorials series are a attempt trying to reimplement classic coco2d tutorials with cocos2d-html5 and cocos2d-x(use lua &amp; native language c++).</p>
+
+<p>I do this job mainly for two reasons:</p>
+
+<ul>
+<li><p>cocos2d-x and cocos2d-html5 are extremly lack of game tutorials, most cocos2d tutorials are written with Objective-c. Some people may not be confortable with Objective-c&#8217;s strange syntax and this&#8217;ll be a obstacle for them to learn cocos2d-x and cocos2d-html5.</p></li>
+<li><p>learning javascript and lua,especially the function programming style. At the same time, if I post the porting experience with you, you guys can give me feedback. Then I&#8217;ll learn a lot.</p></li>
+</ul>
+
+
+<p>I will write these post series in the following step:</p>
+
+<ul>
+<li><p>Give a real, playable html5 game made with cocos2d-html5.(Have fun with the game, you can also tweak the gameplay to make it better.)</p></li>
+<li><p>Talk something related to the keypoint of making such a game.</p></li>
+<li><p>Compare the main difference of js, c++ ,lua and objc&#8217;s implementation(Note:All of them are cocos2d style).</p></li>
+</ul>
+
+
+<p>I think during the process, it&#8217;ll make a difference. :)</p>
+
+<!--more-->
+
+
+<h2>Game Showcase</h2>
+
+<p><strong>Note: Click to shoot bad enemies!</strong></p>
+
+<iframe width="480" height="320" src="/games/SimpleGame/index.html"></iframe>
+
+
+<h2>The Keypoint of Making such a game</h2>
+
+<p>This game is made by Raywenderlich.com, the best tutorials website in the world. The SimpleGame tutorial is composed of three part(<a href="http://www.raywenderlich.com/25736/how-to-make-a-simple-iphone-game-with-cocos2d-2-x-tutorial">part1</a>,<a href="http://www.raywenderlich.com/25791/rotating-turrets-how-to-make-a-simple-iphone-game-with-cocos2d-2-x-part-2">part2</a>,<a href="http://www.raywenderlich.com/25806/harder-monsters-and-more-levels-how-to-make-a-simple-iphone-game-with-cocos2d-2-x-part-3">part3</a>), I think it&#8217;s the best introduction tutorials for cocos2d learners. And there are lots of cocos2d game tutorials in Ray&#8217;s site, all of my following work will start from there too. So thank you Ray for making so many awesome tutorials for us. (Note:Now these awesome tutorials have been translated to many languages,I am a Chinese translator in Ray&#8217;s translation team,I am the core member of Tyran tream. You can refer Ray&#8217;s website for <a href="http://www.raywenderlich.com/about#teamtyran">more information</a> about us.)</p>
+
+<p>SimpleGame is a shooting game, I think the keypoint of making this kind of game is:</p>
+
+<ul>
+<li><p>Caculate shooting path and shooting angles</p></li>
+<li><p>Collison detection between bullets and enemies</p></li>
+<li><p>Spawn enemies and how to design different challange levels</p></li>
+</ul>
+
+
+<p>In these tutorials, you will find it&#8217;s easy for us to implement.Yes it is, because it&#8217;s a introduction tutorial. Not yet, though it&#8217;s a simple game, but it&#8217;s a complete game. It&#8217;s easy usablity mainly due to the desin of cocos2d. I think it&#8217;s the most awesome 2d game framework. You can write games even though you don&#8217;t know much about the low level graphic APIs. At the same time, you can also add your own graphic specific code to the framework. I highly recommend you to try cocos2d when you want to make you own games.</p>
+
+<p>For the three keypoint, you should be familar with High School Triangle and some APIs providered by cocos2d. You can refer to the code for more details. In this simple game tutorial,the enemy type and level design is very simple, but it points you to the right direction. You can do more with this minimum game.</p>
+
+<h2>Implementation Details Comparison</h2>
+
+<p>I think it&#8217;s hard for me to compare all the details of these implementations. It&#8217;s no need to do so, you can refer to the soucecode for more informations. What I am talking here is the &#8220;Biggest difference&#8221; when I am porting them.</p>
+
+<p>When porting Objective-c code to c++, it&#8217;s not very nonintuitive, you can refer to cocos2d-x.org for more infos. But the site don&#8217;t talk much about how to port c++ to js and lua. If you are familar with all these languages, I think it&#8217;s an easy job for you. But even you know these three languages well, maybe there are still some tricks you&#8217;ll want to know in advance.</p>
+
+<ul>
+<li><p>cocos2d-html5 use js to mimic object oriented programming style. The class and inheritence idea are taken from  &#8221;<a href="http://ejohn.org/blog/simple-javascript-inheritance/">Simple JavaScript Inheritance</a>&#8221;, it makes our life easier when we use js to write object oriented code. So if you are familar with cocos2d-x&#8217;s cpp programming style, it&#8217;ll not be very difficult for you to rewrite it with js. Cocos2d-html5 use &#8220;cc&#8221; global variable to mimic a namespace where all cocos2d stuff are stay in. If you want to get a sprite, you can use cc.Sprite.create to accomplish it. Most cocos2d-x functionlity are ported to cocos2d-html5. You&#8217;d better refer to the show case &#8220;Moon Warrior&#8221; when you don&#8217;t know how to implement a specific feature.</p></li>
+<li><p>The future of cocos2d maybe is jsbinding, one promise that one codebase can run every platform(ios,android,browse,desktp etc). So we can learn it earlier for preparing.</p></li>
+<li><p>cocos2d-x&#8217;s lua binding is made with tolua++, it makes lua API almostly the same as c++ API. Jsbinding does change some function and micro names, but lua doesn&#8217;t. Sure you can do that if you like. You can also change tolua++ bindings or wrap a high level lua API based on the default lua bindings.</p></li>
+</ul>
+
+
+<p>When porting code to lua style, it really takes me some time. The reasons are so many.</p>
+
+<ul>
+<li><p>I am new to lua and tolua++. But more important thing is  that I try to programming lua code use cpp style. It&#8217;s totally wrong! Lua comes with table and function programming, I should programming lua in another different sytle, yes, lua style.</p></li>
+<li><p>Don&#8217;t use CCArray in lua code, use table instead.</p></li>
+<li><p>Don&#8217;t try to inherit C++ class from lua and it&#8217;s not proper to inheretence tolua++ class from lua side. Treat tolua++ class as a table. You could add field and method to it directly. No class, no inheritance,it&#8217;s all Tables!</p></li>
+<li><p>If you want to schedule a function in lua,you&#8217;ll use CCDirector&#8217;s Scheduler field to accomplish.</p></li>
+<li><p>If you want to add some code to CCNode(all of it&#8217;s subclasses)&#8217;s onEnter and onExit method, you can use CCNode&#8217;s registerScriptHandler function.</p></li>
+</ul>
+
+
+<p>There are more details you&#8217;ll want to know, go ahead, grab the code and dig into it.</p>
+
+<p>Enjoy, happy coding! :)</p>
+
+<p>Source code links:</p>
+
+<ul>
+<li><a href="https://www.dropbox.com/s/ov5d1ltleb7pvmp/SimpleGame-cpp.zip">cpp version</a></li>
+<li><a href="https://www.dropbox.com/s/zgwdqdhifbroqu3/SimpleGame-js.zip">javscript version</a></li>
+<li><a href="https://www.dropbox.com/s/t1nr3k31n26asm8/SimpleGame-lua.zip">lua version</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-04T17:49:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/cocos2d/'>cocos2d</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- Duoshuo Comment BEGIN -->
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zilongshanren"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- Duoshuo Comment END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/19/cocos2d-x-design-pattern-9-delegation/" title="Previous Post: cocosd-x设计模式之 ：委托和委托设计模式">&laquo; cocosd-x设计模式之 ：委托和委托设计模式</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/" title="Next Post: configuration vim and opencv2.4.2 on macos 10.8.2">configuration vim and opencv2.4.2 on macos 10.8.2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 150%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 90%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">  <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备12012448号</a>
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

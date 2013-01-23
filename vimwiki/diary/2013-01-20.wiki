@@ -1,0 +1,23 @@
+=== Summary ===
+
+Yesterday I cooked for my girlfriend, she seems happy. But she didn't wash the bowls, poor guy zilongshanren.:( 
+
+Yesterday's plan did go well, today I should work even harder. Then I'll not be regret.
+
+Recently my main job is research ,more research on video mosaics.
+
+
+=== Yesterday's Todo Tasks ===
+
+* [X] Learn 50 new English words.
+* [X] Make a English diary.
+* [X] Programming OpenCV at least on chapter.
+* [X] Finish 15 pages of Ray's tutorials on chapter 22.
+
+
+=== Today's Todo Tasks ===
+
+* [ ] Learn 50 new English words.
+* [ ] Make a English diary.
+* [ ] Make a blog post on my Github blog.
+* [ ] Programming OpenCV as before.

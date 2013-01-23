@@ -1,0 +1,127 @@
+=== 个人提升 ===
+
+- [[暗时间]]
+- [[How Not to Hurry]]
+- [[编程原则]]
+- [[成功者的思维方式]]
+- [[Do not be regret]]
+- [[Programmer self improvement]]
+- [[How to Make Game Tutorials]]
+
+=== Cocos2d-x Blogs ===
+
+- [[http://www.plungeinteractive.com/blog/|plungeinteractive]]
+
+
+=== Cocos2d-iphone Blogs ===
+
+- [[http://heyalda.com/drawing-with-opengl-es-2-0-in-cocos2d-2-0/|heyalda]]
+- [[ http://ganbarugames.com/2011/07/cocos2d-game-center/|ganbarugames]]
+
+=== Cocos2d Technical Tips ===
+
+- [[http://www.cocos2d-iphone.org/forum/topic/50674|cocos2d tools]]
+
+=== OpenCV ===
+
+- [[http://tech.enekochan.com/category/computer-vision/|enekochan]]
+- [[http://opencv-code.com/|opencv-code]]
+- [[http://blog.csdn.net/yang_xian521/article/details/7440190|yang_xian521]]
+- [[http://devblog.michalski.im/2012/05/18/combine-multiple-video-frames-into-one-using-opencv/|michalski]]
+- [[http://www.cnblogs.com/cfantaisie/archive/2011/06/14/2080917.html|sift算法总结]]
+- [[http://aptogo.co.uk/2011/09/opencv-framework-for-ios/|opencv for ios]]
+- [[https://github.com/BloodAxe/OpenCV-Tutorial|opencv tutorials]]
+ 
+
+=== Network Programming ===
+- [[http://www.ibm.com/developerworks/architecture/library/ar-powerup1/|Simple MMO architecture]]
+- [[http://www.flipcode.com/archives/Network_Game_Programming-Issue_07_I_bent_my_Wookie.shtml|flipcode network programming]]
+- [[http://stackoverflow.com/questions/118945/best-c-c-network-library|best c/c++ network library]]
+- [[http://beej.us/guide/bgnet/|beej's guid to network programming]]
+- [[http://www.boost.org/doc/libs/1_38_0/doc/html/boost_asio/examples.html|boost asio]]
+- [[http://kovyrin.net/2006/04/13/epoll-asynchronous-network-programming/|use epoll]]
+- [[https://banu.com/blog/2/how-to-use-epoll-a-complete-example-in-c/|epoll-complete-example]]
+- [[http://stackoverflow.com/questions/1637752/netty-vs-apache-mina|netty vs mina]]
+- [[http://mina.apache.org/|mina java framework]]
+
+=== Android Game ===
+- [[http://slick.cokeandcode.com/|slick java 2d game engine]]
+- [[http://my.safaribooksonline.com/book/programming/game-programming/9780132711913/firstchapter|learn android game development]]
+- [[http://chrismweb.com/2011/10/18/how-to-start-creating-android-games-using-the-libgdx-game-development-framework/|start android game with libGDX]]
+- [[http://code.google.com/p/beginning-android-games/|beginning android game sourcecode]]
+- [[http://www.rbgrn.net/content/54-getting-started-android-game-development|getting started in android game development]]
+- [[http://blog.edwards-research.com/2012/04/tutorial-android-jni/|android jni tutorials]]
+- [[https://github.com/donbright/android_hello_boost|android boost library]]
+
+=== Gesture Recognizer ===
+- [[http://gmc.yoyogames.com/index.php?showtopic=365491|realtime gesture recognize ]]
+- [[http://depts.washington.edu/aimgroup/proj/dollar/|javascript gesture recognize]]
+- [[http://stackoverflow.com/questions/2792531/complex-gestures-on-the-iphone|complex gesture on iphone]]
+
+=== Programmer's Math ===
+- [[http://www.essentialmath.com/index.htm|essentialmath for programmers]]
+- [[http://stackoverflow.com/questions/107059/how-much-mathematics-and-physics-should-a-programmer-know|how much Math should programmer knows]]
+- [[http://steve-yegge.blogspot.com/2006/03/math-for-programmers.html|math for programmers]]
+- [[http://gamedev.stackexchange.com/questions/11398/math-topics-for-3d-graphics-programming|math topics for 3d programmers]]
+- [[http://blog.wolfire.com/2009/07/linear-algebra-for-game-developers-part-2/|linear algebra for programmers]]
+
+=== Advice for Game newbies ===
+- [[http://www.gamecareerguide.com/features/724/top_ten_tips_.php|top ten tips for game programmers]]
+- [[http://content.gpwiki.org/index.php/Main_Page|game development wiki]]
+
+=== Learning javascript ===
+- [[http://stackoverflow.com/questions/409056/top-rated-javascript-blogs|top rated javascript blogs]]
+- [[http://javascriptweblog.wordpress.com/2010/04/02/my-top-10-javascript-blogs/|my top 10 javascript blogs]]
+- [[http://www.quora.com/Tech-Blogs/What-are-the-best-developer-blogs-about-JavaScript-development|best javascriptweblog from quora]]
+- [[http://ejohn.org/|a js ninjia]]
+- [[http://www.sitepen.com/blog/2008/04/03/advanced-javascript-debugging-techniques/|advanced javascript debugging techniques]]
+
+=== Learning OpenGL ES ===
+- [[http://iphonesdkdev.blogspot.com/2009/04/opengl-es-for-iphone-simple-tutorial.html|iphone related opengles]]
+
+=== Learning Box2D ===
+- [[http://www.iforce2d.net/b2dtut/world-querying|iforce2d.net]]
+- [[http://www.kerp.net/box2d/|todd's box2d videos]]
+
+=== Game Architectures ===
+- [[http://gameprogrammingpatterns.com/index.html|gameprogrammingpatterns]]
+- [[http://xperienced.com.pl/blog/how-to-implement-mvc-pattern-in-cocos2d-game|implement mvc with cocos2d]]
+- [[http://t-machine.org/index.php/2007/09/03/entity-systems-are-the-future-of-mmog-development-part-1/|t-machine's entity systems]]
+- [[http://gamedev.stackexchange.com/questions/4157/what-are-some-programming-design-patterns-that-are-useful-in-game-development|useful design patterns on game development]]
+- [[http://stackoverflow.com/questions/1901251/component-based-game-engine-design|component based game engine design]]
+- [[https://code.google.com/p/artemis-framework/|artemis framework]]
+
+=== Learning pthread ===
+- [[http://www.cs.nmsu.edu/~jcook/Tools/pthreads/pthreads.html|pthread tutorilas ]]
+- [[http://randu.org/tutorials/threads/|another pthread tutorials]]
+- [[http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html|linux pthread tutorials]]
+
+=== Learning Git ===
+- [[http://progit.org/book/|Pro Git]]
+- [[http://xperienced.com.pl/blog/my-daily-git-workflow|my dialy git workflow]]
+- [[http://www.randyfay.com/node/91|a rebase git workflow for git]]
+- [[http://nvie.com/posts/a-successful-git-branching-model/|a successful git branching model for git]]
+- [[http://nuclearsquid.com/writings/git-tricks-tips-workflows/|my git tips & tricks & workflow]]
+
+=== Game Algorithm ===
+- [[http://theory.stanford.edu/~amitp/GameProgramming/|A-star algorithm]]
+- [[http://blog.notdot.net/2009/11/Damn-Cool-Algorithms-Spatial-indexing-with-Quadtrees-and-Hilbert-Curves|quard tree]]
+
+=== Unit Test ===
+- [[http://www.bobmccune.com/2006/12/09/unit-testing-best-practices/|unit testing best practices]]
+
+=== Learning Haskell ===
+- [[http://stackoverflow.com/questions/1012573/getting-started-with-haskell|Getting started with haskell]]
+- [[http://learnyouahaskell.com/chapters|learn you a haskell]]
+- [[http://stackoverflow.com/questions/6398996/good-haskell-source-to-read-and-learn-from|good resource learn haskell]]
+
+=== Learning Python ===
+- [[http://learnpythonthehardway.org/book/|learnpythonthehardway]]
+- [[http://stackoverflow.com/questions/457757/what-is-the-best-python-book-for-experienced-programmers|best book for experienced programmers]]
+- [[http://stackoverflow.com/questions/29578/python-exercises-to-hone-your-skills|python exercises to hone your skill]]
+- [[http://www.tlswebsolutions.com/mac-os-x-lion-setting-up-django-pip-virtualenv-and-homebrew/|mac os lion setup django]]
+
+=== Learning Lua ===
+- [[http://lua-users.org/wiki/TutorialDirectory|lua tutorials directory]]
+- [[http://wiki.garrysmod.com/?title=Lua_Tutorial_Series|lua tutorials serials]]
+- [[http://readwrite.com/2011/06/11/free-e-books-on-lua|lua ebook recommened]]

@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>cocos2d-x 2.02 版本初体验 - 子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE: Use
+    // jQuery(...), instead of $(...) from here on.
+      jQuery.noConflict();
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+  <a href="https://github.com/andyque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/vimwiki_html/">Wiki</a></li>
+  <li><a href="/vimwiki_html/diary/diary.html">Diary</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Cocos2d-x 2.02 版本初体验</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-16T17:49:00+08:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展,在WIN32平台上面开始使用OPENGL等. 好久没有在WINDOWS平台上面玩cocos2d-x了,今天趁着有时间,重头来过一遍吧.</p>
+
+<p>开发环境: Win7 64bit +  eclipse juno + ndk r8b + android 10 安装配置方面网上已经有很多教程了,</p>
+
+<!--more-->
+
+
+<p>如下:<br />
+<a href="http://blog.csdn.net/nicholasvan/article/details/7772158">http://blog.csdn.net/nicholasvan/article/details/7772158</a>
+<a href="http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/">http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/</a></p>
+
+<p>下面给出配置并运行自带的sample过程中遇到的问题及解决方法:</p>
+
+<p>1.安装c/C++语言插件,并去除错误和警告,具体可以参考我翻译的文章: <a href="http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html">http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html</a></p>
+
+<p>2.<strong> <a href="http://stackoverflow.com/questions/11579135/program-make-not-found-in-path">Program “make” not found in PATH</a></strong> 解决办法:设置PATH环境变量,加入cygwin/bin目录进去.再把项目删除,再重新添加进可以了.注意添加项目的时候,要选中copy project to workspace,这样在删除的时候就不会影响cocos2d-x原来的项目.</p>
+
+<p>3.<strong> </strong><strong><a href="http://blog.csdn.net/spy19881201/article/details/6017889">@override报注解annotation错误 </a></strong>**** 点击项目,右键属性 然后把java –> compiler ->设置成1.6就可以了.具体可以参考下面链接: <a href="http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips">http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips</a></p>
+
+<p>4.导入android项目以后,报target-8错误: 解决办法:打开project.properties ,把target=android-8改成 target=android-10。搞定。 </p>
+
+<p>5.如果找不到cocos2dx/lib下面的java库,也可以在project.properties中添加库的引用: android.library.reference.1=../../../cocos2dx/platform/android/java 添加完之后,移除项目再重新添加就可以了.</p>
+
+<p>6.使用cygwin运行build_native.sh的时候,报make程序找不到.这个只需要重新运行setup.exe,然后在search里面输入make,再鼠标左键把default点成install,再下一步安装就OK了.安装cygwin可以参考这个链接: <a href="http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html">http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html</a></p>
+
+<p>7.如果<a href="http://stackoverflow.com/questions/8821926/android-ndk-library-findlibrary-returned-null">Android NDK library: findLibrary returned null</a>的错误: 请确保你的项目中的libs目录和assets目录引用是否正确,是否包含了项目所需的动态库和资源文件,如果没有,请手动导入.</p>
+
+<p>8.如果在cygwin里面运行build_native.sh文件时报下面的错误:
+<img class="left" src="/images/posts/builde_native_error.jpg" width="750" height="300"></p>
+
+<p>则需要转换文件格式为UNIX格式,下载NotePad++,然后打开build_native.sh,再选择&#8221;编辑&#8221;->&#8221;档案格式转换&#8221;->&#8221;转换为UNIX格式&#8221;.再保存运行就可以了.</p>
+
+<p> 上面的这些问题是我今天遇到的,欢迎大家把自己遇到的问题及解决办法也分享一下,这样也可以省去大家google的时间嘛,而且google有时候还访问不了,呵呵.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Guanghui.Qu</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-16T17:49:00+08:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/opencv/'>OpenCV</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+    
+    
+    
+    
+        <!-- Duoshuo Comment BEGIN -->
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"zilongshanren"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- Duoshuo Comment END -->
+
+    
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/" title="Previous Post: Install OpenCV 2.4.2 on Macos 10.8.1">&laquo; Install OpenCV 2.4.2 on Macos 10.8.1</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/" title="Next Post: cocos2d-x设计模式发掘之一：单例模式">cocos2d-x设计模式发掘之一：单例模式 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 150%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 90%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">  <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备12012448号</a>
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

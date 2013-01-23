@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: OpenCV | 子龙山人]]></title>
+  <link href="http://andyque.github.com/tags/opencv/atom.xml" rel="self"/>
+  <link href="http://andyque.github.com/"/>
+  <updated>2013-01-22T15:43:02+08:00</updated>
+  <id>http://andyque.github.com/</id>
+  <author>
+    <name><![CDATA[Guanghui.Qu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[configuration vim and opencv2.4.2 on macos 10.8.2]]></title>
+    <link href="http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/"/>
+    <updated>2012-12-17T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/vim-logo-en.png" width="300" height="300"></p>
+
+<h2>Introduction</h2>
+
+<p>Now vim has become the "killer" editor for me. I use it for coding c/c++,lua,javascript and I find it is very powerful for scripting languages.</p>
+
+<p>Recently, I am studying the OpenCV library. So I want to make my vim suitable for developing opencv programs.</p>
+
+<p>Here is the configuration process.</p>
+
+<!--more-->
+
+
+<h2>Install OpenCV 2.4.2</h2>
+
+<p>You can follow these two links for the installation instructions.</p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/">http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/</a></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/">http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/</a></p>
+
+<h2>Generate opencv ctags</h2>
+
+<p>In order to generate ctags for opencv,you should install stags first. But be careful that the default ctags program shipped with mac is outdated. You should use homebrew to install the newest version of ctags.</p>
+
+<h3>Install Exuberant CTags</h3>
+
+<p>Open your terminal and write the following commands:</p>
+
+<p><code>c++
+brew install ctags-exuberant
+</code></p>
+
+<p>If you wonder whether the installation is successfully or not. You can type the "ctags --version".If you get the following output, then congratulations, you did it.</p>
+
+<p><code>c++
+uberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Nov  7 2012, 16:32:27
+  Addresses: &lt;dhiebert@users.sourceforge.net&gt;, http://ctags.sourceforge.net
+  Optional compiled features: +wildcards, +regex
+</code></p>
+
+<p>After installation, We can use ctags to generate tag list for opencv code auto completion.</p>
+
+<h3>Generate ctags.</h3>
+
+<p><code>c++
+cd /usr/local/include
+ctags -R --c++-kinds=+p --fields=+iaS --extra=+q ./
+</code></p>
+
+<p>Then you can use the generated tags for auto completion. For more information, you can refer to this <a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">link</a>.</p>
+
+<h2>Configure your vimrc file</h2>
+
+<p>``` c++
+"add command to complie opencv program"
+nnoremap <silent><leader>2 :call CompileRunOpencv() <CR>
+function! CompileRunOpencv()</p>
+
+<pre><code>let IncDir = "/usr/local/include"
+let LibDir = "/usr/local/lib"
+let Libs = "-lopencv_core -lopencv_highgui -lopencv_imgproc"
+exec "w"
+exec "lcd %:p:h"
+exec "r !g++ -I" . IncDir . " -L" . LibDir . " % " . Libs . " -o %&lt; "
+echo "compile finished!"
+</code></pre>
+
+<p>endfunc
+```</p>
+
+<p>Now, you can use (leader 2) to compile your opencv file.</p>
+
+<p>At last, I post my macvim screen here:</p>
+
+<p><img class="left" src="/images/posts/myvim.jpg" width="750" height="300"></p>
+
+<h2>Limitations</h2>
+
+<p>With the above method, you can only compile one file at a time. So if you have more than one file, you could change theresponding g++ compile instructions.</p>
+
+<h2>References</h2>
+
+<p><a href="http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim">http://stackoverflow.com/questions/8155310/autocomplete-of-opencv-functions-with-vim</a></p>
+
+<p><a href="http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim">http://bsd-noobz.com/opencv-guide/32-4-set-up-opencv-in-vim</a></p>
+
+<p><a href="http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/">http://blog.damiles.com/2009/07/exuberant-ctags-and-opencv-with-vim-thanks-piponazo/</a></p>
+
+<p><a href="http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716">http://plagatux.es/2009/02/generar-etiquetas-con-ctags-y-usarlas-en-vim/comment-page-1/#comment-1716</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[cocos2d-x 2.02 版本初体验]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/"/>
+    <updated>2012-09-16T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展,在WIN32平台上面开始使用OPENGL等. 好久没有在WINDOWS平台上面玩cocos2d-x了,今天趁着有时间,重头来过一遍吧.</p>
+
+<p>开发环境: Win7 64bit +  eclipse juno + ndk r8b + android 10 安装配置方面网上已经有很多教程了,</p>
+
+<!--more-->
+
+
+<p>如下:<br />
+<a href="http://blog.csdn.net/nicholasvan/article/details/7772158">http://blog.csdn.net/nicholasvan/article/details/7772158</a>
+<a href="http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/">http://www.multigesture.net/articles/how-to-setup-cocos2d-x-windows-and-android/</a></p>
+
+<p>下面给出配置并运行自带的sample过程中遇到的问题及解决方法:</p>
+
+<p>1.安装c/C++语言插件,并去除错误和警告,具体可以参考我翻译的文章: <a href="http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html">http://www.cnblogs.com/zilongshanren/archive/2012/04/28/2473282.html</a></p>
+
+<p>2.<strong> <a href="http://stackoverflow.com/questions/11579135/program-make-not-found-in-path">Program “make” not found in PATH</a></strong> 解决办法:设置PATH环境变量,加入cygwin/bin目录进去.再把项目删除,再重新添加进可以了.注意添加项目的时候,要选中copy project to workspace,这样在删除的时候就不会影响cocos2d-x原来的项目.</p>
+
+<p>3.<strong> </strong><strong><a href="http://blog.csdn.net/spy19881201/article/details/6017889">@override报注解annotation错误 </a></strong>**** 点击项目,右键属性 然后把java –> compiler ->设置成1.6就可以了.具体可以参考下面链接: <a href="http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips">http://stackoverflow.com/questions/1678122/must-override-a-superclass-method-errors-after-importing-a-project-into-eclips</a></p>
+
+<p>4.导入android项目以后,报target-8错误: 解决办法:打开project.properties ,把target=android-8改成 target=android-10。搞定。 </p>
+
+<p>5.如果找不到cocos2dx/lib下面的java库,也可以在project.properties中添加库的引用: android.library.reference.1=../../../cocos2dx/platform/android/java 添加完之后,移除项目再重新添加就可以了.</p>
+
+<p>6.使用cygwin运行build_native.sh的时候,报make程序找不到.这个只需要重新运行setup.exe,然后在search里面输入make,再鼠标左键把default点成install,再下一步安装就OK了.安装cygwin可以参考这个链接: <a href="http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html">http://ekendraonline.com/edu/install-cygwin-windows7-64bit-2418.html</a></p>
+
+<p>7.如果<a href="http://stackoverflow.com/questions/8821926/android-ndk-library-findlibrary-returned-null">Android NDK library: findLibrary returned null</a>的错误: 请确保你的项目中的libs目录和assets目录引用是否正确,是否包含了项目所需的动态库和资源文件,如果没有,请手动导入.</p>
+
+<p>8.如果在cygwin里面运行build_native.sh文件时报下面的错误:
+<img class="left" src="/images/posts/builde_native_error.jpg" width="750" height="300"></p>
+
+<p>则需要转换文件格式为UNIX格式,下载NotePad++,然后打开build_native.sh,再选择"编辑"->"档案格式转换"->"转换为UNIX格式".再保存运行就可以了.</p>
+
+<p> 上面的这些问题是我今天遇到的,欢迎大家把自己遇到的问题及解决办法也分享一下,这样也可以省去大家google的时间嘛,而且google有时候还访问不了,呵呵.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Install OpenCV 2.4.2 on Macos 10.8.1]]></title>
+    <link href="http://andyque.github.com/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/"/>
+    <updated>2012-09-13T17:49:00+08:00</updated>
+    <id>http://andyque.github.com/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/posts/helloOpenCVResult-300x210.jpg" width="300" height="300"></p>
+
+<p>前言：由于学习研究需要，又因为有一年多时间没在windows下面做开发了，所以想在mac上面配置一下OpenCV的开发环境。</p>
+
+<p>首先，准备工作，安装好xcode 4.4.1，同时安装command line tool。接下来，安装cmake 2.8.8，这个可以到官网去下载DMG安装包，不过有时候这个网站访问不了。</p>
+
+<p>安装过程：</p>
+
+<p>到opencv官网上下载2.4.2版本，然后解压缩，接下来，运行以下命令来安装opencv:</p>
+
+<!--more-->
+
+
+<p>``` c install opencv 2.4.2
+cd OpenCV-2.4.2
+mkdir build
+cd build
+cmake -G "Unix Makefiles" -D CMAKE_OSX_ARCHITECTURES=i386 -D CMAKE_C_FLAGS=-m32 -D CMAKE_CXX_FLAGS=-m32 ..
+make
+sudo make install</p>
+
+<p>```</p>
+
+<p>接下来，打开xcode，新建一个command line tool程序，如下所示：</p>
+
+<p><img class="left" src="/images/posts/1-300x200.jpg" width="750" height="300"></p>
+
+<br/>
+
+
+<p>把type设置为foundation,并命名为HelloOpenCV，如下图所示：</p>
+
+<p><img class="left" src="/images/posts/chooseType-300x202.jpg" width="750" height="300"></p>
+
+<br/>
+
+
+<p>接下来，打开工程的build settings，做以下设置：</p>
+
+<p><code>c set build settings
+Inside “Search Paths”:
+Header Search Paths: /usr/local/include
+Library Search Paths: /usr/local/lib
+Inside “Linking”:
+Other Linker Flags: -lopencv_core -lopencv_highgui -lopencv_imgproc
+</code>
+最后，往main.m文件中加入以下代码：</p>
+
+<p>``` c add code to main.m
+//
+// main.m
+// OpenCVTest
+//
+// Created by <strong>MyName</strong> on 16/09/11.
+// Copyright 2011 <strong>MyCompanyName</strong>. All rights reserved.
+//</p>
+
+<h1>import &lt;Foundation/Foundation.h></h1>
+
+<h1>import "opencv/cv.h"</h1>
+
+<h1>import "opencv/highgui.h"</h1>
+
+<p>int main (int argc, const char * argv[])
+{</p>
+
+<pre><code>NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
+IplImage* img = cvCreateImage( cvSize( 640, 480 ), IPL_DEPTH_8U, 3 );
+
+cvCircle( img, cvPoint( 320, 240 ), 100, cvScalar( 255, 0, 0 , 255 ), 5, 8, 0 );
+
+cvNamedWindow( "OpenCV Window", CV_WINDOW_NORMAL );
+cvShowImage( "OpenCV Window", img );
+
+cvWaitKey(0);
+
+cvDestroyWindow( "OpenCV Window" );
+cvReleaseImage( &amp;img );
+
+[pool drain];
+return 0;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>此时，编译并运行。如果你编译出错的话，你需要修改build settings，把构建方式改成32位的，如下图所示：</p>
+
+<p><img class="left" src="/images/posts/changeArchitecture-300x97.jpg" width="750" height="300"></p>
+
+<p>此时，编译并运行，你将得到如下所示输出：</p>
+
+<p><img class="left" src="/images/posts/helloOpenCVResult-300x210.jpg" width="750" height="300"></p>
+
+<p>注意：如果要使用ffmpeg，那么可以参考这个帖子：<a href="http://tech.enekochan.com/2012/07/27/install-opencv-2-4-2-with-ffmpeg-support-in-mac-os-x-10-8/">
+http://tech.enekochan.com/2012/07/27/install-opencv-2-4-2-with-ffmpeg-support-in-mac-os-x-10-8/
+</a>。不过，需要注意的地方就是，需要重新configure opencv，并且把build目录删除，重新运行下列命令：</p>
+
+<p><code>c
+cd build
+cmake ..(注意这里没有加-i386和32的位标志)
+make
+sudo make install
+</code></p>
+
+<p>这样，如果想要运行上面的例子，需要修改build settings，去掉i386,同时使用64位的方式来运行程序，如下图所示：</p>
+
+<p><img class="left" src="/images/posts/changeBuildSettings-300x82.jpg" width="800" height="300"></p>
+
+<p>最后，如果想要使用C++，必须把编译器改成LLVM GCC4.2，同时main.m改成main.mm，并在.pch文件的最开始处添加下列代码：</p>
+
+<p>``` c</p>
+
+<h1>ifdef __cplusplus</h1>
+
+<h1>import "opencv2/opencv.hpp"</h1>
+
+<h1>endif</h1>
+
+<p>```</p>
+
+<p><strong>References:</strong></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/" title="http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/">http://tech.enekochan.com/2012/05/21/use-opencv-in-xcode-4-for-a-mac-os-x-application/</a></p>
+
+<p><a href="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/" title="http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/">http://tech.enekochan.com/2012/05/21/install-opencv-2-3-1a-in-mac-os-x-10-6/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

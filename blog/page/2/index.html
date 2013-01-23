@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>子龙山人</title>
+  <meta name="author" content="Guanghui.Qu">
+
+  
+  <meta name="description" content="1.应用场景 Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。 对于大多数用户来讲，游戏中操作声音， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://andyque.github.com/blog/page/2/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="子龙山人" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<script src="/javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  // Revert jQuery's '$' alias, to avoid clashes with ender.js. NOTE: Use
+    // jQuery(...), instead of $(...) from here on.
+      jQuery.noConflict();
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">子龙山人</a></h1>
+  
+    <h2>Learning,sharing,improving!</h2>
+  
+  <a href="https://github.com/andyque"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:andyque.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/vimwiki_html/">Wiki</a></li>
+  <li><a href="/vimwiki_html/diary/diary.html">Diary</a></li>
+  <li><a href="/about">AboutMe</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/">Cocosd-x设计模式之 ：外观模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-15T17:49:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<h2>1.应用场景</h2>
+
+<p>Cocos2d-x里面有一个非常明显的地方使用了外观模式，它就是SimpleAudioEngine。因为它为CocosDenshion这个子系统的一组接口提供了一个一致的界面，同时定义了一个高层接口，方便客户使用该子系统。</p>
+
+<p>对于大多数用户来讲，游戏中操作声音，无非就是播放背景音乐和音效。CocosDenshion这个子系统封装了OpenAL，屏蔽了OpenAL操作声音的低级API。它提供了CDSoundEngine、CDAudioManager两个类来操作和管理声音。具体这两个类是如何工作的这里就不再讨论了，感兴趣的读者可以自行去研究相关代码。虽然CocosDenshion子系统已经封装了低级的操作声音的API，但是对于用户来讲，还是得了解该系统内部的类是如何一起协作来完成声音处理任务的。这样会加大用户使用此子系统的难度，同时，也使得客户程序与该子系统紧密耦合了。假如哪一天该子系统内部实现功能的组合有所变化，这势必会影响到客户程序。众所周知，操作游戏音乐的代码是分散在游戏代码各处的，那样会造成“散弹式”修改。这是个严重的代码坏味道，需要引起警觉，果断重构之！</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/15/cocos2d-x-design-patterns-facade/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/">Cocosd-x设计模式之三：管理者模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-10T17:49:00+08:00" pubdate data-updated="true">Oct 10<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>想必读者一看这个题目又要纳闷了，神马又是“管理者模式”啊？</p>
+
+<p>管理者（Manager）就是专门负责管理其它类的实例的类，比如Cocoa里面的NSFontManager、NSInputManager、NSFileManager和NSLayoutManager类。此模式和“二段构建模式”一样，也没有出现在GoF的23个设计模式中，但是《Cocoa设计模式》一书中有提及，感兴趣的读者可以去查阅一下。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/10/cocos2d-x-design-pattern-3-managers/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/">Cocos2d-x设计模式发掘之二：二段构建模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-26T17:49:00+08:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>乍一看标题，大家可能会觉得很奇怪，神马是“二段构建模式”呢？</p>
+
+<p>所谓二段构建，就是指创建对象时不是直接通过构建函数来分配内存并完成初始化操作。取而代之的是，构造函数只负责分配内存，而初始化的工作则由一些名为initXXX的成员方法来完成。然后再定义一些静态类方法把这两个阶段组合起来，完成最终对象的构建。因为在《Cocoa设计模式》一书中，把此惯用法称之为“Two Stage Creation”，即“二段构建”。因为此模式在cocos2d里面被广泛使用，所以把该模式也引入过来了。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/26/cocos2d-x-design-pattern2-two-stage-create/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/">Cocos2d-x设计模式发掘之一：单例模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-23T17:49:00+08:00" pubdate data-updated="true">Sep 23<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>本系列文章我将和大家一起来发掘cocos2d-x中所使用到的设计模式，同样的，这些模式在cocos2d-iphone中也可以找到其身影。</p>
+
+<p><strong>声明</strong>：这里发掘模式只是我的个人爱好，通过这个过程，我希望能加深自己对于设计模式运用的理解。关于模式的学习，市面上已经有许多非常好的书籍了。比如《Head First设计模式》、GoF的设计模式，还有《研磨设计模式》等。如果读者对于设计模式完全不了解的话，建议先阅读上面至少一本书籍，了解设计模式之后再阅读本系列文章。这样大家才会有相互交流的共同语言。</p>
+
+<p>为什么要发掘设计模式呢？因为设计模式本身就是人们在一些面向对象的软件系统里面发掘出来的，在一定的场景之下可以重用的解决方案。通过对模式的挖掘，我可以借此机会学习一下这些优秀的设计思想。因为我觉得，一个好的开源游戏框架除了能给我们开发者带来开发效率的提升以外，还应该被我们吸收其设计思想，这样它的价值才能完整。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/23/cocos2d-x-design-pattern-singleton1/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/">Cocos2d-x 2.02 版本初体验</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-16T17:49:00+08:00" pubdate data-updated="true">Sep 16<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/2dxlogo.png" width="300" height="300"></p>
+
+<p>Cocos2d-2.0-x-2.02发布也有一段时间了,这个版本应该算是cocos2d-x 2.0的第一个正式版本.该版本实现了最新的js-binding,添加了最新的CocosBuilder支持,同时添加了多分辨率支持,添加了CCEditBox, CCHttpClient扩展,在WIN32平台上面开始使用OPENGL等. 好久没有在WINDOWS平台上面玩cocos2d-x了,今天趁着有时间,重头来过一遍吧.</p>
+
+<p>开发环境: Win7 64bit +  eclipse juno + ndk r8b + android 10 安装配置方面网上已经有很多教程了,</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/16/cocos2d-2-0-x-2-02-version-test/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/">Install OpenCV 2.4.2 on Macos 10.8.1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-13T17:49:00+08:00" pubdate data-updated="true">Sep 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<!-- UYAN COUNT BEGIN -->
+<!-- <a href="/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/" id="uyan_count_unit">0条评论</a> &#8211;>
+<!-- UYAN COUNT END -->
+
+  <div class="entry-content"><p><img class="right" src="/images/posts/helloOpenCVResult-300x210.jpg" width="300" height="300"></p>
+
+<p>前言：由于学习研究需要，又因为有一年多时间没在windows下面做开发了，所以想在mac上面配置一下OpenCV的开发环境。</p>
+
+<p>首先，准备工作，安装好xcode 4.4.1，同时安装command line tool。接下来，安装cmake 2.8.8，这个可以到官网去下载DMG安装包，不过有时候这个网站访问不了。</p>
+
+<p>安装过程：</p>
+
+<p>到opencv官网上下载2.4.2版本，然后解压缩，接下来，运行以下命令来安装opencv:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/09/13/macos-10-8-1-installopencv-2-4-2/">继续阅读</a>
+    </footer>
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+    <H2>微博</H2>
+    <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1703959697&verifier=743a2fc7&dpc=1"></iframe>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/15/vim-the-killer/">打造属于自己的Vim神器</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/03/migrate-to-octopress/">我为什么要从wordpress转到octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/20/make-gvim-a-ide-on-windows-7/">make your gvim a IDE on Windows 7</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/17/configuration-vim-and-opencv2-4-2-on-macos-10-8-2/">configuration vim and opencv2.4.2 on macos 10.8.2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/12/04/cocos2d-classic-tutorial-demo-revisit-1/">cocos2d classic tutorial demo revisit</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/opencv/'>OpenCV (3)</a></li>
+<li class='category'><a href='/blog/categories/cocos2d/'>cocos2d (1)</a></li>
+<li class='category'><a href='/blog/categories/design-pattern/'>design-pattern (9)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>octopress (1)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>vim (3)</a></li>
+
+  </ul>
+</section>
+<section>
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    <a style="font-size: 150%" href="/tags/opencv/">OpenCV</a>
+<a style="font-size: 90%" href="/tags/cocos2d/">cocos2d</a>
+<a style="font-size: 210%" href="/tags/cocos2d-x-design-pattern/">cocos2d-x-design-pattern</a>
+<a style="font-size: 90%" href="/tags/octopress/">octopress</a>
+<a style="font-size: 150%" href="/tags/vim/">vim</a>
+
+  </ul>
+</section>
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Guanghui.Qu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  <span class="credit">  <a href="http://www.miitbeian.gov.cn" target="_blank">湘ICP备12012448号</a>
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

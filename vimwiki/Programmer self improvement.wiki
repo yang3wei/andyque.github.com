@@ -1,0 +1,14 @@
+- Working with people far smarter than myself
+
+- Always listening to what others have to say, regardless if they're junior, intermediate, senior or guru. job title doesn't mean anything.
+
+- Learning other frameworks/languages, and seeing how they do things, and compare that to stuff that I already know
+
+- Reading about patterns, best practices, and then examining my old stuff and applying those patterns where necessary
+
+- Pair programming
+
+- Read code written by different people.
+
+- Write documentation for code written by other people.
+

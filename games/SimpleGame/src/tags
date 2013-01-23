@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Patrick Walton	/pwalton@mozilla.com/
+!_TAG_PROGRAM_NAME	jsctags	//
+!_TAG_PROGRAM_URL	http://github.com/pcwalton/jsctags	/GitHub repository/
+!_TAG_PROGRAM_VERSION	0.1	//
+HelloWorldLayer	HelloWorldLayer.js	/^var HelloWorldLayer;$/;"	v	lineno:1	type:any
+s_HelloWorld	resource.js	/^var s_HelloWorld = "res\/HelloWorld.png";$/;"	v	lineno:1	type:string
+gameOverLayer	gameOverLayer.js	/^var gameOverLayer;$/;"	v	lineno:2	type:any
+s_CloseNormal	resource.js	/^var s_CloseNormal = "res\/CloseNormal.png";$/;"	v	lineno:2	type:string
+s_CloseSelected	resource.js	/^var s_CloseSelected = "res\/CloseSelected.png";$/;"	v	lineno:3	type:string
+s_Player	resource.js	/^var s_Player = "res\/Player.png";$/;"	v	lineno:4	type:string
+ctor	gameOverLayer.js	/^    ctor:function (isWin) {$/;"	f	lineno:5	type:boolean function(any)
+s_Projectile	resource.js	/^var s_Projectile = "res\/Projectile.png";$/;"	v	lineno:5	type:string
+s_Target	resource.js	/^var s_Target = "res\/Target.png";$/;"	v	lineno:6	type:string
+ctor	HelloWorldLayer.js	/^    ctor:function () {$/;"	f	lineno:8	type:void function()
+s_backgroundMusic	resource.js	/^var s_backgroundMusic = "res\/background-music-aac";$/;"	v	lineno:9	type:string
+SimpleGame	gameConfig.js	/^var SimpleGame =  SimpleGame || {};$/;"	v	lineno:9	type:Object
+s_pewEffect	resource.js	/^var s_pewEffect = "res\/pew-pew-lei";$/;"	v	lineno:15	type:string
+g_ressources	resource.js	/^var g_ressources = [$/;"	v	lineno:17	type:Array[Object]
+%anonymous_function	gameOverLayer.js	/^                cc.CallFunc.create(this, function () {$/;"	f	lineno:29	type:void function()
+create	gameOverLayer.js	/^gameOverLayer.create = function (isWin) {$/;"	f	lineno:45	type:null function(any)
+update	HelloWorldLayer.js	/^    update:function (delta) {$/;"	f	lineno:53	type:void function(any)
+sceneWithWin	gameOverLayer.js	/^gameOverLayer.sceneWithWin = function (isWin) {$/;"	f	lineno:53	type:any function(any)
+onTouchesEnded	HelloWorldLayer.js	/^    onTouchesEnded:function (touches, evnet) {$/;"	f	lineno:83	type:void function(any, any)
+%anonymous_function	HelloWorldLayer.js	/^            cc.CallFunc.create(this, function (pSender) {$/;"	f	lineno:130	type:void function(any)
+addTarget	HelloWorldLayer.js	/^    addTarget:function () {$/;"	f	lineno:141	type:void function()
+%anonymous_function	HelloWorldLayer.js	/^        var removeWhenFinish = cc.CallFunc.create(this, function (pSender) {$/;"	f	lineno:165	type:void function(any)
+gameLogic	HelloWorldLayer.js	/^    gameLogic:function () {$/;"	f	lineno:177	type:void function()
+create	HelloWorldLayer.js	/^HelloWorldLayer.create = function(){$/;"	f	lineno:195	type:null function()
+scene	HelloWorldLayer.js	/^HelloWorldLayer.scene = function(){$/;"	f	lineno:203	type:any function()

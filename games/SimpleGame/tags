@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Patrick Walton	/pwalton@mozilla.com/
+!_TAG_PROGRAM_NAME	jsctags	//
+!_TAG_PROGRAM_URL	http://github.com/pcwalton/jsctags	/GitHub repository/
+!_TAG_PROGRAM_VERSION	0.1	//
+%anonymous_function	SimpleGame.js	/^(function () {$/;"	f	lineno:1	type:void function()
+s_HelloWorld	src/resource.js	/^var s_HelloWorld = "res\/HelloWorld.png";$/;"	v	lineno:1	type:string
+HelloWorldLayer	src/HelloWorldLayer.js	/^var HelloWorldLayer;$/;"	v	lineno:1	type:any
+cocos2dApp	main.js	/^var cocos2dApp = cc.Application.extend({$/;"	v	lineno:1	type:any
+s_CloseNormal	src/resource.js	/^var s_CloseNormal = "res\/CloseNormal.png";$/;"	v	lineno:2	type:string
+gameOverLayer	src/gameOverLayer.js	/^var gameOverLayer;$/;"	v	lineno:2	type:any
+s_CloseSelected	src/resource.js	/^var s_CloseSelected = "res\/CloseSelected.png";$/;"	v	lineno:3	type:string
+ctor	main.js	/^    ctor:function (scene) {$/;"	f	lineno:3	type:void function(any)
+s_Player	src/resource.js	/^var s_Player = "res\/Player.png";$/;"	v	lineno:4	type:string
+ctor	src/gameOverLayer.js	/^    ctor:function (isWin) {$/;"	f	lineno:5	type:boolean function(any)
+s_Projectile	src/resource.js	/^var s_Projectile = "res\/Projectile.png";$/;"	v	lineno:5	type:string
+s_Target	src/resource.js	/^var s_Target = "res\/Target.png";$/;"	v	lineno:6	type:string
+ctor	src/HelloWorldLayer.js	/^    ctor:function () {$/;"	f	lineno:8	type:void function()
+SimpleGame	src/gameConfig.js	/^var SimpleGame =  SimpleGame || {};$/;"	v	lineno:9	type:Object
+s_backgroundMusic	src/resource.js	/^var s_backgroundMusic = "res\/background-music-aac";$/;"	v	lineno:9	type:string
+onloading	main.js	/^        cc.Loader.shareLoader().onloading = function () {$/;"	f	lineno:11	type:void function()
+onload	main.js	/^        cc.Loader.shareLoader().onload = function () {$/;"	f	lineno:15	type:void function()
+s_pewEffect	src/resource.js	/^var s_pewEffect = "res\/pew-pew-lei";$/;"	v	lineno:15	type:string
+g_ressources	src/resource.js	/^var g_ressources = [$/;"	v	lineno:17	type:Array[Object]
+%anonymous_function	SimpleGame.js	/^    window.addEventListener('DOMContentLoaded', function () {$/;"	f	lineno:18	type:void function()
+applicationDidFinishLaunching	main.js	/^    applicationDidFinishLaunching:function () {$/;"	f	lineno:21	type:boolean function()
+%anonymous_function	src/gameOverLayer.js	/^                cc.CallFunc.create(this, function () {$/;"	f	lineno:29	type:void function()
+myApp	main.js	/^var myApp = new cocos2dApp(HelloWorldLayer);$/;"	v	lineno:42	type:any
+create	src/gameOverLayer.js	/^gameOverLayer.create = function (isWin) {$/;"	f	lineno:45	type:null function(any)
+update	src/HelloWorldLayer.js	/^    update:function (delta) {$/;"	f	lineno:53	type:void function(any)
+sceneWithWin	src/gameOverLayer.js	/^gameOverLayer.sceneWithWin = function (isWin) {$/;"	f	lineno:53	type:any function(any)
+onTouchesEnded	src/HelloWorldLayer.js	/^    onTouchesEnded:function (touches, evnet) {$/;"	f	lineno:83	type:void function(any, any)
+%anonymous_function	src/HelloWorldLayer.js	/^            cc.CallFunc.create(this, function (pSender) {$/;"	f	lineno:130	type:void function(any)
+addTarget	src/HelloWorldLayer.js	/^    addTarget:function () {$/;"	f	lineno:141	type:void function()
+%anonymous_function	src/HelloWorldLayer.js	/^        var removeWhenFinish = cc.CallFunc.create(this, function (pSender) {$/;"	f	lineno:165	type:void function(any)
+gameLogic	src/HelloWorldLayer.js	/^    gameLogic:function () {$/;"	f	lineno:177	type:void function()
+create	src/HelloWorldLayer.js	/^HelloWorldLayer.create = function(){$/;"	f	lineno:195	type:null function()
+scene	src/HelloWorldLayer.js	/^HelloWorldLayer.scene = function(){$/;"	f	lineno:203	type:any function()

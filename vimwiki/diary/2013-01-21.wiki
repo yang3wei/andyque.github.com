@@ -1,0 +1,21 @@
+=== Summary ===
+
+I saw someone said on the WeiBo, "XiangYu is the biggest failure". Then someone says "It depends". And I also watched a video about Jack Ma. He said he always learn something from failures.
+
+From this point of view, I think I should also learn from XiangYu. At the same time, I should also think about a question. 
+
+"Why should I start my Master degree? What do I get from the master degree?"
+
+=== Yesterday's Todo Tasks ===
+* [X] Learn 50 new English words.
+* [X] Make a English diary.
+* [ ] Make a blog post on my Github blog.
+* [ ] Programming OpenCV as before.
+
+=== Today's Todo Tasks ===
+
+* [ ] Learn 50 new English words.
+* [ ] Make a English diary.
+* [ ] Download video mosaic papers.
+* [ ] Programming OpenCV.
+
