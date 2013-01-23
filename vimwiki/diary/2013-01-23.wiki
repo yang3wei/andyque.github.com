@@ -1,6 +1,6 @@
 === Summary ===
 
-I play coc. I like Vim.
+I play coc.
 
 
 === Yesterday's Todo Tasks ===
