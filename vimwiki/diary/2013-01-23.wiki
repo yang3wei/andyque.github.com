@@ -1,0 +1,15 @@
+=== Summary ===
+
+I play coc.
+
+
+=== Yesterday's Todo Tasks ===
+* [X] Learn 50 new English words.
+* [X] Make a English diary.
+* [ ] Programming OpenCV.
+
+=== Today's Todo Tasks ===
+* [ ] Learn 50 new English words.
+* [ ] Make a English diary.
+* [ ] Programming OpenCV.
+* [ ] Record a screen cast about Vim.
